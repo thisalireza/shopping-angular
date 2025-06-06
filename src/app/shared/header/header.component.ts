@@ -1,19 +1,18 @@
 import {Component, HostListener, inject} from '@angular/core';
 import {MdbCollapseModule} from "mdb-angular-ui-kit/collapse";
 import {SearchComponent} from "../search/search.component";
-import {NgIf} from "@angular/common";
+
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 
 
 @Component({
     selector: 'app-header',
     imports: [
-        MdbCollapseModule,
-        SearchComponent,
-        NgIf,
-        RouterLink,
-        RouterLinkActive
-    ],
+    MdbCollapseModule,
+    SearchComponent,
+    RouterLink,
+    RouterLinkActive
+],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
 })
