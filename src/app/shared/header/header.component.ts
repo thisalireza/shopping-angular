@@ -6,17 +6,16 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    MdbCollapseModule,
-    SearchComponent,
-    NgIf,
-    RouterLink,
-    RouterLinkActive
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [
+        MdbCollapseModule,
+        SearchComponent,
+        NgIf,
+        RouterLink,
+        RouterLinkActive
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class MenuComponent {
   router:Router =inject(Router)

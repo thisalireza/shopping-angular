@@ -2,15 +2,14 @@ import {Component} from '@angular/core';
 import {NgForOf, NgIf, NgStyle} from "@angular/common";
 
 @Component({
-  selector: 'app-product-list',
-  standalone: true,
-  imports: [
-    NgForOf,
-    NgIf,
-    NgStyle
-  ],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.scss'
+    selector: 'app-product-list',
+    imports: [
+        NgForOf,
+        NgIf,
+        NgStyle
+    ],
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
   // name:string = 'alireza';

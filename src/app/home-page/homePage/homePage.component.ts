@@ -9,17 +9,16 @@ import {CategoryComponent} from "../../shopping/category/category.component";
 
 
 @Component({
-  selector: 'app-homePage',
-  standalone: true,
-  imports: [
-    MdbCarouselModule,
-    ProductListComponent,
-    QuestionAnswerComponent,
-    ArticleComponent,
-    CategoryComponent
-  ],
-  templateUrl: './homePage.component.html',
-  styleUrl: './homePage.component.scss'
+    selector: 'app-homePage',
+    imports: [
+        MdbCarouselModule,
+        ProductListComponent,
+        QuestionAnswerComponent,
+        ArticleComponent,
+        CategoryComponent
+    ],
+    templateUrl: './homePage.component.html',
+    styleUrl: './homePage.component.scss'
 })
 export class HomePageComponent {
 
