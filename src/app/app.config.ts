@@ -1,9 +1,10 @@
-import {RouterModule, Routes} from '@angular/router';
+import {provideRouter, Routes} from "@angular/router";
+import {HomePageComponent} from "./home-page/homePage/homePage.component";
 import {ContactUsComponent} from "./contact-us/contact-us.component";
+import {ApplicationConfig} from "@angular/core";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
-import {NgModule} from "@angular/core";
 
-export const routes: Routes = [
+export const routes :Routes =[
   {
     path:'',
     redirectTo: '/HomePageComponent', pathMatch: 'full'
@@ -22,8 +23,6 @@ export const routes: Routes = [
   }
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+export const appConfig: ApplicationConfig = {
+  providers: [provideRouter(routes)]
+};
