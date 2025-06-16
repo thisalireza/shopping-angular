@@ -17,6 +17,7 @@ import {CategoryComponent} from "../../shopping/category/category.component";
         ArticleComponent,
         CategoryComponent
     ],
+  standalone: true,
     templateUrl: './homePage.component.html',
     styleUrl: './homePage.component.scss'
 })

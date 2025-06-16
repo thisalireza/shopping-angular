@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {FooterComponent} from "../../shared/footer/footer.component";
-import {MenuComponent} from "../../shared/header/header.component";
+import {FooterComponent} from "../shared/footer/footer.component";
+import {MenuComponent} from "../shared/header/header.component";
 
 @Component({
     selector: 'app-about-us',
@@ -8,6 +8,7 @@ import {MenuComponent} from "../../shared/header/header.component";
         FooterComponent,
         MenuComponent
     ],
+  standalone: true,
     templateUrl: './about-us.component.html',
     styleUrl: './about-us.component.scss'
 })

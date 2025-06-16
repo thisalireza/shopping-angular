@@ -11,7 +11,7 @@
       (click)="basicNavbar.toggle()"
       aria-expanded="false"
       aria-label="Toggle navigation"
-      >
+    >
       <i class="fas fa-bars"></i>
     </button>
 
@@ -21,23 +21,26 @@
       id="navbarSupportedContent"
       mdbCollapse
       #basicNavbar="mdbCollapse"
-      >
+    >
 
       <!-- Search form -->
       <app-search></app-search>
       <!-- Menu links -->
+
+
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/" >صفحه اصلی</a>
+          <a class="nav-link active" routerLink="/home">صفحه اصلی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="shopping">فروشگاه</a>
+          <a class="nav-link" routerLink="/shopping">فروشگاه</a>
         </li>
         <li class="nav-item">
-          <button class="nav-link btn" routerLink="contact-us">">تماس با ما</button>
+          <a class="nav-link" routerLink="/contact-us">تماس با ما</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" tabindex="-1" routerLink="about-us" >درباره ما</a>
+          <a class="nav-link" routerLink="/about">درباره ما</a>
         </li>
       </ul>
 
@@ -55,13 +58,11 @@
 
 
 <!--scroll to top-->
-@if (showingScrollToTop) {
-  <div (click)="scrollToTop()" class="button-scroll-to-top p-2">
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="#fff"
-      stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"
-      class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-up ">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-      <path d="M6 15l6 -6l6 6"/>
-    </svg>
-  </div>
-}
+<div (click)="scrollToTop()" *ngIf="showingScrollToTop" class="button-scroll-to-top p-2">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="#fff"
+       stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"
+       class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-up ">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M6 15l6 -6l6 6"/>
+  </svg>
+</div>

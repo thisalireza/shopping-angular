@@ -2,12 +2,13 @@ import {Component} from '@angular/core';
 import { NgStyle } from "@angular/common";
 
 @Component({
-    selector: 'app-product-list',
-    imports: [
+  selector: 'app-product-list',
+  imports: [
     NgStyle
-],
-    templateUrl: './product-list.component.html',
-    styleUrl: './product-list.component.scss'
+  ],
+  templateUrl: './product-list.component.html',
+  standalone: true,
+  styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
   // name:string = 'alireza';
