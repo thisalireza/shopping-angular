@@ -1,22 +1,22 @@
 import {Component} from '@angular/core';
-import {NgIf, NgStyle} from "@angular/common";
+import {NgClass, NgIf, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-product-list',
   imports: [
     NgStyle,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './product-list.component.html',
   standalone: true,
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  addToCard:number=0;
-
+  addToCard: number = 0;
   product = {
     name: 'macbook pro m3 pro',
-    image :'https://dkstatics-public.digikala.com/digikala-products/a0d157d46805b4088a34652c667d6fbb2757f5b4_1723039615.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+    image: 'https://dkstatics-public.digikala.com/digikala-products/a0d157d46805b4088a34652c667d6fbb2757f5b4_1723039615.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
     color: 'silver',
     price: 117000000,
     discount: 6.5,
@@ -168,7 +168,6 @@ export class ProductListComponent {
         'https://dkstatics-public.digikala.com/digikala-products/c4ea10265a78be861aaae21eb705cdf9e7c8faed_1675586428.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nike-mercurial-vapor-13-elite-tech-craft-fg',
     },
-
 
 
     {
@@ -326,25 +325,29 @@ export class ProductListComponent {
   // }
 
 
+  addToCart: number[] = new Array(this.products.length).fill(0);
 
-//   addCardValue(event){
-//     const countOfItemsLeft = this.products.find(product => product.items_left);
-//     countOfItemsLeft.forEach(product => {
-//
-//       console.log(`${product.items_left}`);
-//     });
-//
-// console.log(countOfItemsLeft);
-//     // if (this.addToCard< countOfItemsLeft  ){
-//     //   this.addToCard++;
-//     //
-//     // }
-//   }
 
-  increaseCardValue(event){
+  addCardValue(index: number): void {
+    const product = this.products[index];
 
-    if(this.addToCard>0){
-      this.addToCard--;
+    // Ensure product exists and items_left is defined
+    if (product && product.items_left !== undefined) {
+      const itemsLeft = product.items_left;
+
+      // Check if there are items left to add to the cart
+      if (this.addToCart[index] < product.items_left) {
+        this.addToCart[index]++; // Add one more item to the cart
+      }
+
     }
   }
+
+
+  increaseCardValue(index: number): void {
+    if (this.addToCart[index] > 0) {
+      this.addToCart[index]--;
+    }
+  }
+
 }

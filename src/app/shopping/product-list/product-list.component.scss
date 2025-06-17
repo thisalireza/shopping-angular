@@ -17,3 +17,19 @@ border-radius: 0 0 8px 8px;
   background: #DC4C64;
   color: #fff;
 }
+
+
+.price-with-discount--text{
+  color: #4a4a4a;
+}
+
+.price-with-discount--digit{
+  font-size: larger;
+  color: black;
+}
+
+
+
+.out-of-discount{
+filter:grayscale(1)
+}

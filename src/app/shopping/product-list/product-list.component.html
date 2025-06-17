@@ -5,7 +5,7 @@
       @for (prod of products; track prod; let i = $index) {
         <div class="col rounded-3  card-product">
           <div class="card h-100 ">
-            <img [src]="prod.imageURL"
+            <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"
               class="card-img-top w-100 rounded-3 px-3" alt="Skyscrapers"/>
             <div class="card-body py-0">
               <h3 class="card-title text-center fw-bold" lang="en_US">{{prod.name}}</h3>
@@ -15,7 +15,7 @@
               fontWeight:'bold',
               color: prod.is_in_inventory ? 'green' : '#EE1F1F'
               }" > {{prod.is_in_inventory
-                  ?  " کالا موجود است"
+                  ?  ""
                   : "کالا موجود نمی باشد"
                   }}
                 </p>
@@ -28,15 +28,16 @@
                 <del class="text-danger"> {{"قیمت "+ prod.price + " تومن "}}</del>
                 <span class="text-success px-2">تخفیف: %  {{prod.discountPrice }}  </span>
 
-              <span class="fw-bold">  قیمت:   {{(this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed()}}   تومن </span>
+                <span class="fw-bold price-with-discount--text"> قیمت با تخفیف: <span class="fw-bold price-with-discount--digit">{{(this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed()}}</span>   تومن     </span>
 
 <!--                          <input (input)="onNameChange($event)">-->
 
-              <div>
-                <button class="btn rounded-3 " (click)="increaseCardValue($event)">-</button>
-                <span class="px-2"> {{ addToCard }} </span>
-                <button class="btn rounded-3" (click)="addCardValue($event)">+</button>
-              </div>
+              <div class="f-flex fa-align-center mt-2">
+
+                <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>
+                <span class="px-2"> {{ addToCart[i]  }} </span>
+                <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+</button>
+                <span class="ps-2">:تعداد</span> </div>
               }
 
 
