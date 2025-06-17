@@ -10,32 +10,38 @@
             <div class="card-body py-0">
               <h3 class="card-title text-center fw-bold" lang="en_US">{{prod.name}}</h3>
               <div class="pt-2">
-                <p>رنگ: {{prod.color}}</p>
-                <p>کد محصول: {{i+1000}}</p>
-              <p [ngStyle]="{
+                <p class="text-center">رنگ: {{prod.color}}</p>
+              <p class="text-center" [ngStyle]="{
               fontWeight:'bold',
               color: prod.is_in_inventory ? 'green' : '#EE1F1F'
               }" > {{prod.is_in_inventory
                   ?  " کالا موجود است"
-                  : "کالا موجود نیست"
+                  : "کالا موجود نمی باشد"
                   }}
                 </p>
               </div>
             </div>
-            <div class="card-footer  text-center">
-              <del> {{prod.price + "تومن"}}</del>
-              @if (prod.discountPrice) {
-                <p>تخفیف:   {{prod.discountPrice }} % </p>
+            <div class="card-footer text-center">
+
+              @if (prod.is_in_inventory) {
+                <p >موجود در انبار: {{prod.items_left}}  </p>
+                <del class="text-danger"> {{"قیمت "+ prod.price + " تومن "}}</del>
+                <span class="text-success px-2">تخفیف: %  {{prod.discountPrice }}  </span>
+
+              <span class="fw-bold">  قیمت:   {{(this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed()}}   تومن </span>
+
+<!--                          <input (input)="onNameChange($event)">-->
+
+              <div>
+                <button class="btn rounded-3 " (click)="increaseCardValue($event)">-</button>
+                <span class="px-2"> {{ addToCard }} </span>
+                <button class="btn rounded-3" (click)="addCardValue($event)">+</button>
+              </div>
               }
-              <p>   {{(this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed()}}   تومن </p>
-              <!--            <p> {{name}} </p>-->
-              <!--            <button class="btn btn-outline-danger " [disabled]="!(product.instock > 0)" >خرید</button>-->
-              <!--            <input (input)="onNameChange($event)">-->
-              <p > تعداد:</p>
-              <button class="btn rounded-3 " (click)="increaseCardValue($event)">-</button>
-              <span class="px-2"> {{ addToCard }} </span>
-              <button class="btn rounded-3" (click)="addCardValue($event)">+</button>
+
+
             </div>
+            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold" [disabled]="!(product.instock > 0)" >خرید</button>
           </div>
         </div>
       }

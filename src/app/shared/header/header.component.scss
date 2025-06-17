@@ -4,16 +4,76 @@
 }
 
 
-.button-scroll-to-top{
-  box-shadow: 0 10px 20px 1px #858585;
-  border-radius: 16px;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 10;
-  scroll-behavior: smooth;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  background-color: #EE1F1F;
+
+
+.signin-button-navbar{
+  border: 1px solid #e0e0e2;
+  align-items: center;
+  border-radius: 8px;
+  height: 40px;
+  padding: 8px 16px;
+  box-shadow: none;
+}
+
+#offer-with-timer-banner {
+  background-color: rgb(223 60 60 / 1);
+  height: 70px;
+}
+
+.lets-go-offer-with-timer--txt{
+font-size: 13px;
+}
+
+.lets-go-offer-with-timer--btn{
+  transition: 0.4s all;
+}
+
+.lets-go-offer-with-timer--btn:hover{
+  transition: 0.4s all;
+  transform: scale(1.20);
+}
+
+#navbar-expand-light {
+  background: rgb(255 255 255 / 0%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 60px 30px rgba(255, 255, 255, 3);
+
+  overflow: hidden;
+
+}
+
+#navbar-expand-light ::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+  );
+}
+
+#navbar-expand-light ::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.8),
+      transparent,
+      rgba(255, 255, 255, 0.3)
+  );
 }

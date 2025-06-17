@@ -3,6 +3,8 @@ import {MdbCollapseModule} from "mdb-angular-ui-kit/collapse";
 import {SearchComponent} from "../search/search.component";
 
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
+import {DarkModeComponent} from "../dark-mode/dark-mode.component";
+import {CountdownTimerComponent} from "../countdown-timer/countdown-timer.component";
 
 
 @Component({
@@ -11,7 +13,9 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
     MdbCollapseModule,
     SearchComponent,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    DarkModeComponent,
+    CountdownTimerComponent
   ],
   templateUrl: './header.component.html',
   standalone: true,

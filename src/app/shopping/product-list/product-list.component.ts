@@ -1,18 +1,19 @@
 import {Component} from '@angular/core';
-import { NgStyle } from "@angular/common";
+import {NgIf, NgStyle} from "@angular/common";
 
 @Component({
   selector: 'app-product-list',
   imports: [
-    NgStyle
+    NgStyle,
+    NgIf
   ],
   templateUrl: './product-list.component.html',
   standalone: true,
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  // name:string = 'alireza';
   addToCard:number=0;
+
   product = {
     name: 'macbook pro m3 pro',
     image :'https://dkstatics-public.digikala.com/digikala-products/a0d157d46805b4088a34652c667d6fbb2757f5b4_1723039615.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
@@ -28,13 +29,13 @@ export class ProductListComponent {
       name: 'macbook air M2',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'MEN',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 99000000,
-      discountPrice: 11,
+      price: 88300,
+      discountPrice: 1,
       is_in_inventory: true,
       items_left: 3,
       imageURL:
@@ -46,14 +47,15 @@ export class ProductListComponent {
       name: 'macbook pro M1',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'MEN',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 130,
+      price: 66000,
+      discountPrice: 5,
       is_in_inventory: false,
-      items_left: 3,
+      items_left: 0,
       imageURL:
         'https://dkstatics-public.digikala.com/digikala-products/046b25e1d0bd544b923b2cd93276dac7183ae958_1671473025.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nike-react-miler',
@@ -63,12 +65,13 @@ export class ProductListComponent {
       name: 'macbook air M1',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی', 'نقره ای', 'طلایی'],
-      price: 120,
+      price: 53000,
+      discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
       imageURL:
@@ -80,15 +83,15 @@ export class ProductListComponent {
       name: 'macbook pro M1pro',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', , 'نقره ای', 'طلایی'],
-      price: 180,
-      discountPrice: 2,
+      price: 93000,
+      discountPrice: 5,
       is_in_inventory: false,
-      items_left: 3,
+      items_left: 0,
       imageURL:
         'https://dkstatics-public.digikala.com/digikala-products/d96e5acf05f0b91c283fdf2816945fdd0b0e6673_1671296658.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nike-joyride-run-flyknit',
@@ -98,14 +101,15 @@ export class ProductListComponent {
       name: 'macbook pro M2',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'FOOTBALL',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 250,
+      price: 60,
+      discountPrice: 5,
       is_in_inventory: false,
-      items_left: 3,
+      items_left: 0,
       imageURL:
         'https://dkstatics-public.digikala.com/digikala-products/8876feb08dc7bce5c5f9991899fae2f733bb0518_1672051722.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nike-mercurial-vapor-13-elite-fg',
@@ -115,12 +119,13 @@ export class ProductListComponent {
       name: 'macbook air 2018 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'FOOTBALL',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 150,
+      price: 45000,
+      discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
       imageURL:
@@ -132,12 +137,12 @@ export class ProductListComponent {
       name: 'macbook air 2019 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'FOOTBALL',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'نقره ای', 'طلایی', 'مشکی'],
-      price: 80,
+      price: 34000,
       discountPrice: 6,
       is_in_inventory: true,
       items_left: 3,
@@ -150,7 +155,7 @@ export class ProductListComponent {
       name: 'macbook air 2013 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'NIKE',
+      brand: 'اپل',
       gender: 'MEN',
       category: 'FOOTBALL',
       size: [6, 7, 8, 9, 10, 11, 12],
@@ -158,7 +163,7 @@ export class ProductListComponent {
       price: 145,
       discountPrice: 9,
       is_in_inventory: false,
-      items_left: 3,
+      items_left: 0,
       imageURL:
         'https://dkstatics-public.digikala.com/digikala-products/c4ea10265a78be861aaae21eb705cdf9e7c8faed_1675586428.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nike-mercurial-vapor-13-elite-tech-craft-fg',
@@ -171,14 +176,15 @@ export class ProductListComponent {
       name: 'macbook air 2011 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'KIDS',
       category: 'CASUAL',
       size: [6, 7, 8],
       color: ['سفید', 'آبی', 'مشکی', 'طلایی'],
-      price: 55,
+      price: 145,
+      discountPrice: 9,
       is_in_inventory: false,
-      items_left: 6,
+      items_left: 0,
       imageURL:
         'https://dkstatics-public.digikala.com/digikala-products/d5ba8b243463c895a0093e3e47b83035b259d57f_1673869909.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
       slug: 'nizza-x-disney',
@@ -188,12 +194,12 @@ export class ProductListComponent {
       name: 'macbook air 2017 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'KIDS',
       category: 'CASUAL',
       size: [6, 7, 8, 9],
       color: ['سفید', 'آبی', 'مشکی', 'نقره ای', 'طلایی'],
-      price: 65,
+      price: 27000,
       discountPrice: 5,
       is_in_inventory: true,
       items_left: 5,
@@ -206,12 +212,13 @@ export class ProductListComponent {
       name: 'macbook pro M1max',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'KIDS',
       category: 'CASUAL',
       size: [6, 7, 8, 9, 10, 11],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 55,
+      price: 120000,
+      discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
       imageURL:
@@ -223,12 +230,12 @@ export class ProductListComponent {
       name: 'macbook pro 2019 i9',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'KIDS',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی', 'نقره ای', 'طلایی'],
-      price: 120,
+      price: 70000,
       discountPrice: 4,
       is_in_inventory: true,
       items_left: 3,
@@ -241,12 +248,13 @@ export class ProductListComponent {
       name: 'macbook air 2010 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'CASUAL',
       size: [6, 7, 8, 9, 10],
       color: ['سفید', 'آبی', 'مشکی', 'نقره ای'],
-      price: 140,
+      price: 20000,
+      discountPrice: 5,
       is_in_inventory: true,
       items_left: 5,
       imageURL:
@@ -258,12 +266,12 @@ export class ProductListComponent {
       name: 'macbook pro 2016 i7',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'ADIDAS',
+      brand: 'اپل',
       gender: 'WOMEN',
       category: 'CASUAL',
       size: [6, 7, 8, 9, 10, 11, 12],
       color: ['سفید', 'آبی', 'مشکی'],
-      price: 90,
+      price: 60000,
       discountPrice: 8,
       is_in_inventory: true,
       items_left: 3,
@@ -277,12 +285,12 @@ export class ProductListComponent {
       name: 'macbook air 2019 i5',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'Vans',
+      brand: 'اپل',
       gender: 'MEN',
       category: 'CASUAL',
       size: [6, 7, 8, 9],
       color: ['سفید', 'آبی', 'مشکی', 'طلایی'],
-      price: 60,
+      price: 37000,
       discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
@@ -294,12 +302,13 @@ export class ProductListComponent {
       name: 'macbook air M2',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      brand: 'Vans',
+      brand: 'اپل',
       gender: 'MEN',
       category: 'CASUAL',
       size: [6, 7, 8, 9, 10, 11, 12],
       color: ['سفید', 'آبی', 'مشکی', 'نقره ای', 'طلایی'],
-      price: 72,
+      price: 780000,
+      discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
       imageURL: 'https://dkstatics-public.digikala.com/digikala-products/b872d69721bf570c6c99278a890b6c82c87687db_1723641563.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
@@ -317,12 +326,20 @@ export class ProductListComponent {
   // }
 
 
-  addCardValue(event){
-    if (this.addToCard<this.product.instock){
-      this.addToCard++;
 
-    }
-  }
+//   addCardValue(event){
+//     const countOfItemsLeft = this.products.find(product => product.items_left);
+//     countOfItemsLeft.forEach(product => {
+//
+//       console.log(`${product.items_left}`);
+//     });
+//
+// console.log(countOfItemsLeft);
+//     // if (this.addToCard< countOfItemsLeft  ){
+//     //   this.addToCard++;
+//     //
+//     // }
+//   }
 
   increaseCardValue(event){
 

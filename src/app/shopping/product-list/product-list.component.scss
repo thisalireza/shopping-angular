@@ -7,3 +7,13 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+
+.add-to-card-btn{
+border-radius: 0 0 8px 8px;
+}
+
+.add-to-card-btn:hover{
+  background: #DC4C64;
+  color: #fff;
+}

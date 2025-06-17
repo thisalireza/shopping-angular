@@ -31,6 +31,7 @@ import { Collapse,initMDB } from 'mdb-ui-kit';
 import {ProductListComponent} from "./shopping/product-list/product-list.component";
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
+import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 
 initMDB({ Collapse });
 
@@ -39,31 +40,32 @@ initMDB({ Collapse });
   declarations: [
     AppComponent
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MdbAccordionModule,
-    MdbCarouselModule,
-    MdbCheckboxModule,
-    MdbCollapseModule,
-    MdbDropdownModule,
-    MdbFormsModule,
-    MdbModalModule,
-    MdbPopoverModule,
-    MdbRadioModule,
-    MdbRangeModule,
-    MdbRippleModule,
-    MdbScrollspyModule,
-    MdbTabsModule,
-    MdbTooltipModule,
-    MdbValidationModule,
-    MenuComponent,
-    FooterComponent,
-    HomePageComponent,
-    ProductListComponent,
-    RouterOutlet,
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MdbAccordionModule,
+        MdbCarouselModule,
+        MdbCheckboxModule,
+        MdbCollapseModule,
+        MdbDropdownModule,
+        MdbFormsModule,
+        MdbModalModule,
+        MdbPopoverModule,
+        MdbRadioModule,
+        MdbRangeModule,
+        MdbRippleModule,
+        MdbScrollspyModule,
+        MdbTabsModule,
+        MdbTooltipModule,
+        MdbValidationModule,
+        MenuComponent,
+        FooterComponent,
+        HomePageComponent,
+        ProductListComponent,
+        RouterOutlet,
+        BackToTopComponent,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

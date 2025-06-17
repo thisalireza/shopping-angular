@@ -1,0 +1,50 @@
+.back-to-top {
+  position: fixed;
+  font-size: 16px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  z-index: 1000;
+  box-shadow: 0 10px 20px 1px #858585;
+  border-radius: 16px;
+  bottom: 2rem;
+  right: 2rem;
+  scroll-behavior: smooth;
+  width: 50px;
+  height: 50px;
+  background-color: #EE1F1F;
+}
+
+.back-to-top:hover {
+  opacity: 1;
+}
+
+.call-connect {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  background: #dc3545;
+  border-radius: 100%;
+  color: #fff;
+  padding: 12px 8px 8px 8px;
+  z-index: 999;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 20%), 0 1px 10px rgb(0 0 0 / 15%);
+  transition: all .2s ease;
+  width: 3.3rem;
+  text-align: center;
+}
+
+.call-connect span {
+  position: absolute;
+  background: #dc3545;
+  width: max-content;
+  display: block;
+  left: 39px;
+  top: 12px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 0 50px 50px 0;
+}
+
+

@@ -1,0 +1,95 @@
+/**************************** colors ****************************/
+:root{
+  --background-color: #efefef;
+  --foreground-color:#ffffff;
+  --primary-color:#3a435d;
+  --secondary-color:#0071ff;
+  --text-color:#111528;
+  --bold-text-color:#000000;
+}
+
+.dark-mode{
+  --background-color:#353535;
+  --foreground-color:#202124;
+  --primary-color: #2f3e66;
+  --secondary-color:#0071ff;
+  --text-color: #d2d2d5;
+  --bold-text-color:#ffffff;
+}
+/**************************** button theme switcher ****************************/
+
+
+
+
+.dark-mode {
+  background: #363636;
+  color: whitesmoke;
+}
+
+#theme-switcher{
+  height: 40px;
+  width:40px;
+  padding:0;
+  border-radius: 50%;
+  background-color:transparent;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #e0e0e2;
+}
+
+.dark-mode #theme-switcher{
+  border: 2px solid var(--text-color);
+}
+
+
+#theme-switcher svg{
+  fill: var(--bold-text-color);
+}
+#theme-switcher svg:last-child , .dark-mode #theme-switcher svg:first-child{
+  display: none;
+}
+
+.dark-mode #theme-switcher svg:last-child{
+  display: block;
+}
+
+/**************************** styles ****************************/
+.sunny {
+  background-color: red !important;
+}
+
+
+
+
+.inner-section , .dark-mode .inner-section{
+  background-color:var(--foreground-color);
+  padding:1rem 2rem;
+  margin:1rem 0;
+  border-radius:10px;
+}
+
+.title , .dark-mode .title{
+  color:var(--bold-text-color);
+}
+
+
+.p , .dark-mode p{
+  color: var(--text-color);
+}
+
+
+.btn{
+  border-radius:10px;
+  padding:0.6rem 1rem;
+  background-color:var(--secondary-color);
+  color:var(--foreground-color);
+  border: 0;
+}
+
+.dark-mode .btn{
+  background-color:var(--primary-color);
+  color:var(--text-color);
+
+}
