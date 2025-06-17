@@ -15,12 +15,6 @@ import {NgClass, NgIf, NgStyle} from "@angular/common";
 export class ProductListComponent {
   addToCard: number = 0;
   product = {
-    name: 'macbook pro m3 pro',
-    image: 'https://dkstatics-public.digikala.com/digikala-products/a0d157d46805b4088a34652c667d6fbb2757f5b4_1723039615.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
-    color: 'silver',
-    price: 117000000,
-    discount: 6.5,
-    instock: 5,
   }
 
   products = [
