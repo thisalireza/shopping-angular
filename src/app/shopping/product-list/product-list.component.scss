@@ -11,11 +11,15 @@
 
 .add-to-card-btn{
 border-radius: 0 0 8px 8px;
+border-color: #CC2625;
+  color: #CC2625;
 }
 
 .add-to-card-btn:hover{
-  background: #DC4C64;
-  color: #fff;
+  background: #CC2625 !important;
+  color: #fff !important;
+  border-color: #CC2625;
+
 }
 
 
@@ -32,4 +36,10 @@ border-radius: 0 0 8px 8px;
 
 .out-of-discount{
 filter:grayscale(1)
+}
+
+
+.card-img-top{
+  width: 80%;
+  margin: auto;
 }

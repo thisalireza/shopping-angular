@@ -6,7 +6,7 @@ import {NgIf} from "@angular/common";
   selector: 'app-dark-mode',
   standalone: true,
   templateUrl: './dark-mode.component.html',
-  styleUrl: './dark-mode.component.css',
+  styleUrl: './dark-mode.component.scss',
   imports: [
     NgIf
   ],

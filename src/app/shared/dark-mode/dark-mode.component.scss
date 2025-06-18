@@ -1,0 +1,101 @@
+/* Dark Mode Styles */
+.dark-mode {
+  --background-color: #353535;
+  --foreground-color: #202124;
+  --primary-color: #2f3e66;
+  --secondary-color: #0071ff;
+  --text-color: #ffffff;
+  --bold-text-color: #ffffff;
+  background-color: #353535;
+  color: #ffffff;
+}
+
+
+
+/* Sunny (Light Mode) Styles */
+.sunny {
+  --background-color: #F2F2F2;
+  --foreground-color: #fff;
+  --primary-color: #3a435d;
+  --secondary-color: #0071ff;
+  --text-color: #111528;
+  --bold-text-color: #000000;
+  background-color: #F2F2F2;
+  color: #111528;
+}
+
+/* Default body styles to make sure colors are applied globally */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+#theme-switcher {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e2;
+}
+
+
+.dark-mode #theme-switcher , .dark-mode .card-navbar--icon {
+  border: 2px solid var(--text-color);
+}
+
+#theme-switcher svg   {
+  fill: var(--bold-text-color);
+}
+
+.dark-mode .signin-button-navbar{
+  color: var(--bold-text-color);
+}
+
+.search-icon svg , .card-navbar--icon svg{
+  stroke: var(--bold-text-color);
+}
+
+
+
+.dark-mode .nav-link{
+  color: var(--bold-text-color);
+}
+
+
+.dark-mode #navbar-expand-light {
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 60px 30px rgb(54 54 54);
+
+}
+
+
+.dark-mode .text-body , .dark-mode .homepage-category--title , .dark-mode .price-with-discount--digit{
+  color: var(--bold-text-color) !important;
+}
+
+.dark-mode .copyright-footer-section , .dark-mode .card-article , .dark-mode .card{
+  background-color: var(--foreground-color);
+}
+
+.dark-mode .price-with-discount--text {
+  color: var(--text-color) !important;
+}
+
+
+.dark-mode .card-footer {
+  border-top: var(--mdb-card-footer-border-width) solid var(--background-color) !important;
+}
+
+
+.dark-mode .accordion-item  , .dark-mode .accordion-button{
+  color: var(--text-color) !important;
+  background-color: var(--foreground-color) !important;
+  border: var(--mdb-accordion-border-width) solid var(--background-color) !important;
+}
+

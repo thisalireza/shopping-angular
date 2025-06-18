@@ -72,9 +72,12 @@
 
 .nav-link {
   color: #505050;
+  transition: 0.4s all;
 }
 
-
+a.nav-link:hover {
+  color: rgb(223, 60, 60);
+}
 
 #offer-with-timer-banner {
   background-color: rgb(223 60 60 / 1);
@@ -83,6 +86,10 @@
 
 .lets-go-offer-with-timer--txt{
 font-size: 13px;
+}
+
+.lets-go-offer-with-timer--btn svg{
+  color: black;
 }
 
 .lets-go-offer-with-timer--btn{

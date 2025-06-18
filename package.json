@@ -23,6 +23,7 @@
     "mdb-angular-ui-kit": "file:mdb-angular-ui-kit-6.1.0.tgz",
     "mdb-ui-kit": "^7.3.2",
     "rxjs": "~7.5.0",
+    "swiper": "^11.2.8",
     "tslib": "^2.1.0",
     "zone.js": "~0.14.2"
   },

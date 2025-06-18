@@ -6,16 +6,16 @@
         <div class="card h-100 card-article">
           <img [src]="blog.imageURL" class="card-img-top" alt="blog"/>
           <div class="card-body">
-            <h5 class="card-title fw-bold pb-2">{{ blog.title | truncate :45 }}</h5>
+            <h5 class="card-title fw-bold pb-2 fs-18">{{ blog.title | truncate :40 }}</h5>
             <p class="card-text fs-14">
               {{ blog.description | truncate :100 }}
             </p>
           </div>
           <div class="card-footer d-flex justify-content-between">
             <div>
-              <small class="text-muted fs-14">{{ blog.writer }}</small>
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              <small class="text-muted fs-14 pe-1">{{ blog.writer }}</small>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                   stroke="#757575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>

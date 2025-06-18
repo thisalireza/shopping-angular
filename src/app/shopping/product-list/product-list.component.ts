@@ -14,8 +14,7 @@ import {NgClass, NgIf, NgStyle} from "@angular/common";
 })
 export class ProductListComponent {
   addToCard: number = 0;
-  product = {
-  }
+  product = {}
 
   products = [
     {
@@ -33,7 +32,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/e75d69cc408ea9d99fee43cd8e3229fa6e57f06a_1723653904.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/155a965d-0962-408d-7dea-557a62fc3900/height=364,width=364',
       slug: 'nike-react-infinity-run-flyknit',
     },
     {
@@ -51,7 +50,7 @@ export class ProductListComponent {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/046b25e1d0bd544b923b2cd93276dac7183ae958_1671473025.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/619c6e9d-9e4e-4c43-98d2-b27c783ff800/height=364,width=364',
       slug: 'nike-react-miler',
     },
     {
@@ -69,7 +68,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/b2c0eb53f0eeacdefb8771155bf5e4887222a654_1672051046.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/682589c3-7c88-4652-968e-f6cf3bfdb300/height=364,width=364',
       slug: 'nike-air-zoom-pegasus-37',
     },
     {
@@ -87,7 +86,7 @@ export class ProductListComponent {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/d96e5acf05f0b91c283fdf2816945fdd0b0e6673_1671296658.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/21397e47-c638-43de-026c-009a773b8800/height=364,width=364',
       slug: 'nike-joyride-run-flyknit',
     },
     {
@@ -105,7 +104,7 @@ export class ProductListComponent {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/8876feb08dc7bce5c5f9991899fae2f733bb0518_1672051722.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/3538448b-424f-4ad6-803a-517567ec3d00/height=364,width=364',
       slug: 'nike-mercurial-vapor-13-elite-fg',
     },
     {
@@ -123,7 +122,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/0640221a44f2fd1413e720004efc88da256b384f_1672570739.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dbeb9e5d-3a31-4df0-282d-0666b1f89800/height=364,width=364',
       slug: 'nike-phantom-vision-elite-dynamic-fit-fg',
     },
     {
@@ -141,7 +140,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/dcb735863856217c8f64d891269b876c621772d7_1672570805.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/b92a2acb-2d9d-46b4-92fd-40c886836f00/height=364,width=364',
       slug: 'nike-phantom-venom-academy-fg',
     },
     {
@@ -159,7 +158,7 @@ export class ProductListComponent {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/c4ea10265a78be861aaae21eb705cdf9e7c8faed_1675586428.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/e9ea450d-7090-4309-5038-92acb8b64000/height=364,width=364',
       slug: 'nike-mercurial-vapor-13-elite-tech-craft-fg',
     },
 
@@ -179,7 +178,7 @@ export class ProductListComponent {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/d5ba8b243463c895a0093e3e47b83035b259d57f_1673869909.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dbb5dc2c-9351-4ffa-3e35-e2586c807a00/height=364,width=364',
       slug: 'nizza-x-disney',
     },
     {
@@ -197,7 +196,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 5,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/44e6ab1de086b966bb3694deee7d550005e3b46f_1673695665.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/47c93033-b5ef-426e-aa09-53ad1f3be900/height=364,width=364',
       slug: 'x_plr',
     },
     {
@@ -215,7 +214,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/de78b22204344d916aaab0661f6f48f4f66adc24_1663158235.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/c26e683d-11df-4546-84c7-ca9286c42d00/height=364,width=364',
       slug: 'stan-smith',
     },
     {
@@ -233,7 +232,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/112792340.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/34374730-ce80-44a1-bcca-698499bfbc00/height=364,width=364',
       slug: 'nmd_r1',
     },
     {
@@ -251,7 +250,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 5,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/95035ea2be3871b54ed03292d02941d8f569772a_1674457910.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dccb26a2-e386-49a7-929d-f77130407900/height=364,width=364',
       slug: 'nmd_r1-flash-طلایی',
     },
     {
@@ -269,7 +268,7 @@ export class ProductListComponent {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-        'https://dkstatics-public.digikala.com/digikala-products/629077db79b464db05a987679b24bd863500d0eb_1672569174.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/e45fb01d-52ae-41fe-e478-2a2965ccb700/height=364,width=364',
       slug: 'superstar',
     },
 
@@ -287,7 +286,8 @@ export class ProductListComponent {
       discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
-      imageURL: 'https://dkstatics-public.digikala.com/digikala-products/e85329365810c69ae8e4cf1477c5366db564e6fc_1672072947.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+      imageURL:
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/cbfc1cfc-5e8d-4e29-54b6-a3910d3fd400/height=364,width=364',
       slug: 'sk80-low',
     },
     {
@@ -304,7 +304,8 @@ export class ProductListComponent {
       discountPrice: 5,
       is_in_inventory: true,
       items_left: 3,
-      imageURL: 'https://dkstatics-public.digikala.com/digikala-products/b872d69721bf570c6c99278a890b6c82c87687db_1723641563.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80',
+      imageURL:
+        'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/46ce84fb-800f-4429-c42a-635c39581a00/height=364,width=364',
       slug: 'michael-feburary-sk8-hi',
     },
   ];

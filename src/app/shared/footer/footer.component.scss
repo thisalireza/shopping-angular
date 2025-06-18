@@ -37,3 +37,26 @@ a.text-body:hover {
 .copyright-footer-section{
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+
+.instagram-footer--section{
+  background-image: linear-gradient(90deg, #9332BF 0%, #F2622F 100%);
+  border-radius: 20px;
+
+}
+
+
+.instagram-footer--button{
+  background-color: #fff;
+  color: black;
+  transition: all .5s;
+}
+
+.instagram-footer--button:hover{
+transform: scale(1.1);
+}
+
+.instagram-mobile--image{
+  width: 270px;
+  margin: -100px -20px -65px 0px;
+}

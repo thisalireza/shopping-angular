@@ -6,6 +6,7 @@ import {HomePageComponent} from "./home-page/homePage/homePage.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {SigninComponent} from "./signin/signin.component";
 import {AccountComponent} from "./account/account.component";
+import {ArticlesComponent} from "./weblog/articles/articles.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
   { path: 'shopping', component: ContactUsComponent },
   { path: 'account', component: AccountComponent },
   { path: 'signIn', component: SigninComponent },
+  { path: 'articles', component: ArticlesComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 
