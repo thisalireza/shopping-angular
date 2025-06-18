@@ -1,14 +1,18 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import { ViewEncapsulation } from '@angular/core';
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-dark-mode',
   standalone: true,
   templateUrl: './dark-mode.component.html',
-  styleUrl: './dark-mode.component.css'
+  styleUrl: './dark-mode.component.css',
+  imports: [
+    NgIf
+  ],
+  encapsulation: ViewEncapsulation.None  // Disable view encapsulation
 })
 export class DarkModeComponent {
-
-
   darkMode: string | null = null;
 
   constructor(private renderer: Renderer2) {}

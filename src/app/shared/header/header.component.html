@@ -1,8 +1,8 @@
+<!--top banner with count down for discounts-->
 <section id="offer-with-timer-banner" class="d-flex align-items-center">
   <div class="container d-flex justify-content-between align-items-center">
     <div class="d-flex justify-content-between align-items-center">
       <app-countdown-timer></app-countdown-timer>
-
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
@@ -64,7 +64,7 @@
       #basicNavbar="mdbCollapse"
     >
 
-
+      <!-- Search form -->
       <div class="mx-2">
         <button routerLink="/signIn" class="btn signin-button-navbar fw-bold">ورود | ثبت نام
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -78,7 +78,7 @@
         </button>
 
       </div>
-
+      <!-- basket items button-->
       <div class="mx-2 card-navbar--icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -89,14 +89,28 @@
           <path d="M17 17h-11v-14h-2"/>
           <path d="M6 5l14 1l-1 7h-13"/>
         </svg>
+
+        <span class="basket-items--count">2</span>
       </div>
 
+      <!-- like Button -->
+      <div class="mx-2 card-navbar--icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+        </svg>
+        <span class="like-product--count">1</span>
+      </div>
+
+      <!-- Dark Mode Button -->
       <div class="mx-2">
         <app-dark-mode></app-dark-mode>
       </div>
+
       <!-- Search form -->
       <div class="mx-2">
-
         <app-search></app-search>
       </div>
 
@@ -106,19 +120,88 @@
     <!-- Menu links -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
       <li class="nav-item">
-        <a class="nav-link active" routerLink="/home">صفحه اصلی</a>
+        <a class="nav-link"
+           [routerLink]="['/home']"
+           [ngClass]="{ 'active-link': activeLink === '/home' }"
+           (click)="setActiveLink('/home')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-home">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0"/>
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/>
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/>
+          </svg>
+          صفحه اصلی
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link">دسته بندی</a>
+        <a class="nav-link"
+           [routerLink]="['/category']"
+           [ngClass]="{ 'active-link': activeLink === '/category' }"
+           (click)="setActiveLink('/category')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 6l16 0"/>
+            <path d="M4 12l16 0"/>
+            <path d="M4 18l16 0"/>
+          </svg>
+          دسته بندی
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/shopping">فروشگاه</a>
+        <a class="nav-link"
+           [routerLink]="['/shopping']"
+           [ngClass]="{ 'active-link': activeLink === '/shopping' }"
+           (click)="setActiveLink('/shopping')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 21l18 0"/>
+            <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
+            <path d="M5 21l0 -10.15"/>
+            <path d="M19 21l0 -10.15"/>
+            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
+          </svg>
+          فروشگاه
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/contact-us">تماس با ما</a>
+        <a class="nav-link"
+           [routerLink]="['/contact-us']"
+           [ngClass]="{ 'active-link': activeLink === '/contact-us' }"
+           (click)="setActiveLink('/contact-us')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-phone-ringing">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M20 4l-2 2"/>
+            <path d="M22 10.5l-2.5 -.5"/>
+            <path d="M13.5 2l.5 2.5"/>
+            <path
+              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2c-8.072 -.49 -14.51 -6.928 -15 -15a2 2 0 0 1 2 -2"/>
+          </svg>
+          تماس با ما
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/about-us">درباره ما</a>
+        <a class="nav-link"
+           [routerLink]="['/about-us']"
+           [ngClass]="{ 'active-link': activeLink === '/about-us' }"
+           (click)="setActiveLink('/about-us')">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-info-square-rounded">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 9h.01"/>
+            <path d="M11 12h1v4h1"/>
+            <path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9s-9 -1.8 -9 -9s1.8 -9 9 -9z"/>
+          </svg>
+          درباره ما
+        </a>
       </li>
     </ul>
 

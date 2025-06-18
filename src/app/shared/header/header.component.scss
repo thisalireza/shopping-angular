@@ -29,6 +29,53 @@
   box-shadow: none;
 }
 
+.basket-items--count{
+  background: #ef4056;
+  color: #ffffff;
+  border-radius: 80px;
+  font-size: 12px;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 3px solid white;
+  position: absolute;
+  left: 190px;
+  padding-top: 2px;
+}
+
+.like-product--count{
+  background: #ef4056;
+  color: #ffffff;
+  border-radius: 80px;
+  font-size: 12px;
+  top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: 3px solid white;
+  position: absolute;
+  left: 248px;
+  padding-top: 2px;
+}
+
+.active-link {
+  color: rgb(223, 60, 60) !important;
+  border-bottom: 2px solid rgb(223, 60, 60);
+  border-radius: 1%;
+
+}
+
+.nav-link {
+  color: #505050;
+}
+
+
+
 #offer-with-timer-banner {
   background-color: rgb(223 60 60 / 1);
   height: 70px;

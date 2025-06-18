@@ -5,6 +5,7 @@ import {SearchComponent} from "../search/search.component";
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {DarkModeComponent} from "../dark-mode/dark-mode.component";
 import {CountdownTimerComponent} from "../countdown-timer/countdown-timer.component";
+import {NgClass} from "@angular/common";
 
 
 @Component({
@@ -15,36 +16,18 @@ import {CountdownTimerComponent} from "../countdown-timer/countdown-timer.compon
     RouterLink,
     RouterLinkActive,
     DarkModeComponent,
-    CountdownTimerComponent
+    CountdownTimerComponent,
+    NgClass
   ],
   templateUrl: './header.component.html',
   standalone: true,
   styleUrl: './header.component.scss'
 })
 export class MenuComponent {
-  router:Router =inject(Router)
-  showingScrollToTop: boolean = false;
+  activeLink: string = '/home'; // Default active link
 
-
-  // scroll to top, if onclick button
-  scrollToTop():void {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-
-//hide button scroll to top , showing when scroll down
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(event: Event): void {
-    const scrollTop:number =  document.documentElement.scrollTop;
-    this.showingScrollToTop = scrollTop > 700;
-  }
-
-
-  handleNavigateContactUs(){
-this.router.navigate(['contact-us']);
-
+  setActiveLink(link: string) {
+    this.activeLink = link;
   }
 
 }
