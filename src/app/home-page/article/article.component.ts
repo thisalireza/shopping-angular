@@ -1,16 +1,23 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TruncatePipe} from "../../pipes/truncate.pipe";
+import {RouterLink} from "@angular/router";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-article',
   imports: [
-    TruncatePipe
+    TruncatePipe,
+    RouterLink,
+    NgClass
   ],
   standalone: true,
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
 export class ArticleComponent {
+
+  @Input() showOnAllArticles: boolean = false;
+
   articles = [{
     id: 1,
     title: '۴ ویژگی جذاب مک‌بوک ایر M4 که آن را بی‌رقیب می‌کند',
@@ -23,7 +30,7 @@ export class ArticleComponent {
       " اسفند ۱۴۰۳ | ۰۸:۰۱",
     writer: "admin",
     imageURL:
-      'https://www.digikala.com/mag/wp-content/uploads/2025/03/MacBook-Air-M4-00-min.jpg',
+      './assets/images/blogs/MacBook-Air-M4-00-min.webp',
     slug: 'four-features-macbook-air-m4',
   },
     {
@@ -38,7 +45,7 @@ export class ArticleComponent {
         " اردیبهشت ۱۴۰۴ | ۱۷:۰۰",
       writer: "admin",
       imageURL:
-        'https://www.digikala.com/mag/wp-content/uploads/2025/05/1_cropped-1.webp',
+        './assets/images/blogs/1_cropped-1.webp',
       slug: 'huawei-matebook-fold-ultimate-launched',
     },
     {
@@ -51,8 +58,9 @@ export class ArticleComponent {
         " اسفند ۱۴۰۳ | ۲۰:۰۰",
       writer: "admin",
       imageURL:
-        'https://www.digikala.com/mag/wp-content/uploads/2025/02/Macbook-M5-Pro-what-we-know-00.jpg',
+        './assets/images/blogs/Macbook-M5-Pro-what-we-know-00.webp',
       slug: 'all-we-know-about-macbook-m5-pro',
     },
   ]
+
 }

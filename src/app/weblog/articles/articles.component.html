@@ -1,1 +1,26 @@
-<p>articles works!</p>
+<div class="container py-5">
+  <h1 class="fw-bold fs-24 text-center pb-2">آخرین مقالات تخصصی</h1>
+
+  <div class="d-flex justify-content-between gap-2">
+    <section class="main-section--articles rounded-6 p-4  w-75">
+      <app-article
+        [showOnAllArticles]="true"
+      ></app-article>
+
+
+    </section>
+
+    <section class="aside-section--articles rounded-6 p-4 w-25">
+      <div>
+        <span class="fw-bold">دسته بندی</span>
+      </div>
+
+      <div>
+        <span class="fw-bold">برچسب ها</span>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+

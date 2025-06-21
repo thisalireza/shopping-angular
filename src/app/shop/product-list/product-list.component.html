@@ -1,12 +1,34 @@
 <div class="container">
   <section class="py-5">
-    <h4 class="fw-bold fs-22 text-center pb-3" >محصولات ({{products.length}}) </h4>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/articles">همه ی محصولات
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+    </button>
+
+      <h4 class="fw-bold fs-22 text-center pb-3" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M3 21l18 0"/>
+          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
+          <path d="M5 21l0 -10.15"/>
+          <path d="M19 21l0 -10.15"/>
+          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
+        </svg>
+        آخرین محصولات
+        ({{products.length}}) </h4>
+    </div>
+
+
+
     <div class="row row-cols-2 row-cols-md-4 g-4 ">
       @for (prod of products; track prod; let i = $index) {
-        <div class="col rounded-3  card-product">
+        <div class="col rounded-6  card-product" routerLink="/products/:id">
           <div class="card h-100 ">
             <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"
-              class="card-img-top rounded-3" alt="Skyscrapers"/>
+              class="card-img-top rounded-6" alt="Skyscrapers"/>
             <div class="card-body py-0">
               <h3 class="card-title text-center fw-bold" lang="en_US">{{prod.name}}</h3>
               <div class="pt-2">

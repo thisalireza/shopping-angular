@@ -1,0 +1,133 @@
+#inner-product-main--section {
+  background-color: #fff;
+
+}
+
+.inner-product-top--breadcrumb{
+  text-align: right;
+}
+
+.inner-product-main-image{
+  width: 300px;
+}
+
+.inner-product--gallery{
+  width: 95px;
+  border: 1px solid #e0e0e2;
+}
+
+
+.card-navbar--icon {
+  background-color: transparent;
+  border: 1px solid #e0e0e2;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #505050;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-product-main--title{
+  border-bottom: 1px solid #e0e0e2;
+}
+
+.inner-product--inner-div{
+  border: 1px solid #e0e0e2;
+}
+
+
+.inner-product-add-to-card--button{
+  max-height: 48px;
+  height: 60px;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, .03);
+  color: #efefef;
+  position: relative;
+  text-align: center;
+  background-color: #DF3C3C;
+  transition: all .5s;
+}
+
+.inner-product-add-to-card--button:hover , .inner-product-out-of-stock--button:hover{
+  transform: scale(1.1);
+}
+
+.inner-product-out-of-stock--button{
+  max-height: 48px;
+  height: 60px;
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, .03);
+  color: #efefef;
+  position: relative;
+  text-align: center;
+  background-color: #9a9a9a;
+  transition: all .5s;
+}
+
+.inner-product-cart-item--input{
+  display: block !important;
+  border: 0;
+  background: transparent;
+  font-size: 17px;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.inner-product-cart-item--value{
+  border: 1px solid #e0e0e2;
+  border-radius: 20px;
+}
+
+
+.inner-product-selector__item{
+  border: 1px solid #e0e0e2;
+}
+
+.inner-product-selector--color{
+  background: #ccc;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 8px;
+  border: 1px solid #dcdcdc;
+}
+
+.inner-product-selector--active_action{
+  border-color: #DF3C3C;
+  box-shadow: 0 0 0 8px rgba(255, 152, 1, 0);
+  transition: all .4s ease-in-out;
+}
+
+.inner-product-property--info{
+  direction: rtl;
+}
+
+.inner-product-out-of-stock--text{
+  background-color: #F5F5F5;
+}
+
+
+ .km-title:before {
+  content: '';
+  display: block;
+  z-index: 0;
+  width: 100%;
+  height: 1px;
+  background: #969696;
+  position: absolute;
+  top: 33%;
+  transform: translateY(-50%);
+  left: 0;
+
+}

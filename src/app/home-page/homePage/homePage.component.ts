@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {MdbCarouselModule,} from "mdb-angular-ui-kit/carousel";
-import {ProductListComponent} from "../../shopping/product-list/product-list.component";
+import {ProductListComponent} from "../../shop/product-list/product-list.component";
 import {QuestionAnswerComponent} from "../question-answer/question-answer.component";
 import {ArticleComponent} from "../article/article.component";
-import {CategoryComponent} from "../../shopping/category/category.component";
+import {CategoryComponent} from "../../shop/category/category.component";
 import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component";
 
 

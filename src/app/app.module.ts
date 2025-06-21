@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {Directive, ElementRef, HostListener, NgModule, OnInit, Renderer2} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 
@@ -27,12 +27,43 @@ import {HomePageComponent} from "./home-page/homePage/homePage.component";
 
 // Initialization for ES Users
 import { Collapse,initMDB } from 'mdb-ui-kit';
-import {ProductListComponent} from "./shopping/product-list/product-list.component";
+import {ProductListComponent} from "./shop/product-list/product-list.component";
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 
 initMDB({ Collapse });
+
+// @Directive({
+//   selector: 'img',
+//   standalone: true
+// })
+// export class ImageLoadDirective implements OnInit {
+//   constructor(private el: ElementRef,private renderer: Renderer2) {
+//     const supports = 'loading' in HTMLImageElement.prototype;
+//     if (supports) {
+//       this.el.nativeElement.setAttribute('loading', 'lazy');
+//       console.log("exec");
+//       debugger;
+//     }
+//     else {
+//       console.log("fall back");
+//       debugger;
+//     }
+//   }
+//
+//   @HostListener('load')
+//   onLoad(){
+//     this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
+//
+//   }
+//
+//   ngOnInit() {
+//     this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
+//     debugger;
+//     this.renderer.setStyle(this.el.nativeElement, 'transition', 'opacity 0.25s ease-in');
+//   }
+// }
 
 
 @NgModule({

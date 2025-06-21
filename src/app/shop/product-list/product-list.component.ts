@@ -1,21 +1,28 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {NgClass, NgIf, NgStyle} from "@angular/common";
-
+import {RouterLink} from "@angular/router";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-product-list',
   imports: [
     NgStyle,
     NgIf,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './product-list.component.html',
   standalone: true,
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
+  constructor(private route:Router) { }
+  goToProductInfo(item){
+    this.route.navigate(['/products/info'], {queryParams:{id:item.id, title:item.title}});
+  }
+
+
   addToCard: number = 0;
   product = {}
-
   products = [
     {
       id: 1,
@@ -322,6 +329,8 @@ export class ProductListComponent {
 
   addToCart: number[] = new Array(this.products.length).fill(0);
 
+
+  productUrlAddress:string=this.products[0].slug;
 
   addCardValue(index: number): void {
     const product = this.products[index];

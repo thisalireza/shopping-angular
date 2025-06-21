@@ -14,7 +14,7 @@ export const routes :Routes =[
     component: ContactUsComponent,
   },
   {
-    path:'shopping',
+    path:'shop',
     component: ContactUsComponent,
   },
   {
