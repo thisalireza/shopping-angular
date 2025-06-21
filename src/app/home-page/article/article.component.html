@@ -1,22 +1,44 @@
+<!-- article.component.html -->
 <div class="py-5">
   <div class="d-flex justify-content-between align-items-start">
-    @if (!showOnAllArticles){
-      <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/articles">همه ی مقالات
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
+    @if (!showOnAllArticles) {
+      <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/articles">
+        همه ی مقالات
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M15 6l-6 6l6 6"/>
+        </svg>
       </button>
-
       <h5 class="fs-22 fw-bold text-center pb-3">
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-books"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" /><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" /><path d="M5 8h4" /><path d="M9 16h4" /><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z" /><path d="M14 9l4 -1" /><path d="M16 16l3.923 -.98" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             class="icon icon-tabler icons-tabler-outline icon-tabler-books">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/>
+          <path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/>
+          <path d="M5 8h4"/>
+          <path d="M9 16h4"/>
+          <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"/>
+          <path d="M14 9l4 -1"/>
+          <path d="M16 16l3.923 -.98"/>
+        </svg>
         مقلات تخصصی
       </h5>
     }
-
   </div>
-  <div [ngClass]="{'row row-cols-1 row-cols-md-2 g-4' : showOnAllArticles , 'row row-cols-1 row-cols-md-3 g-4' : !showOnAllArticles}" >
+  <div [class]="containerClasses">
     @for (blog of articles; track blog; let i = $index) {
       <div class="col">
-        <div class="card h-100 card-article rounded-6">
-          <img [src]="blog.imageURL" class="card-img-top rounded-6" alt="blog"/>
+        <div class="card h-100 card-article rounded-6 cursor-pointer"
+             (click)="onArticleClick(blog)">
+          <div class="position-relative">
+            <img [src]="blog.imageURL" class="card-img-top rounded-6" alt="blog"/>
+            <div class="category-tag position-absolute top-0 end-0 bg-danger text-white px-2 py-1 rounded-3 text-nowrap m-2">
+              {{ blog.category }}
+            </div>
+          </div>
           <div class="card-body">
             <h5 class="card-title fw-bold pb-2 fs-18">{{ blog.title | truncate :40 }}</h5>
             <p class="card-text fs-14">
@@ -37,15 +59,19 @@
             </div>
             <div>
               <small class="text-muted fs-14">{{ blog.time }}
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="17"  height="17"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-clock-hour-4"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M12 12l3 2" /><path d="M12 7v5" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="icon icon-tabler icons-tabler-outline icon-tabler-clock-hour-4">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+                  <path d="M12 12l3 2"/>
+                  <path d="M12 7v5"/>
+                </svg>
               </small>
-
             </div>
           </div>
         </div>
       </div>
-
     }
-
   </div>
 </div>

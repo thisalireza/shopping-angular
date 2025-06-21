@@ -1,0 +1,40 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <article class="article-detail">
+        <!-- نمایش وضعیت بارگذاری -->
+        <div *ngIf="isLoading" class="text-center py-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">در حال بارگذاری...</span>
+          </div>
+        </div>
+
+        <!-- نمایش پیام خطا -->
+        <div *ngIf="error" class="alert alert-danger text-center py-5">
+          {{ error }}
+        </div>
+
+        <!-- نمایش محتوای مقاله -->
+        <div *ngIf="article">
+          <h1 class="article-title mb-4">{{ article?.title }}</h1>
+
+          <div class="article-meta mb-4">
+            <span class="article-category bg-danger text-white px-2 py-1 rounded-3 text-nowrap mr-2">
+              {{ article?.category }}
+            </span>
+            <span class="article-time">{{ article?.time }}</span>
+            <span class="article-writer ml-2">{{ article?.writer }}</span>
+          </div>
+
+          <img [src]="article?.imageURL"
+               class="article-image mb-4"
+               alt="article"
+               *ngIf="article?.imageURL">
+
+          <div class="article-content" [innerHTML]="article?.description">
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

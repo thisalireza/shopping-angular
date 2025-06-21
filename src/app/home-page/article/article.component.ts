@@ -1,22 +1,22 @@
-import {Component, Input} from '@angular/core';
-import {TruncatePipe} from "../../pipes/truncate.pipe";
-import {RouterLink} from "@angular/router";
-import {NgClass} from "@angular/common";
+// article.component.ts
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TruncatePipe } from "../../pipes/truncate.pipe";
+import { NgClass } from "@angular/common";
 
 @Component({
   selector: 'app-article',
+  standalone: true,
   imports: [
     TruncatePipe,
-    RouterLink,
     NgClass
   ],
-  standalone: true,
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
-export class ArticleComponent {
-
+export class ArticleComponent implements OnInit {
   @Input() showOnAllArticles: boolean = false;
+
 
   articles = [{
     id: 1,
@@ -61,6 +61,18 @@ export class ArticleComponent {
         './assets/images/blogs/Macbook-M5-Pro-what-we-know-00.webp',
       slug: 'all-we-know-about-macbook-m5-pro',
     },
-  ]
+  ];
+  constructor(private router: Router) {}
 
+  get containerClasses(): string {
+    return `row row-cols-1 ${this.showOnAllArticles ? 'row-cols-md-2' : 'row-cols-md-3'} g-4`;
+  }
+
+  onArticleClick(article: any) {
+    this.router.navigate(['/articles', article.slug]);
+  }
+
+  ngOnInit() {
+
+  }
 }

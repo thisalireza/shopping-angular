@@ -15,6 +15,7 @@ import {LenovoComponent} from "./shop/categories/lenovo/lenovo.component";
 import {HpComponent} from "./shop/categories/hp/hp.component";
 import {AsusComponent} from "./shop/categories/asus/asus.component";
 import {AcerComponent} from "./shop/categories/acer/acer.component";
+import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -32,11 +33,14 @@ export const routes: Routes = [
   { path: 'account', component: AccountComponent },
   { path: 'signIn', component: SigninComponent },
   { path: 'articles', component: ArticlesComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'articles/:slug', component: ArticleDetailComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'top'
+  })],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
