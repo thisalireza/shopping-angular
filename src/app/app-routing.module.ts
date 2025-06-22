@@ -18,23 +18,23 @@ import {AcerComponent} from "./shop/categories/acer/acer.component";
 import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomePageComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'contact-us', component: ContactUsComponent },
-  { path: 'shop', component: ShoppingComponent },
-  {path:'products/:id', component:InnerProductComponent},
-  {path:'category/apple', component:AppleComponent},
-  {path:'category/acer', component:AcerComponent},
-  {path:'category/asus', component:AsusComponent},
-  {path:'category/hp', component:HpComponent},
-  {path:'category/lenovo', component:LenovoComponent},
-  {path:'category/msi', component:MsiComponent},
-  { path: 'account', component: AccountComponent },
-  { path: 'signIn', component: SigninComponent },
-  { path: 'articles', component: ArticlesComponent },
-  { path: 'articles/:slug', component: ArticleDetailComponent },
-  { path: '**', component: PageNotFoundComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomePageComponent, data: {breadcrumb: 'خانه'}},
+  {path: 'about-us', component: AboutUsComponent, data: {breadcrumb: 'درباره ما'}},
+  {path: 'contact-us', component: ContactUsComponent, data: {breadcrumb: 'تماس با ما'}},
+  {path: 'shop', component: ShoppingComponent, data: {breadcrumb: 'Shopping'}},
+  {path: 'products/:id', component: InnerProductComponent, data: {breadcrumb: 'Product Details'}},
+  {path: 'category/apple', component: AppleComponent , data: {breadcrumb: 'اپل'}},
+  {path: 'category/acer', component: AcerComponent , data: {breadcrumb: 'ایسر'}},
+  {path: 'category/asus', component: AsusComponent , data: {breadcrumb: 'ایسوس'}},
+  {path: 'category/hp', component: HpComponent , data: {breadcrumb: 'اچ پی'}},
+  {path: 'category/lenovo', component: LenovoComponent , data: {breadcrumb: 'لنوو'}},
+  {path: 'category/msi', component: MsiComponent , data: {breadcrumb: 'ام اس آی'}},
+  {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'}},
+  {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},
+  {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'}},
+  {path: 'articles/:slug', component: ArticleDetailComponent, data: {breadcrumb: 'مقالات'}},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 @NgModule({
@@ -43,4 +43,5 @@ export const routes: Routes = [
   })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

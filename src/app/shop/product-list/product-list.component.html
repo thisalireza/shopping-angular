@@ -1,5 +1,18 @@
+
+<!--<div class="product-card">-->
+<!--  <h2>{{ myProduct.name }}</h2>-->
+<!--  <p>Price: ${{ myProduct.price }}</p>-->
+
+<!--  <app-like-button-->
+<!--    [productId]="myProduct.id"-->
+<!--    (likeChange)="handleLikeChange()">-->
+<!--  </app-like-button>-->
+<!--</div>-->
+
 <div class="container">
   <section class="py-5">
+
+
 
     <div class="d-flex justify-content-between align-items-center">
       <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/articles">همه ی محصولات
@@ -25,8 +38,22 @@
 
     <div class="row row-cols-2 row-cols-md-4 g-4 ">
       @for (prod of products; track prod; let i = $index) {
-        <div class="col rounded-6  card-product" routerLink="/products/:id">
-          <div class="card h-100 ">
+        <div class="col rounded-6  card-product position-relative" >
+          <!--            like button-->
+          <div class="mx-2 card-navbar--icon position-absolute">
+            <svg #likeIcon (click)="toggleLike(i)" [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+            </svg>
+
+          </div>
+          <div class="card h-100 " routerLink="/products/:id">
+
+
+
+
             <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"
               class="card-img-top rounded-6" alt="Skyscrapers"/>
             <div class="card-body py-0">
@@ -44,7 +71,6 @@
               </div>
             </div>
             <div class="card-footer text-center">
-
               @if (prod.is_in_inventory) {
                 <p >موجود در انبار: {{prod.items_left}}  </p>
                 <del class="text-danger"> {{"قیمت "+ prod.price + " تومن "}}</del>

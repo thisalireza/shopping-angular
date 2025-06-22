@@ -1,4 +1,4 @@
-// article.service.ts
+// article-list.service.ts
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 

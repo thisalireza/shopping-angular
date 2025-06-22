@@ -1,15 +1,16 @@
-// article.component.ts
+// article-list.component.ts
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { TruncatePipe } from "../../pipes/truncate.pipe";
 import { NgClass } from "@angular/common";
 
 @Component({
-  selector: 'app-article',
+  selector: 'app-article-list',
   standalone: true,
   imports: [
     TruncatePipe,
-    NgClass
+    NgClass,
+    RouterLink
   ],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'

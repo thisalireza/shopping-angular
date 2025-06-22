@@ -1,0 +1,14 @@
+<!-- breadcrumb.component.html -->
+<nav aria-label="breadcrumb" class="container py-3">
+  <ol class="breadcrumb">
+    <li *ngFor="let breadcrumb of breadcrumbs$ | async; let last = last">
+      <a [routerLink]="breadcrumb.url"
+         [class.disabled]="last"
+         [queryParams]="params">
+        {{ breadcrumb.label }} / {{ last ? breadcrumb.params?.slug : breadcrumb.label }}
+      </a>
+      <span *ngIf="!last"> → </span>
+    </li>
+  </ol>
+</nav>
+

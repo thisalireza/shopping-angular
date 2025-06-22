@@ -1,31 +1,35 @@
-import {Component, Input} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, viewChild} from '@angular/core';
 import {NgClass, NgIf, NgStyle} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import { Router } from '@angular/router';
+import {LikeService} from "../../services/like.service";
+import {style} from "@angular/animations";
 @Component({
   selector: 'app-product-list',
   imports: [
     NgStyle,
     NgIf,
     NgClass,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './product-list.component.html',
   standalone: true,
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  constructor(private route:Router) { }
+  constructor(private route:Router , public likeService: LikeService) { }
   goToProductInfo(item){
     this.route.navigate(['/products/info'], {queryParams:{id:item.id, title:item.title}});
   }
+
+
 
 
   addToCard: number = 0;
   product = {}
   products = [
     {
-      id: 1,
+      id: 0,
       name: 'macbook air M2',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -43,7 +47,7 @@ export class ProductListComponent {
       slug: 'nike-react-infinity-run-flyknit',
     },
     {
-      id: 2,
+      id: 1,
       name: 'macbook pro M1',
       description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
@@ -168,8 +172,6 @@ export class ProductListComponent {
         'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/e9ea450d-7090-4309-5038-92acb8b64000/height=364,width=364',
       slug: 'nike-mercurial-vapor-13-elite-tech-craft-fg',
     },
-
-
     {
       id: 26,
       name: 'macbook air 2011 i5',
@@ -325,6 +327,19 @@ export class ProductListComponent {
   // onNameChange(event:any){
   //   this.name = event.target.value ;
   // }
+
+  likes: boolean[] = new Array(this.products.length).fill(false); // like & unlike , so must boolean type.
+
+  toggleLike(index: number): void {
+    const product = this.products[index];
+    const isLiked = !this.likeService.getProductLike(product.id);
+    this.likeService.setProductLike(product.id, isLiked);
+  }
+
+
+
+
+
 
 
   addToCart: number[] = new Array(this.products.length).fill(0);

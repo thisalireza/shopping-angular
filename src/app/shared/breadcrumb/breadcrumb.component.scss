@@ -1,0 +1,36 @@
+/* breadcrumb.component.scss */
+.breadcrumb {
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    &:hover:not(.disabled) {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
+
+  .disabled {
+    color: #6c757d;
+    cursor: default;
+  }
+
+  span {
+    color: #6c757d;
+    margin: 0 0.25rem;
+  }
+}

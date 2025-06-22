@@ -1,4 +1,4 @@
-// article-detail.component.ts
+// article-list-detail.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArticleService } from '../article.service';
@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-article-detail',
+  selector: 'app-article-list-detail',
   standalone: true,
   imports: [
     NgClass,
@@ -42,7 +42,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
         error: (err) => {
           this.error = 'خطا در دریافت مقاله';
           this.isLoading = false;
-          console.error('Error fetching article:', err);
+          console.error('Error fetching article-list:', err);
         }
       });
     });

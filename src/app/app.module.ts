@@ -31,71 +31,70 @@ import {ProductListComponent} from "./shop/product-list/product-list.component";
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
+import {LazyLoadDirective} from "./Directives/lazy-load.directive";
+import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 
 initMDB({ Collapse });
 
-// @Directive({
-//   selector: 'img',
-//   standalone: true
-// })
-// export class ImageLoadDirective implements OnInit {
-//   constructor(private el: ElementRef,private renderer: Renderer2) {
-//     const supports = 'loading' in HTMLImageElement.prototype;
-//     if (supports) {
-//       this.el.nativeElement.setAttribute('loading', 'lazy');
-//       console.log("exec");
-//       debugger;
-//     }
-//     else {
-//       console.log("fall back");
-//       debugger;
-//     }
-//   }
-//
-//   @HostListener('load')
-//   onLoad(){
-//     this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
-//
-//   }
-//
-//   ngOnInit() {
-//     this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
-//     debugger;
-//     this.renderer.setStyle(this.el.nativeElement, 'transition', 'opacity 0.25s ease-in');
-//   }
-// }
+@Directive({
+  selector: 'img',
+  standalone: true
+})
+export class ImageLoadDirective implements OnInit {
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) {
+    const supports = 'loading' in HTMLImageElement.prototype;
+    if (supports) {
+      this.renderer.setAttribute(this.el.nativeElement, 'loading', 'lazy');
+    }
+  }
+
+  @HostListener('load')
+  onLoad() {
+    this.renderer.setStyle(this.el.nativeElement, 'opacity', '1');
+  }
+
+  ngOnInit() {
+    this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
+    this.renderer.setStyle(this.el.nativeElement, 'transition', 'opacity 0.25s ease-in');
+  }
+}
 
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MdbAccordionModule,
-        MdbCarouselModule,
-        MdbCheckboxModule,
-        MdbCollapseModule,
-        MdbDropdownModule,
-        MdbFormsModule,
-        MdbModalModule,
-        MdbPopoverModule,
-        MdbRadioModule,
-        MdbRangeModule,
-        MdbRippleModule,
-        MdbScrollspyModule,
-        MdbTabsModule,
-        MdbTooltipModule,
-        MdbValidationModule,
-        MenuComponent,
-        FooterComponent,
-        HomePageComponent,
-        ProductListComponent,
-        RouterOutlet,
-        BackToTopComponent,
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MdbAccordionModule,
+    MdbCarouselModule,
+    MdbCheckboxModule,
+    MdbCollapseModule,
+    MdbDropdownModule,
+    MdbFormsModule,
+    MdbModalModule,
+    MdbPopoverModule,
+    MdbRadioModule,
+    MdbRangeModule,
+    MdbRippleModule,
+    MdbScrollspyModule,
+    MdbTabsModule,
+    MdbTooltipModule,
+    MdbValidationModule,
+    MenuComponent,
+    FooterComponent,
+    HomePageComponent,
+    ProductListComponent,
+    RouterOutlet,
+    BackToTopComponent,
+    LazyLoadDirective,
+    BreadcrumbComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

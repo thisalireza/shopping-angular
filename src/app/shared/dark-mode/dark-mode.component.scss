@@ -93,7 +93,7 @@ body {
   background-color: var(--foreground-color);
 }
 
-.dark-mode .price-with-discount--text {
+.dark-mode .price-with-discount--text , .dark-mode .inner-product-cart-item--input {
   color: var(--text-color) !important;
 }
 
@@ -115,3 +115,16 @@ body {
   transition: all 0.5s;
 }
 
+
+.card-navbar--icon svg:hover , .search-icon svg:hover{
+  stroke: red !important;
+}
+
+#theme-switcher svg:hover {
+  fill: red !important;
+}
+
+.is-like{
+  fill:red !important;
+  stroke:red !important;
+}

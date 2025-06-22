@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {MdbCarouselModule,} from "mdb-angular-ui-kit/carousel";
 import {ProductListComponent} from "../../shop/product-list/product-list.component";
 import {QuestionAnswerComponent} from "../question-answer/question-answer.component";
-import {ArticleComponent} from "../article/article.component";
+import {ArticleComponent} from "../../weblog/article-list/article.component";
 import {CategoryComponent} from "../../shop/category/category.component";
 import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component";
 
@@ -21,7 +21,7 @@ import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component
   ],
   standalone: true,
     templateUrl: './homePage.component.html',
-    styleUrl: './homePage.component.scss'
+    styleUrl: './homePage.component.scss',
 })
 export class HomePageComponent {
 

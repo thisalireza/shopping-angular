@@ -1,40 +1,62 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <article class="article-detail">
-        <!-- نمایش وضعیت بارگذاری -->
-        <div *ngIf="isLoading" class="text-center py-5">
-          <div class="spinner-border text-primary" role="status">
-            <span class="sr-only">در حال بارگذاری...</span>
-          </div>
-        </div>
-
-        <!-- نمایش پیام خطا -->
-        <div *ngIf="error" class="alert alert-danger text-center py-5">
-          {{ error }}
-        </div>
-
-        <!-- نمایش محتوای مقاله -->
-        <div *ngIf="article">
-          <h1 class="article-title mb-4">{{ article?.title }}</h1>
-
-          <div class="article-meta mb-4">
-            <span class="article-category bg-danger text-white px-2 py-1 rounded-3 text-nowrap mr-2">
-              {{ article?.category }}
-            </span>
-            <span class="article-time">{{ article?.time }}</span>
-            <span class="article-writer ml-2">{{ article?.writer }}</span>
-          </div>
-
-          <img [src]="article?.imageURL"
-               class="article-image mb-4"
-               alt="article"
-               *ngIf="article?.imageURL">
-
-          <div class="article-content" [innerHTML]="article?.description">
-          </div>
-        </div>
-      </article>
+<div class="container pb-5">
+  <article class="article-detail p-5 rounded-6">
+    <!-- نمایش وضعیت بارگذاری -->
+    <div *ngIf="isLoading" class="text-center py-5 ">
+      <div class="spinner-border text-primary " role="status">
+        <span class="sr-only">در حال بارگذاری...</span>
+      </div>
     </div>
-  </div>
+
+    <!-- نمایش پیام خطا -->
+    <div *ngIf="error" class="alert alert-danger text-center py-5">
+      {{ error }}
+    </div>
+
+    <!-- نمایش محتوای مقاله -->
+    <div *ngIf="article">
+      <div class="d-flex justify-content-end pb-4">
+              <span class="article-category bg-danger text-white px-2 py-1 rounded-3 text-nowrap mr-2">
+        {{ article?.category }}
+      </span>
+      </div>
+
+      <h1 class="article-title mb-4">{{ article?.title }}</h1>
+      <div class="article-meta mb-4">
+        <div class="d-flex justify-content-between">
+          <div>
+            <span class="article-writer">{{ article?.writer }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                 stroke="#757575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5"/>
+              <path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z"/>
+            </svg>
+          </div>
+<div>
+  <span class="article-time">{{ article?.time }}</span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+       class="icon icon-tabler icons-tabler-outline icon-tabler-clock-hour-4">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"/>
+    <path d="M12 12l3 2"/>
+    <path d="M12 7v5"/>
+  </svg>
 </div>
+        </div>
+
+      </div>
+
+      <img [src]="article?.imageURL"
+           class="article-image mb-4 rounded-6"
+           alt="article"
+           *ngIf="article?.imageURL">
+
+      <p class="article-content text-right" [innerHTML]="article?.description">
+      </p>
+    </div>
+  </article>
+</div>
+

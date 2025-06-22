@@ -1,22 +1,40 @@
-<div class="container py-5">
-  <h1 class="fw-bold fs-24 text-center pb-2">آخرین مقالات تخصصی</h1>
+<div class="container pb-5">
+  <div class="d-flex justify-content-center pb-3">
+    <h1 class="fw-bold fs-24 text-center pe-1">آخرین مقالات تخصصی</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-books"><path _ngcontent-ng-c786442752="" stroke="none" d="M0 0h24v24H0z" fill="none"></path><path _ngcontent-ng-c786442752="" d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"></path><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"></path><path _ngcontent-ng-c786442752="" d="M5 8h4"></path><path d="M9 16h4"></path><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"></path><path d="M14 9l4 -1"></path><path  d="M16 16l3.923 -.98"></path></svg>
+  </div>
+
 
   <div class="d-flex justify-content-between gap-2">
     <section class="main-section--articles rounded-6 p-4  w-75">
-      <app-article
+      <app-article-list
         [showOnAllArticles]="true"
-      ></app-article>
+      ></app-article-list>
 
 
     </section>
 
     <section class="aside-section--articles rounded-6 p-4 w-25">
       <div>
-        <span class="fw-bold">دسته بندی</span>
+        <div class="d-flex justify-content-end align-items-center pb-3">
+          <span class="fw-bold aside-articles--title fs-18  pe-1">دسته بندی ها:</span>
+
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-category-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 4h6v6h-6z" /><path d="M4 14h6v6h-6z" /><path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /></svg>
+        </div>
+
+        @for (list of articles; track list; let i = $index) {
+          <a href="">
+          <h4 class="pb-2">
+            {{ list.category }}
+
+          </h4>
+          </a>
+        }
       </div>
 
-      <div>
-        <span class="fw-bold">برچسب ها</span>
+      <div class="d-flex justify-content-end align-items-center pb-3">
+        <span class="fw-bold fs-18  pe-1">برچسب ها:</span>
+        <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-tag"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M3 6v5.172a2 2 0 0 0 .586 1.414l7.71 7.71a2.41 2.41 0 0 0 3.408 0l5.592 -5.592a2.41 2.41 0 0 0 0 -3.408l-7.71 -7.71a2 2 0 0 0 -1.414 -.586h-5.172a3 3 0 0 0 -3 3z" /></svg>
       </div>
     </section>
 

@@ -6,6 +6,7 @@ import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {DarkModeComponent} from "../dark-mode/dark-mode.component";
 import {CountdownTimerComponent} from "../countdown-timer/countdown-timer.component";
 import {NgClass} from "@angular/common";
+import {LikeService} from "../../services/like.service";
 
 
 @Component({
@@ -24,10 +25,16 @@ import {NgClass} from "@angular/common";
   styleUrl: './header.component.scss'
 })
 export class MenuComponent {
+  constructor(public likeService: LikeService) {
+  }
   activeLink: string = '/home'; // Default active link
 
   setActiveLink(link: string) {
     this.activeLink = link;
+  }
+
+  getTotalLikes(): number {
+    return this.likeService.getTotalLikes();
   }
 
 }
