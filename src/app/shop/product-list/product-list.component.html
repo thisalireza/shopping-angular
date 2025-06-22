@@ -1,47 +1,43 @@
-
-<!--<div class="product-card">-->
-<!--  <h2>{{ myProduct.name }}</h2>-->
-<!--  <p>Price: ${{ myProduct.price }}</p>-->
-
-<!--  <app-like-button-->
-<!--    [productId]="myProduct.id"-->
-<!--    (likeChange)="handleLikeChange()">-->
-<!--  </app-like-button>-->
-<!--</div>-->
-
 <div class="container">
-  <section class="py-5">
+  <section>
+    @if (showAllProducts) {
+      <div class="d-flex justify-content-between align-items-center pt-5 pb-3">
+        <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/shop">همه ی محصولات
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 6l-6 6l6 6"/>
+          </svg>
+        </button>
+
+        <h4 class="fw-bold fs-22 text-center pb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 21l18 0"/>
+            <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
+            <path d="M5 21l0 -10.15"/>
+            <path d="M19 21l0 -10.15"/>
+            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
+          </svg>
+          آخرین محصولات
+          ({{ products.length }})
+        </h4>
+      </div>
+    }
 
 
 
-    <div class="d-flex justify-content-between align-items-center">
-      <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/articles">همه ی محصولات
-        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>
-    </button>
 
-      <h4 class="fw-bold fs-22 text-center pb-3" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-             class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M3 21l18 0"/>
-          <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"/>
-          <path d="M5 21l0 -10.15"/>
-          <path d="M19 21l0 -10.15"/>
-          <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"/>
-        </svg>
-        آخرین محصولات
-        ({{products.length}}) </h4>
-    </div>
-
-
-
-    <div class="row row-cols-2 row-cols-md-4 g-4 ">
+    <div [class]="containerClasses">
       @for (prod of products; track prod; let i = $index) {
-        <div class="col rounded-6  card-product position-relative" >
+        <div class="col rounded-6  card-product position-relative">
           <!--            like button-->
           <div class="mx-2 card-navbar--icon position-absolute">
-            <svg #likeIcon (click)="toggleLike(i)" [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            <svg #likeIcon (click)="toggleLike(i)" [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}"
+                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                  class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -52,45 +48,47 @@
           <div class="card h-100 " routerLink="/products/:id">
 
 
-
-
             <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"
-              class="card-img-top rounded-6" alt="Skyscrapers"/>
+                 class="card-img-top rounded-6" alt="Skyscrapers"/>
             <div class="card-body py-0">
-              <h3 class="card-title text-center fw-bold" lang="en_US">{{prod.name}}</h3>
+              <h3 class="card-title text-center fw-bold" lang="en_US">{{ prod.name }}</h3>
               <div class="pt-2">
-                <p class="text-center">رنگ: {{prod.color}}</p>
-              <p class="text-center" [ngStyle]="{
+                <p class="text-center">رنگ: {{ prod.color }}</p>
+                <p class="text-center" [ngStyle]="{
               fontWeight:'bold',
               color: prod.is_in_inventory ? 'green' : '#EE1F1F'
-              }" > {{prod.is_in_inventory
-                  ?  ""
-                  : "کالا موجود نمی باشد"
+              }"> {{
+                    prod.is_in_inventory
+                      ? ""
+                      : "کالا موجود نمی باشد"
                   }}
                 </p>
               </div>
             </div>
             <div class="card-footer text-center">
               @if (prod.is_in_inventory) {
-                <p >موجود در انبار: {{prod.items_left}}  </p>
-                <del class="text-danger"> {{"قیمت "+ prod.price + " تومن "}}</del>
-                <span class="text-success px-2">تخفیف: %  {{prod.discountPrice }}  </span>
+                <p>موجود در انبار: {{ prod.items_left }} </p>
+                <del class="text-danger"> {{ "قیمت " + prod.price + " تومن " }}</del>
+                <span class="text-success px-2">تخفیف: %  {{ prod.discountPrice }}  </span>
 
-                <span class="fw-bold price-with-discount--text"> قیمت با تخفیف: <span class="fw-bold price-with-discount--digit">{{(this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed()}}</span>   تومن     </span>
+                <span class="fw-bold price-with-discount--text"> قیمت با تخفیف: <span
+                  class="fw-bold price-with-discount--digit">{{ (this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed() }}</span>   تومن     </span>
 
-<!--                          <input (input)="onNameChange($event)">-->
+                <!--                          <input (input)="onNameChange($event)">-->
 
-              <div class="f-flex fa-align-center mt-2">
+                <div class="f-flex fa-align-center mt-2">
 
-                <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>
-                <span class="px-2"> {{ addToCart[i]  }} </span>
-                <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+</button>
-                <span class="ps-2">:تعداد</span> </div>
+                  <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>
+                  <span class="px-2"> {{ addToCart[i] }} </span>
+                  <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+
+                  </button>
+                  <span class="ps-2">:تعداد</span></div>
               }
 
 
             </div>
-            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold" [disabled]="!(products[i].items_left  > 0)" >خرید
+            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold"
+                    [disabled]="!(products[i].items_left  > 0)">خرید
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">

@@ -16,6 +16,7 @@ import {HpComponent} from "./shop/categories/hp/hp.component";
 import {AsusComponent} from "./shop/categories/asus/asus.component";
 import {AcerComponent} from "./shop/categories/acer/acer.component";
 import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
+import {LikedProductsComponent} from "./liked-products/liked-products.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -31,6 +32,7 @@ export const routes: Routes = [
   {path: 'category/lenovo', component: LenovoComponent , data: {breadcrumb: 'لنوو'}},
   {path: 'category/msi', component: MsiComponent , data: {breadcrumb: 'ام اس آی'}},
   {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'}},
+  {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},
   {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'}},
   {path: 'articles/:slug', component: ArticleDetailComponent, data: {breadcrumb: 'مقالات'}},

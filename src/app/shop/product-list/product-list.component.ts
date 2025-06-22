@@ -17,17 +17,37 @@ import {style} from "@angular/animations";
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-  constructor(private route:Router , public likeService: LikeService) { }
+  @Output() toggleLikeEvent = new EventEmitter<number>();
+  @Input() showAllProducts: boolean = true;
+
+
+
+  constructor(private route:Router , public likeService: LikeService) {
+    this.products = this.showAllProducts
+      ? this.likeService.getAllProducts()
+      : this.likeService.getLikedProducts();
+  }
+
+  handleToggleLike(index: number): void {
+    const product = this.products[index];
+    this.toggleLikeEvent.emit(product.id);
+    const isLiked = !this.likeService.getProductLike(product.id);
+    this.likeService.setProductLike(product.id, isLiked);
+  }
+
   goToProductInfo(item){
     this.route.navigate(['/products/info'], {queryParams:{id:item.id, title:item.title}});
   }
 
 
+  get containerClasses(): string {
+    return `row row-cols-2 ${this.showAllProducts ? 'row-cols-md-4 g-4' : ' row-cols-md-3 g-4'} g-4`;
+  }
 
 
   addToCard: number = 0;
   product = {}
-  products = [
+  @Input() products = [
     {
       id: 0,
       name: 'macbook air M2',
@@ -335,6 +355,7 @@ export class ProductListComponent {
     const isLiked = !this.likeService.getProductLike(product.id);
     this.likeService.setProductLike(product.id, isLiked);
   }
+
 
 
 
