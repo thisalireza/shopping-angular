@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Location} from '@angular/common'
 @Component({
   selector: 'app-signin',
   standalone: true,
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './signin.component.scss'
 })
 export class SigninComponent {
+  constructor( private location:Location) { }
+
+  getBack():void{
+    this.location.back();
+  }
+
 
 }

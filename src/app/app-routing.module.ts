@@ -17,6 +17,7 @@ import {AsusComponent} from "./shop/categories/asus/asus.component";
 import {AcerComponent} from "./shop/categories/acer/acer.component";
 import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
 import {LikedProductsComponent} from "./liked-products/liked-products.component";
+import {CartComponent} from "./shop/cart/cart.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent, data: {breadcrumb: 'درباره ما'}},
   {path: 'contact-us', component: ContactUsComponent, data: {breadcrumb: 'تماس با ما'}},
   {path: 'shop', component: ShoppingComponent, data: {breadcrumb: 'Shopping'}},
+  {path: 'cart', component: CartComponent, data: {breadcrumb: 'سبد خرید'}},
   {path: 'products/:id', component: InnerProductComponent, data: {breadcrumb: 'Product Details'}},
   {path: 'category/apple', component: AppleComponent , data: {breadcrumb: 'اپل'}},
   {path: 'category/acer', component: AcerComponent , data: {breadcrumb: 'ایسر'}},

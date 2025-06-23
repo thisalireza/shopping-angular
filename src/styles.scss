@@ -98,7 +98,7 @@
 
 
 //set persian font
-h1,h2,h3,h4,h5,h6,p,span,li,ul,ol,a,text,button,input,del,small{
+h1,h2,h3,h4,h5,h6,p,span,li,ul,ol,a,text,button,input,del,small,label{
   font-family: "Yekan Bakh", sans-serif !important;
   font-size:16px;font-style:normal;
   -webkit-font-smoothing: antialiased;
@@ -233,7 +233,7 @@ ol, ul , li {
   padding: 0;
 }
 
-.text-right {
+.text-right  {
   text-align: right;
 }
 

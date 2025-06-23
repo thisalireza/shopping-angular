@@ -45,60 +45,79 @@
             </svg>
 
           </div>
-          <div class="card h-100 " routerLink="/products/:id">
+          <div class="card h-100 rounded-6" routerLink="/products/:id">
 
 
             <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"
                  class="card-img-top rounded-6" alt="Skyscrapers"/>
             <div class="card-body py-0">
               <h3 class="card-title text-center fw-bold" lang="en_US">{{ prod.name }}</h3>
-              <div class="pt-2">
-                <p class="text-center">رنگ: {{ prod.color }}</p>
-                <p class="text-center" [ngStyle]="{
-              fontWeight:'bold',
-              color: prod.is_in_inventory ? 'green' : '#EE1F1F'
-              }"> {{
-                    prod.is_in_inventory
-                      ? ""
-                      : "کالا موجود نمی باشد"
-                  }}
-                </p>
+              <div class="">
+                @if (prod.is_in_inventory) {
+                <p class="text-center"> {{ prod.color }}</p>
+                }
               </div>
             </div>
-            <div class="card-footer text-center">
+            <div class="card-footer text-center py-2">
+              <p class="text-center m-0" [ngStyle]="{
+              fontWeight:'bold',
+              color: prod.is_in_inventory ? 'green' : '#a1a3a8'
+              }"> {{
+                  prod.is_in_inventory
+                    ? ""
+                    : "ناموجود"
+                }}
+              </p>
               @if (prod.is_in_inventory) {
-                <p>موجود در انبار: {{ prod.items_left }} </p>
-                <del class="text-danger"> {{ "قیمت " + prod.price + " تومن " }}</del>
-                <span class="text-success px-2">تخفیف: %  {{ prod.discountPrice }}  </span>
+                <p class="text-danger fs-12">
+                  تنها {{ prod.items_left }} عدد در انبار باقی مانده
+                </p>
 
-                <span class="fw-bold price-with-discount--text"> قیمت با تخفیف: <span
-                  class="fw-bold price-with-discount--digit">{{ (this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed() }}</span>   تومن     </span>
+                <div class="d-flex justify-content-between align-items-center">
+
+                  <div>
+                    <img src="./assets/images/toman.svg" alt="toman">
+
+                    <span
+                      class="fw-bold price-with-discount--digit ps-1">{{ (this.prod.price - (this.prod.price * this.prod.discountPrice) / 100).toFixed() | currency:' ':'symbol':'1.0-3'}}
+                    </span>
+                  </div>
+                  <div>
+                    <span class="product-discount-price--badge rounded-3 px-2 fw-bold">  {{ prod.discountPrice}}% </span>
+                  </div>
+                </div>
+
+                <div class="d-flex pt-1">
+                  <del class=" fs-14" style="color:#c0c2c5;"> {{prod.price | currency:' ':'symbol':'1.0-3'}}</del>
+                </div>
+
 
                 <!--                          <input (input)="onNameChange($event)">-->
 
-                <div class="f-flex fa-align-center mt-2">
+                  <!--                <div class="f-flex fa-align-center mt-2">-->
 
-                  <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>
-                  <span class="px-2"> {{ addToCart[i] }} </span>
-                  <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+
-                  </button>
-                  <span class="ps-2">:تعداد</span></div>
+                  <!--                  <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>-->
+                  <!--                  <span class="px-2"> {{ addToCart[i] }} </span>-->
+                  <!--                  <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+-->
+                  <!--                  </button>-->
+                  <!--                  <span class="ps-2">:تعداد</span></div>-->
+
               }
 
 
             </div>
-            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold"
-                    [disabled]="!(products[i].items_left  > 0)">خرید
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                   class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>
-                <path d="M17 17h-11v-14h-2"/>
-                <path d="M6 5l14 1l-1 7h-13"/>
-              </svg>
-            </button>
+            <!--            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold"-->
+            <!--                    [disabled]="!(products[i].items_left  > 0)">خرید-->
+            <!--              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"-->
+            <!--                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"-->
+            <!--                   class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">-->
+            <!--                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>-->
+            <!--                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>-->
+            <!--                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>-->
+            <!--                <path d="M17 17h-11v-14h-2"/>-->
+            <!--                <path d="M6 5l14 1l-1 7h-13"/>-->
+            <!--              </svg>-->
+            <!--            </button>-->
           </div>
         </div>
       }

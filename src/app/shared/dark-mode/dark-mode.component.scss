@@ -88,7 +88,7 @@ body {
   color: var(--bold-text-color) !important;
 }
 
-.dark-mode .copyright-footer-section , .dark-mode .card-article , .dark-mode .card{
+.dark-mode .copyright-footer-section , .dark-mode .card-article , .dark-mode .card {
   transition: all .5s;
   background-color: var(--foreground-color);
 }
@@ -127,4 +127,9 @@ body {
 .is-like{
   fill:red !important;
   stroke:red !important;
+}
+
+
+.dark-mode .sign-in-input{
+  background-color: var(--background-color) !important;
 }
