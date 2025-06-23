@@ -34,6 +34,8 @@
   border: 1px solid #e0e0e2;
   background: #F2F2F2;
   text-align: left;
+  direction: ltr;
+  unicode-bidi: isolate !important;
 }
 
 
@@ -59,4 +61,18 @@ color: #DF3C3C !important;
 
 .sign-in-button:hover{
 transform: scale(1.1);
+}
+
+
+
+/* Remove spinner buttons for Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove spinner buttons for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

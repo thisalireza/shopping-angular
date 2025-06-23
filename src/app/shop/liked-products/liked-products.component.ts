@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
-import {ProductListComponent} from "../shop/product-list/product-list.component";
-import {LikeService} from "../services/like.service";
+import {ProductListComponent} from "../product-list/product-list.component";
+import {LikeService} from "../../services/like.service";
 import {NgIf} from "@angular/common";
 
 @Component({

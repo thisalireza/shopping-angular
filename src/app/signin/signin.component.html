@@ -15,12 +15,25 @@
       <h6 class="sign-in-title fs-14 pb-3">شماره موبایل خود را وارد کنید
       </h6>
       <div class="pt-2">
-        <label class="sign-in-label pb-2 fs-14">موبایل:</label>
-        <input class="sign-in-input rounded-3 w-100 px-3 py-3" name="phoneNumber" type="text" inputmode="numeric" minlength="11" maxlength="11" pattern="[0-9]" placeholder="*********09">
-        <p class=" fs-12 pt-4 pb-2">ورود شما به معنای پذیرش شرایط  این سایت و قوانین حریم‌خصوصی است</p>
+        <label class="sign-in-label pb-2 fs-14"><svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>موبایل:</label>
+        <input class="sign-in-input rounded-3 w-100 px-3 py-3" name="phoneNumber"
+               type="number"
+               numbersOnly
+               maxlength="11"
+               minlength="11"
+               value="09"
+               step="1"
+               placeholder="09*********"
+               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+               >
+
+
+        <p class=" fs-12 pt-4 pb-2">
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>          ورود شما به معنای پذیرش شرایط  این سایت و قوانین حریم‌خصوصی است
+        </p>
       </div>
 
-      <button class="btn sign-in-button w-100 rounded-3 py-3 fw-bold fs-16" type="submit">
+      <button class="btn sign-in-button w-100 rounded-3 py-3 fw-bold fs-16" type="submit" >
         ادامه
         <svg  xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path  d="M15 6l-6 6l6 6"></path></svg>
 
