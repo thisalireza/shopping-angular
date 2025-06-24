@@ -20,7 +20,7 @@ import {CartComponent} from "./shop/cart/cart.component";
 import {LikedProductsComponent} from "./shop/liked-products/liked-products.component";
 
 export const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full' , data: {breadcrumb: 'خانه'}},
   {path: 'home', component: HomePageComponent, data: {breadcrumb: 'خانه'}},
   {path: 'about-us', component: AboutUsComponent, data: {breadcrumb: 'درباره ما'}},
   {path: 'contact-us', component: ContactUsComponent, data: {breadcrumb: 'تماس با ما'}},

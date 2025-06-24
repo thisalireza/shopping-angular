@@ -35,6 +35,7 @@ import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 import {LazyLoadDirective} from "./Directives/lazy-load.directive";
 import {NewProductsCarouselComponent} from "./shop/new-products-carousel/new-products-carousel.component";
 import { CaptchaComponent } from './shared/captcha/captcha.component';
+import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 
 
 initMDB({Collapse});
@@ -104,6 +105,7 @@ export class ImageLoadDirective implements OnInit {
     RecaptchaModule,
     RecaptchaFormsModule,
     CaptchaComponent,
+    BreadcrumbComponent,
   ],
   providers: [{
     provide: RECAPTCHA_SETTINGS,
