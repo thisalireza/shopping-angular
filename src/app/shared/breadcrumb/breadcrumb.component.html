@@ -1,14 +1,12 @@
-<!-- breadcrumb.component.html -->
-<nav aria-label="breadcrumb" class="container py-3">
+<nav class="breadcrumb-container container" *ngIf="router.url !== '/home'">
   <ol class="breadcrumb">
-    <li *ngFor="let breadcrumb of breadcrumbs$ | async; let last = last">
-      <a [routerLink]="breadcrumb.url"
-         [class.disabled]="last"
-         [queryParams]="params">
-        {{ breadcrumb.label }} / {{ last ? breadcrumb.params?.slug : breadcrumb.label }}
+    <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
+      <a [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">
+        {{ breadcrumb.label }}
       </a>
-      <span *ngIf="!last"> → </span>
+      <ng-container *ngIf="!last">
+        <span class="breadcrumb-separator">/</span>
+      </ng-container>
     </li>
   </ol>
 </nav>
-

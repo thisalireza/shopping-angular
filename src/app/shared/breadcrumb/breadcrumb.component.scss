@@ -1,11 +1,9 @@
 /* breadcrumb.component.scss */
 .breadcrumb {
-
-  ol {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
+  background: none;
+  padding: 0.5rem;
+  margin: 0;
+  list-style: none;
 
   li {
     display: inline-block;
@@ -13,21 +11,17 @@
   }
 
   a {
-    color: #007bff;
+    color: #666;
     text-decoration: none;
-    &:hover:not(.disabled) {
-      color: #0056b3;
+
+    &:hover {
+      color: #333;
       text-decoration: underline;
     }
   }
 
-  .disabled {
-    color: #6c757d;
-    cursor: default;
-  }
-
-  span {
-    color: #6c757d;
-    margin: 0 0.25rem;
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: #999;
   }
 }

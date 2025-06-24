@@ -1,66 +1,81 @@
-import { Component, OnInit } from '@angular/core';
-import {Router, NavigationEnd, ActivatedRoute, Event, RouterLink} from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { IBreadcrumb } from '../../interfaces/breadcrumb';
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+// breadcrumb.component.ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Router, Event, NavigationEnd, ActivatedRoute, RouterLink, RouterLinkActive} from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter, distinctUntilChanged, tap } from 'rxjs/operators';
+import {IBreadcrumb} from "../../interfaces/breadcrumb";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-breadcrumb',
+  templateUrl: './breadcrumb.component.html',
   standalone: true,
   imports: [
-    RouterLink,
     NgIf,
-    NgForOf,
-    AsyncPipe
+    RouterLink,
+    RouterLinkActive,
+    NgForOf
   ],
-  templateUrl: './breadcrumb.component.html',
-  styleUrl: './breadcrumb.component.scss'
+  styleUrls: ['./breadcrumb.component.scss']
 })
-export class BreadcrumbComponent {
-  breadcrumbs$: Observable<IBreadcrumb[]>;
-  params: any = null;
+export class BreadcrumbComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+  breadcrumbs: IBreadcrumb[] = [];
+  showBreadcrumb: boolean = true;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+      public router: Router,
+      private activatedRoute: ActivatedRoute
+  ) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.showBreadcrumb = this.router.url !== '/home';
 
-  ngOnInit(): void {
-    this.breadcrumbs$ = this.router.events.pipe(
-      filter((event: Event) => event instanceof NavigationEnd),
-      map(() => {
-        const breadcrumbs = this.buildBreadcrumbs();
-        if (breadcrumbs.length > 0) {
-          this.params = breadcrumbs[breadcrumbs.length - 1].params;
-        }
-        return breadcrumbs;
-      })
-    );
+      }
+    });
   }
 
-  private buildBreadcrumbs(): IBreadcrumb[] {
-    const breadcrumbs: IBreadcrumb[] = [];
-    let currentRoute = this.route.root;
+  ngOnInit(): void {
+    this.subscription = this.router.events.pipe(
+        filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+        distinctUntilChanged(),
+        tap(() => {
+          this.breadcrumbs = this.buildBreadcrumbs(this.activatedRoute.root);
+        })
+    ).subscribe();
+  }
 
-    while (currentRoute.firstChild) {
-      const route = currentRoute.firstChild;
+  private buildBreadcrumbs(route: ActivatedRoute, url: string = '', breadcrumbs: IBreadcrumb[] = []): IBreadcrumb[] {
+    if (route.snapshot.url.length === 0) {
+      breadcrumbs.push({
+        label: 'خانه',
+        url: '/'
+      });
+    }
 
-      // Get breadcrumb label from route data
-      const label = route.snapshot.data?.breadcrumb || route.snapshot.routeConfig?.path || '';
+    const children = route.children;
 
-      // Only add if we have a label
-      if (label) {
-        breadcrumbs.push({
-          label,
-          url: '/' + route.snapshot.url.join('/'),
-          params: route.snapshot.params
-        });
-      }
+    if (route.snapshot.data?.breadcrumb) {
+      const path = route.snapshot.url.map(segment => segment.path).join('/');
+      const breadcrumb: IBreadcrumb = {
+        label: route.snapshot.data.breadcrumb,
+        url: path ? `${url}/${path}` : url
+      };
+      breadcrumbs.push(breadcrumb);
+    }
 
-      currentRoute = route;
+    if (children) {
+      children.forEach(child => {
+        this.buildBreadcrumbs(child, url, breadcrumbs);
+      });
     }
 
     return breadcrumbs;
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
