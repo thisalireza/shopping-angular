@@ -16,8 +16,8 @@ import {HpComponent} from "./shop/categories/hp/hp.component";
 import {AsusComponent} from "./shop/categories/asus/asus.component";
 import {AcerComponent} from "./shop/categories/acer/acer.component";
 import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
-import {LikedProductsComponent} from "./liked-products/liked-products.component";
 import {CartComponent} from "./shop/cart/cart.component";
+import {LikedProductsComponent} from "./shop/liked-products/liked-products.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},

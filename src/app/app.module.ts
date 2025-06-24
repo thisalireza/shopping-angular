@@ -1,40 +1,45 @@
 import {Directive, ElementRef, HostListener, NgModule, OnInit, Renderer2} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-
+import {BrowserModule} from '@angular/platform-browser';
+import {AppComponent} from './app.component';
+import {FormsModule} from '@angular/forms';
+import {RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings} from 'ng-recaptcha';
 // MDB Modules
-import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
-import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
-import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
-import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
-import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
-import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
-import { MdbPopoverModule } from 'mdb-angular-ui-kit/popover';
-import { MdbRadioModule } from 'mdb-angular-ui-kit/radio';
-import { MdbRangeModule } from 'mdb-angular-ui-kit/range';
-import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
-import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
-import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
-import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
-import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
+import {MdbAccordionModule} from 'mdb-angular-ui-kit/accordion';
+import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
+import {MdbCheckboxModule} from 'mdb-angular-ui-kit/checkbox';
+import {MdbCollapseModule} from 'mdb-angular-ui-kit/collapse';
+import {MdbDropdownModule} from 'mdb-angular-ui-kit/dropdown';
+import {MdbFormsModule} from 'mdb-angular-ui-kit/forms';
+import {MdbModalModule} from 'mdb-angular-ui-kit/modal';
+import {MdbPopoverModule} from 'mdb-angular-ui-kit/popover';
+import {MdbRadioModule} from 'mdb-angular-ui-kit/radio';
+import {MdbRangeModule} from 'mdb-angular-ui-kit/range';
+import {MdbRippleModule} from 'mdb-angular-ui-kit/ripple';
+import {MdbScrollspyModule} from 'mdb-angular-ui-kit/scrollspy';
+import {MdbTabsModule} from 'mdb-angular-ui-kit/tabs';
+import {MdbTooltipModule} from 'mdb-angular-ui-kit/tooltip';
+import {MdbValidationModule} from 'mdb-angular-ui-kit/validation';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MenuComponent} from "./shared/header/header.component";
 import {FooterComponent} from "./shared/footer/footer.component";
 import {HomePageComponent} from "./home-page/homePage/homePage.component";
 
 
 // Initialization for ES Users
-import { Collapse,initMDB } from 'mdb-ui-kit';
+import {Collapse, initMDB} from 'mdb-ui-kit';
 import {ProductListComponent} from "./shop/product-list/product-list.component";
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 import {LazyLoadDirective} from "./Directives/lazy-load.directive";
-import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
+import {NewProductsCarouselComponent} from "./shop/new-products-carousel/new-products-carousel.component";
+import { CaptchaComponent } from './shared/captcha/captcha.component';
 
-initMDB({ Collapse });
+
+initMDB({Collapse});
+
+
 
 @Directive({
   selector: 'img',
@@ -66,6 +71,7 @@ export class ImageLoadDirective implements OnInit {
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     AppRoutingModule,
@@ -93,9 +99,19 @@ export class ImageLoadDirective implements OnInit {
     RouterOutlet,
     BackToTopComponent,
     LazyLoadDirective,
-    BreadcrumbComponent,
+    NewProductsCarouselComponent,
+    FormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+    CaptchaComponent,
   ],
-  providers: [],
+  providers: [{
+    provide: RECAPTCHA_SETTINGS,
+    useValue: {
+      siteKey: 'YOUR_SITE_KEY'
+    } as RecaptchaSettings
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

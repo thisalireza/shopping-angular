@@ -1,0 +1,34 @@
+.captcha-container {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.captcha-refresh--icon{
+  cursor: pointer;
+}
+
+.captcha-input {
+  width: 100px;
+  border: 1px solid #e0e0e2;
+  background: #F2F2F2;
+  text-align: left;
+  direction: ltr;
+  unicode-bidi: isolate !important;
+}
+
+.captcha-result {
+  color: var(--success-color, green);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
