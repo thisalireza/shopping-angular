@@ -32,17 +32,23 @@
   <!--categories-->
   <app-category></app-category>
 
-<app-mac-category></app-mac-category>
+  <app-mac-category-carousel></app-mac-category-carousel>
+  <app-iphone-category-carousel></app-iphone-category-carousel>
+  <app-ipad-category-carousel></app-ipad-category-carousel>
+  <app-apple-watch-category-carousel></app-apple-watch-category-carousel>
+  <app-airpods-category-carousel></app-airpods-category-carousel>
+  <app-apple-id-category-carousel></app-apple-id-category-carousel>
+
 
   <div class="py-5">
-    <video autoplay loop  class="rounded-6 homepage-video" >
+    <video autoplay loop class="rounded-6 homepage-video">
       <source src="assets/images/main-100.mp4" type="video/mp4">
     </video>
   </div>
 
   <!--products-->
   <app-product-list
-  [showAllProducts]="true"
+    [showAllProducts]="true"
   ></app-product-list>
 
 

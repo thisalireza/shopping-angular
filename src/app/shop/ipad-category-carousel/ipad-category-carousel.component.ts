@@ -11,7 +11,7 @@ import SwiperCore, {
 } from 'swiper';
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
-  selector: 'app-mac-category',
+  selector: 'app-ipad-category-carousel',
   standalone: true,
   imports: [
     NgForOf,
@@ -23,12 +23,10 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
     NgStyle,
     NgIf
   ],
-  templateUrl: './mac-category-carousel.component.html',
-  styleUrl: './mac-category-carousel.component.scss'
+  templateUrl: './ipad-category-carousel.component.html',
+  styleUrl: './ipad-category-carousel.component.scss'
 })
-export class NewProductsCarouselComponent extends ProductListComponent{
-
-
+export class IpadCategoryCarouselComponent extends ProductListComponent{
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,
@@ -36,11 +34,8 @@ export class NewProductsCarouselComponent extends ProductListComponent{
       delay: 2500,
       disableOnInteraction: false,
     },
-    slidesPerView: 6,
-    spaceBetween: 15,
+    slidesPerView: 5,
+    spaceBetween: 20,
     loop: true,
   };
-
-
 }
-

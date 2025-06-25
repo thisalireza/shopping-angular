@@ -1,0 +1,79 @@
+<div class="py-5">
+
+  <h4 class="fw-bold fs-20 pb-3">
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-watch"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9a3 3 0 0 1 3 -3h6a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-6a3 3 0 0 1 -3 -3v-6z" /><path d="M9 18v3h6v-3" /><path d="M9 6v-3h6v3" /></svg>    اپل واچ | apple watch
+  </h4>
+
+
+  <swiper *ngIf="products?.length > 0" [config]="config" class="mySwiper">
+    <ng-template swiperSlide *ngFor="let prod of products">
+
+      <div class="card card-carousel--products h-100 rounded-6" [routerLink]="['/products', prod.id]">
+        <img [src]="prod.imageURL"
+             [ngClass]="{ 'out-of-discount': !prod.is_in_inventory }"
+             class="card-img-top rounded-6" alt="Product image"/>
+
+        <div class="card-body py-0">
+          <h3 class="card-title text-center fw-bold">{{ prod.name }}</h3>
+          <label class="py-2 rounded-3 d-flex justify-content-center align-items-center">
+            <ng-container *ngFor="let color of prod.color">
+    <span
+      class="rounded-3 mx-1"
+      [ngClass]="{
+        'inner-product-selector--color--gold': color === 'طلایی',
+        'inner-product-selector--color--silver': color === 'نقره ای',
+        'inner-product-selector--color--red': color === 'قرمز',
+        'inner-product-selector--color--blue': color === 'آبی',
+        'inner-product-selector--color--black': color === 'مشکی',
+        'inner-product-selector--color--white': color === 'سفید'
+      }"
+      title="{{ color }}"
+    ></span>
+            </ng-container>
+          </label>
+        </div>
+
+        <div class="card-footer text-center py-2">
+          <p class="text-center m-0" [ngStyle]="{
+              fontWeight: 'bold',
+              color: prod.is_in_inventory ? 'green' : '#a1a3a8'
+            }">
+            {{ prod.is_in_inventory ? '' : 'ناموجود' }}
+          </p>
+
+          <ng-container *ngIf="prod.is_in_inventory">
+            <p class="text-danger fs-12">
+              تنها {{ prod.items_left }} عدد در انبار باقی مانده
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <img src="./assets/images/toman.svg" alt="toman">
+                <span class="fw-bold price-with-discount--digit ps-1">
+                {{
+                    (prod.price - (prod.price * prod.discountPrice) / 100)
+                      | currency: ' ': 'symbol': '1.0-3'
+                  }}
+              </span>
+              </div>
+
+              <div>
+              <span class="product-discount-price--badge fs-12 rounded-3 px-2 fw-bold">
+                {{ prod.discountPrice }} %
+              </span>
+              </div>
+            </div>
+
+            <div class="d-flex pt-1">
+              <del class="fs-14" style="color:#c0c2c5;">
+                {{ prod.price | currency:' ':'symbol':'1.0-3' }}
+              </del>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+
+    </ng-template>
+  </swiper>
+</div>

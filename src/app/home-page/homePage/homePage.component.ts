@@ -4,8 +4,18 @@ import {ProductListComponent} from "../../shop/product-list/product-list.compone
 import {QuestionAnswerComponent} from "../question-answer/question-answer.component";
 import {ArticleComponent} from "../../weblog/article-list/article.component";
 import {CategoryComponent} from "../../shop/category/category.component";
-import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component";
-import {NewProductsCarouselComponent} from "../../shop/mac-category/mac-category-carousel.component";
+import {NewProductsCarouselComponent} from "../../shop/mac-category-carousel/mac-category-carousel.component";
+import {IphoneCategoryCarouselComponent} from "../../shop/iphone-category-carousel/iphone-category-carousel.component";
+import {IpadCategoryCarouselComponent} from "../../shop/ipad-category-carousel/ipad-category-carousel.component";
+import {
+  AppleWatchCategoryCarouselComponent
+} from "../../shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
+import {
+  AppleIdCategoryCarouselComponent
+} from "../../shop/apple-id-category-carousel/apple-id-category-carousel.component";
+import {
+  AirpodsCategoryCarouselComponent
+} from "../../shop/airpods-category-carousel/airpods-category-carousel.component";
 
 
 
@@ -18,8 +28,12 @@ import {NewProductsCarouselComponent} from "../../shop/mac-category/mac-category
     QuestionAnswerComponent,
     ArticleComponent,
     CategoryComponent,
-    BackToTopComponent,
-    NewProductsCarouselComponent
+    NewProductsCarouselComponent,
+    IphoneCategoryCarouselComponent,
+    IpadCategoryCarouselComponent,
+    AppleWatchCategoryCarouselComponent,
+    AppleIdCategoryCarouselComponent,
+    AirpodsCategoryCarouselComponent,
   ],
   standalone: true,
     templateUrl: './homePage.component.html',
