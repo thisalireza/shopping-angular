@@ -32,7 +32,6 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 import {LazyLoadDirective} from "./Directives/lazy-load.directive";
-import {NewProductsCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
 import { CaptchaComponent } from './shared/captcha/captcha.component';
 import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 import { SwiperModule } from 'swiper/angular';
@@ -101,7 +100,6 @@ export class ImageLoadDirective implements OnInit {
     RouterOutlet,
     BackToTopComponent,
     LazyLoadDirective,
-    NewProductsCarouselComponent,
     FormsModule,
 
     CaptchaComponent,

@@ -15,7 +15,6 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   standalone: true,
   imports: [
     NgForOf,
-    JsonPipe,
     SwiperModule,
     CurrencyPipe,
     RouterLink,
