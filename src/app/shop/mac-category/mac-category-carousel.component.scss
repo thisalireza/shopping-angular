@@ -1,0 +1,24 @@
+.mySwiper {
+  width: 100%;
+  height: auto; // or fixed height like 300px
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+
+.card {
+  height: 360px !important;
+  width: 100%;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 20px !important;
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+

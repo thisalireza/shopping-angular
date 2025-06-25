@@ -2,7 +2,6 @@ import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Location, NgIf} from '@angular/common'
 import {NumbersOnlyDirective} from "../Directives/numbers-only-directive.directive";
 import {FormsModule, NgForm, NgModel} from "@angular/forms";
-import {RecaptchaFormsModule, RecaptchaModule} from "ng-recaptcha";
 import {CaptchaComponent} from "../shared/captcha/captcha.component";
 import {RouterLink} from "@angular/router";
 import {LocalStorageService} from "../services/local-storage.service";
@@ -10,7 +9,7 @@ import {AuthStatusService} from "../services/auth-status.service";
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [NumbersOnlyDirective, NgIf, FormsModule, RecaptchaFormsModule, RecaptchaModule, CaptchaComponent, RouterLink, ],
+  imports: [NumbersOnlyDirective, NgIf, FormsModule, CaptchaComponent, RouterLink, ],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'
 })

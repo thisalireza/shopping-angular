@@ -5,6 +5,7 @@ import {QuestionAnswerComponent} from "../question-answer/question-answer.compon
 import {ArticleComponent} from "../../weblog/article-list/article.component";
 import {CategoryComponent} from "../../shop/category/category.component";
 import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component";
+import {NewProductsCarouselComponent} from "../../shop/mac-category/mac-category-carousel.component";
 
 
 
@@ -17,7 +18,8 @@ import {BackToTopComponent} from "../../shared/back-to-top/back-to-top.component
     QuestionAnswerComponent,
     ArticleComponent,
     CategoryComponent,
-    BackToTopComponent
+    BackToTopComponent,
+    NewProductsCarouselComponent
   ],
   standalone: true,
     templateUrl: './homePage.component.html',

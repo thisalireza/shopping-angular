@@ -2,7 +2,6 @@ import {Directive, ElementRef, HostListener, NgModule, OnInit, Renderer2} from '
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
-import {RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings} from 'ng-recaptcha';
 // MDB Modules
 import {MdbAccordionModule} from 'mdb-angular-ui-kit/accordion';
 import {MdbCarouselModule} from 'mdb-angular-ui-kit/carousel';
@@ -33,10 +32,10 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 import {LazyLoadDirective} from "./Directives/lazy-load.directive";
-import {NewProductsCarouselComponent} from "./shop/new-products-carousel/new-products-carousel.component";
+import {NewProductsCarouselComponent} from "./shop/mac-category/mac-category-carousel.component";
 import { CaptchaComponent } from './shared/captcha/captcha.component';
 import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
-
+import { SwiperModule } from 'swiper/angular';
 
 initMDB({Collapse});
 
@@ -73,8 +72,10 @@ export class ImageLoadDirective implements OnInit {
   declarations: [
     AppComponent,
 
-  ],
+
+],
   imports: [
+    SwiperModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -102,17 +103,11 @@ export class ImageLoadDirective implements OnInit {
     LazyLoadDirective,
     NewProductsCarouselComponent,
     FormsModule,
-    RecaptchaModule,
-    RecaptchaFormsModule,
+
     CaptchaComponent,
     BreadcrumbComponent,
   ],
-  providers: [{
-    provide: RECAPTCHA_SETTINGS,
-    useValue: {
-      siteKey: 'YOUR_SITE_KEY'
-    } as RecaptchaSettings
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -2,7 +2,7 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 
 @import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
-
+@import 'swiper/swiper-bundle.min.css';
 
 
 //persian font
@@ -239,4 +239,96 @@ ol, ul , li {
 
 .rounded-6{
   border-radius: 20px !important;
+}
+
+
+
+.inner-product-selector--color--red{
+  background-color: #DF3C3C;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+.inner-product-selector--color--blue{
+  background-color: #102698;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+.inner-product-selector--color--silver{
+  background-color: #d5d5d5;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+.inner-product-selector--color--white{
+  background-color: #ffffff;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+.inner-product-selector--color--black{
+  background-color: #000000;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+
+.inner-product-selector--color--gold{
+  background-color: #dfcf0f;
+  width: 15px;
+  height:15px;
+  border: 1px solid #e0e0e2;
+}
+
+
+.product-discount-price--badge{
+  background-color: #DF3C3C;
+  color: white;
+}
+
+
+.move-to-page--button {
+  background-color: #DF3C3C;
+  color: white;
+  transition: 0.4s all;
+}
+
+
+.move-to-page--button:hover{
+  transform: scale(1.1);
+  transition: 0.4s all;
+}
+
+
+
+.swiper-button-prev , .swiper-button-next{
+  width: 33px;
+  height: 33px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.swiper-button-prev:hover  , .swiper-button-next:hover{
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-prev::after , .swiper-button-next::after{
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
 }
