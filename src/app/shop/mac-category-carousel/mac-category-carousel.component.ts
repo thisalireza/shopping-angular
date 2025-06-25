@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import type { SwiperOptions } from 'swiper/types';
 import {CurrencyPipe, JsonPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ProductListComponent} from "../product-list/product-list.component";
@@ -25,7 +25,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   templateUrl: './mac-category-carousel.component.html',
   styleUrl: './mac-category-carousel.component.scss'
 })
-export class NewProductsCarouselComponent extends ProductListComponent{
+export class MacCategoryCarouselComponent extends ProductListComponent{
 
 
   config: SwiperOptions = {
@@ -42,4 +42,17 @@ export class NewProductsCarouselComponent extends ProductListComponent{
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
