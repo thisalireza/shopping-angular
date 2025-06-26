@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ProductListComponent } from '../product-list/product-list.component';
 import { LikeService } from '../../services/like.service';
 import { NgIf } from '@angular/common';
+import {ProductService} from "../../services/products.service";
 
 @Component({
   selector: 'app-liked-products',
@@ -16,14 +17,13 @@ import { NgIf } from '@angular/common';
 export class LikedProductsComponent {
   products = [];
   private _showAllProducts: boolean = false;
-
-  constructor(private likeService: LikeService) {
+  constructor(private likeService: LikeService , private productService: ProductService,) {
     this.updateProducts();
   }
 
   private updateProducts(): void {
     this.products = this._showAllProducts
-      ? this.likeService.getAllProducts()
+      ? this.productService.getAllProducts()
       : this.likeService.getLikedProducts();
   }
 

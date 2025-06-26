@@ -5,10 +5,10 @@
   </h4>
 
 
-  <swiper *ngIf="products?.length > 0" [config]="config" class="mySwiper">
+  <swiper *ngIf="giftCardProducts$?.length > 0" [config]="config" class="mySwiper">
     <ng-template swiperSlide *ngFor="let prod of giftCardProducts$">
 
-      <div class="card card-carousel--products h-100 rounded-6" [routerLink]="['/products', prod.id]">
+      <div class="card card-carousel--products h-100 rounded-6 cursor-pointer" [routerLink]="['/products', prod.id]">
         <img [src]="prod.imageURL"
              [ngClass]="{ 'out-of-discount': !prod.is_in_inventory }"
              class="card-img-top rounded-6 p-3" alt="Product image"/>

@@ -9,6 +9,7 @@ import SwiperCore, {
   Pagination,
   Navigation
 } from 'swiper';
+import {ProductService} from "../../services/products.service";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-mac-category-carousel',
@@ -25,7 +26,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   templateUrl: './mac-category-carousel.component.html',
   styleUrl: './mac-category-carousel.component.scss'
 })
-export class MacCategoryCarouselComponent extends ProductListComponent{
+export class MacCategoryCarouselComponent{
 
 
   config: SwiperOptions = {
@@ -39,8 +40,9 @@ export class MacCategoryCarouselComponent extends ProductListComponent{
     spaceBetween: 20,
     loop: true,
   };
+  constructor(private productService: ProductService,) {}
 
-  macProducts$ = this.likeService.macProducts();
+  macProducts$ = this.productService.getMacProducts();
 }
 
 

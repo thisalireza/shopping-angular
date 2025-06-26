@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, inject, Inject} from '@angular/core';
 import type { SwiperOptions } from 'swiper/types';
 import {CurrencyPipe, JsonPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {ProductListComponent} from "../product-list/product-list.component";
@@ -9,6 +9,7 @@ import SwiperCore, {
   Pagination,
   Navigation
 } from 'swiper';
+import {ProductService} from "../../services/products.service";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-airpods-category-carousel',
@@ -20,12 +21,13 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
     RouterLink,
     NgClass,
     NgStyle,
-    NgIf
+    NgIf,
   ],
   templateUrl: './airpods-category-carousel.component.html',
   styleUrl: './airpods-category-carousel.component.scss'
 })
-export class AirpodsCategoryCarouselComponent extends ProductListComponent{
+
+export class AirpodsCategoryCarouselComponent {
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,
@@ -38,5 +40,8 @@ export class AirpodsCategoryCarouselComponent extends ProductListComponent{
     loop: true,
   };
 
- airpodsProducts$ = this.likeService.airpodsProducts();
+  constructor(private productService: ProductService,) {}
+
+
+ airpodsProducts$ = this.productService.getAirpodsProducts();
 }

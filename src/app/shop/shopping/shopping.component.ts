@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ProductListComponent} from "../product-list/product-list.component";
+import {ProductService} from "../../services/products.service";
 
 @Component({
   selector: 'app-shop',
@@ -10,6 +11,9 @@ import {ProductListComponent} from "../product-list/product-list.component";
   standalone: true,
   styleUrl: './shopping.component.scss'
 })
-export class ShoppingComponent extends ProductListComponent {
-  products$ = this.likeService.getAllProducts();
+export class ShoppingComponent  {
+  constructor(private productService: ProductService,) {}
+
+
+  products$ = this.productService.getAllProducts();
 }

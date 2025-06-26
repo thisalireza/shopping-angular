@@ -9,6 +9,7 @@ import SwiperCore, {
   Pagination,
   Navigation
 } from 'swiper';
+import {ProductService} from "../../services/products.service";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-gift-card-category-carousel',
@@ -25,7 +26,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   templateUrl: './gift-card-category-carousel.component.html',
   styleUrl: './gift-card-category-carousel.component.scss'
 })
-export class GiftCardCategoryCarouselComponent extends ProductListComponent{
+export class GiftCardCategoryCarouselComponent{
 
   config: SwiperOptions = {
     freeMode: true,
@@ -38,6 +39,7 @@ export class GiftCardCategoryCarouselComponent extends ProductListComponent{
     spaceBetween: 20,
     loop: true,
   };
+  constructor(private productService: ProductService,) {}
 
-  giftCardProducts$ = this.likeService.getGiftCardProducts();
+  giftCardProducts$ = this.productService.getGiftCardProducts();
 }

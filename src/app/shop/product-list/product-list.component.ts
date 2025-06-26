@@ -3,6 +3,7 @@ import {Router, RouterLink} from '@angular/router';
 import {LikeService} from '../../services/like.service';
 import {CurrencyPipe, NgClass, NgForOf, NgStyle} from "@angular/common";
 import {Product} from "../../interfaces/product";
+import {ProductService} from "../../services/products.service";
 
 @Component({
   selector: 'app-product-list',
@@ -24,12 +25,13 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private route: Router,
-    public likeService: LikeService
+    public likeService: LikeService,
+    private productService: ProductService,
   ) {}
 
   ngOnInit() {
     if (this.showAllProducts) {
-      this.products = this.likeService.getAllProducts()
+      this.products = this.productService.getAllProducts()
         .filter(product => product.is_in_inventory)
         .sort(() => Math.random() - 0.5)
         .slice(0, 16);

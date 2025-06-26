@@ -9,6 +9,7 @@ import SwiperCore, {
   Pagination,
   Navigation
 } from 'swiper';
+import {ProductService} from "../../services/products.service";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-apple-watch-category-carousel',
@@ -26,7 +27,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   templateUrl: './apple-watch-category-carousel.component.html',
   styleUrl: './apple-watch-category-carousel.component.scss'
 })
-export class AppleWatchCategoryCarouselComponent extends ProductListComponent{
+export class AppleWatchCategoryCarouselComponent{
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,
@@ -38,6 +39,6 @@ export class AppleWatchCategoryCarouselComponent extends ProductListComponent{
     spaceBetween: 20,
     loop: true,
   };
-
-  appleWatchProducts$ = this.likeService.appleWatchProducts();
+  constructor(private productService: ProductService,) {}
+  appleWatchProducts$ = this.productService.getAppleWatchProducts();
 }

@@ -337,9 +337,17 @@ ol, ul , li {
 .card-carousel--products {
   height: 440px !important;
   width: 100%;
+  transition: all .4s;
 }
-
+.card-carousel--products:hover {
+  transform: scale(.95);
+  transition: all .4s;
+}
 
 .cursor-pointer{
   cursor: pointer;
 }
+
+
+
+
