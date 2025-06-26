@@ -6,10 +6,11 @@ import {CaptchaComponent} from "../shared/captcha/captcha.component";
 import {RouterLink} from "@angular/router";
 import {LocalStorageService} from "../services/local-storage.service";
 import {AuthStatusService} from "../services/auth-status.service";
+
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [NumbersOnlyDirective, NgIf, FormsModule, CaptchaComponent, RouterLink, ],
+  imports: [NumbersOnlyDirective, NgIf, FormsModule, CaptchaComponent, RouterLink,],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'
 })
@@ -25,7 +26,9 @@ export class SigninComponent implements OnInit {
   showCaptcha = true;
   showContinueButton = true;
   @Input() isVerificationCodeValid = false;
-  constructor(private location: Location , private localStorageService: LocalStorageService ,  private authStatusService: AuthStatusService) {}
+
+  constructor(private location: Location, private localStorageService: LocalStorageService, private authStatusService: AuthStatusService) {
+  }
 
   ngOnInit(): void {
     // بازیابی وضعیت از localStorage در هنگام بارگذاری کامپوننت

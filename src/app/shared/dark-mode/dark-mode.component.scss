@@ -133,3 +133,9 @@ body {
 .dark-mode .sign-in-input , .dark-mode .captcha-input{
   background-color: var(--background-color) !important;
 }
+
+
+.dark-mode .breadcrumb a {
+
+color: var(--text-color) !important;
+}

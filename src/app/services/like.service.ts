@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Product} from "../interfaces/product";
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class LikeService {
   private likesMap = new Map<number, boolean>();
   private STORAGE_KEY = 'liked_products';
   private PRODUCTS_KEY = 'products';
-  private products = [
+  private products:Product[] = [
     {
       id: 0,
       name: 'macbook air M2',

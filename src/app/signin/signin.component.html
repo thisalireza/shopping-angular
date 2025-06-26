@@ -1,4 +1,3 @@
-<!-- signin.component.html -->
 <div class="sign-in--container py-5">
   <div class="d-flex">
     <img src="./assets/images/apple-store-max-logo-light-200x200.png.webp" alt="logo" class="pb-3 signin-logo--image">
@@ -8,7 +7,12 @@
       <div class="d-flex align-items-center" (click)="getBack()">
         <span class="text-muted sign-in-get--back fs-14">
           بازگشت
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M15 6l-6 6l6 6"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none"
+                                                                                            d="M0 0h24v24H0z"
+                                                                                            fill="none"></path><path
+            d="M15 6l-6 6l6 6"></path></svg>
         </span>
       </div>
 
@@ -18,7 +22,9 @@
         <form #phoneNumberForm="ngForm" (ngSubmit)="onSubmit(phoneNumberForm)">
           <div>
             <label class="sign-in-label pb-2 fs-14">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z"/>
                 <path d="M11 4h2"/>
@@ -45,7 +51,8 @@
                 #captchaComponent
                 (onAnswer)="checkCaptcha($event)">
               </app-captcha>
-              <span *ngIf="!isCaptchaValid && phoneNumberInput.touched" class="pb-2 d-block text-center text-danger fs-12">
+              <span *ngIf="!isCaptchaValid && phoneNumberInput.touched"
+                    class="pb-2 d-block text-center text-danger fs-12">
                 لطفاً پاسخ CAPTCHA را وارد کنید
               </span>
             </div>
@@ -56,10 +63,13 @@
                     [disabled]="phoneNumberInput.invalid || !isCaptchaValid">
               ادامه
 
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path  stroke="none" d="M0 0h24v24H0z" fill="none"></path><path  d="M15 6l-6 6l6 6"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M15 6l-6 6l6 6"></path>
+              </svg>
             </button>
-
-
 
 
           </div>
@@ -67,7 +77,15 @@
         <form #verificationCodeForm="ngForm" (ngSubmit)="onSubmit(verificationCodeForm)">
           <div *ngIf="showCodeInput" class="mt-4">
             <label class="sign-in-label pb-2 fs-14">
-              <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.5 21h-3.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v9.5" /><path d="M11 4h2" /><path d="M12 17v.01" /><path d="M15 19l2 2l4 -4" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile-check">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M11.5 21h-3.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v9.5"/>
+                <path d="M11 4h2"/>
+                <path d="M12 17v.01"/>
+                <path d="M15 19l2 2l4 -4"/>
+              </svg>
               کد تایید:
             </label>
             <input class="sign-in-input rounded-3 w-100 px-3 py-3"
@@ -89,7 +107,12 @@
                   routerLink="/account"
                   (click)="onClickSubmit()">
             ورود
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path  stroke="none" d="M0 0h24v24H0z" fill="none"></path><path  d="M15 6l-6 6l6 6"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M15 6l-6 6l6 6"></path>
+            </svg>
           </button>
         </form>
       </div>

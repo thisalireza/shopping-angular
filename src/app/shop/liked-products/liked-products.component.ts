@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {ProductListComponent} from "../product-list/product-list.component";
-import {LikeService} from "../../services/like.service";
-import {NgIf} from "@angular/common";
+import { Component, Input } from '@angular/core';
+import { ProductListComponent } from '../product-list/product-list.component';
+import { LikeService } from '../../services/like.service';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-liked-products',
@@ -40,6 +40,6 @@ export class LikedProductsComponent {
   toggleLike(productId: number): void {
     const isLiked = !this.likeService.getProductLike(productId);
     this.likeService.setProductLike(productId, isLiked);
-    this.updateProducts(); // Update products immediately
+    this.updateProducts();
   }
 }

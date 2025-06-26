@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ProductListComponent} from "../product-list/product-list.component";
 
 @Component({
@@ -11,5 +11,5 @@ import {ProductListComponent} from "../product-list/product-list.component";
   styleUrl: './shopping.component.scss'
 })
 export class ShoppingComponent extends ProductListComponent {
-
+  products$ = this.likeService.getAllProducts();
 }
