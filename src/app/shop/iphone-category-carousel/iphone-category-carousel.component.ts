@@ -37,4 +37,6 @@ export class IphoneCategoryCarouselComponent extends ProductListComponent {
     spaceBetween: 20,
     loop: true,
   };
+
+  iphoneProducts$ = this.likeService.iphoneProducts();
 }

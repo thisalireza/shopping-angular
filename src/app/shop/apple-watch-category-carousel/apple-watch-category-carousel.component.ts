@@ -39,4 +39,5 @@ export class AppleWatchCategoryCarouselComponent extends ProductListComponent{
     loop: true,
   };
 
+  appleWatchProducts$ = this.likeService.appleWatchProducts();
 }

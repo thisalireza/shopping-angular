@@ -38,4 +38,6 @@ export class GiftCardCategoryCarouselComponent extends ProductListComponent{
     spaceBetween: 20,
     loop: true,
   };
+
+  giftCardProducts$ = this.likeService.getGiftCardProducts();
 }

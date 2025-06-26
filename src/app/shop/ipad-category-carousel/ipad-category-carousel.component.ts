@@ -38,4 +38,6 @@ export class IpadCategoryCarouselComponent extends ProductListComponent{
     spaceBetween: 20,
     loop: true,
   };
+
+  ipadProducts$ = this.likeService.ipadProducts();
 }

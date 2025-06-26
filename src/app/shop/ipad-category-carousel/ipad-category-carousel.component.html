@@ -6,7 +6,7 @@
 
 
   <swiper *ngIf="products?.length > 0" [config]="config" class="mySwiper">
-    <ng-template swiperSlide *ngFor="let prod of products">
+    <ng-template swiperSlide *ngFor="let prod of ipadProducts$">
 
       <div class="card card-carousel--products h-100 rounded-6" [routerLink]="['/products', prod.id]">
         <img [src]="prod.imageURL"
@@ -14,7 +14,7 @@
              class="card-img-top rounded-6" alt="Product image"/>
 
         <div class="card-body py-0">
-          <h3 class="card-title text-center fw-bold">{{ prod.name }}</h3>
+          <h3 class="card-title text-center fw-bold lh-base">{{ prod.name }}</h3>
           <label class="py-2 rounded-3 d-flex justify-content-center align-items-center">
             <ng-container *ngFor="let color of prod.color">
     <span

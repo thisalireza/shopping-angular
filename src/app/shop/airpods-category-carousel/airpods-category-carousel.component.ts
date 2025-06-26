@@ -38,4 +38,5 @@ export class AirpodsCategoryCarouselComponent extends ProductListComponent{
     loop: true,
   };
 
+ airpodsProducts$ = this.likeService.airpodsProducts();
 }

@@ -40,7 +40,7 @@ export class MacCategoryCarouselComponent extends ProductListComponent{
     loop: true,
   };
 
-
+  macProducts$ = this.likeService.macProducts();
 }
 
 
