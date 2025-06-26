@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppleIdCategoryCarouselComponent } from './apple-id-category-carousel.component';
+import { GiftCardCategoryCarouselComponent } from './gift-card-category-carousel.component';
 
 describe('AppleIdCategoryCarouselComponent', () => {
-  let component: AppleIdCategoryCarouselComponent;
-  let fixture: ComponentFixture<AppleIdCategoryCarouselComponent>;
+  let component: GiftCardCategoryCarouselComponent;
+  let fixture: ComponentFixture<GiftCardCategoryCarouselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppleIdCategoryCarouselComponent]
+      imports: [GiftCardCategoryCarouselComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(AppleIdCategoryCarouselComponent);
+
+    fixture = TestBed.createComponent(GiftCardCategoryCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

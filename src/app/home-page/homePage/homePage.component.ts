@@ -11,8 +11,8 @@ import {
   AppleWatchCategoryCarouselComponent
 } from "../../shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
 import {
-  AppleIdCategoryCarouselComponent
-} from "../../shop/apple-id-category-carousel/apple-id-category-carousel.component";
+  GiftCardCategoryCarouselComponent
+} from "../../shop/gift-card-category-carousel/gift-card-category-carousel.component";
 import {
   AirpodsCategoryCarouselComponent
 } from "../../shop/airpods-category-carousel/airpods-category-carousel.component";
@@ -30,7 +30,7 @@ import {RouterLink} from "@angular/router";
     IphoneCategoryCarouselComponent,
     IpadCategoryCarouselComponent,
     AppleWatchCategoryCarouselComponent,
-    AppleIdCategoryCarouselComponent,
+    GiftCardCategoryCarouselComponent,
     AirpodsCategoryCarouselComponent,
     MacCategoryCarouselComponent,
     RouterLink,

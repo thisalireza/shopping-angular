@@ -18,7 +18,7 @@ import {AirpodsCategoryCarouselComponent} from "./shop/airpods-category-carousel
 import {
   AppleWatchCategoryCarouselComponent
 } from "./shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
-import {AppleIdCategoryCarouselComponent} from "./shop/apple-id-category-carousel/apple-id-category-carousel.component";
+import {GiftCardCategoryCarouselComponent} from "./shop/gift-card-category-carousel/gift-card-category-carousel.component";
 import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
 
 export const routes: Routes = [
@@ -34,7 +34,7 @@ export const routes: Routes = [
   {path: 'category/ipad', component: IpadCategoryCarouselComponent , data: {breadcrumb: 'آی پد'}},
   {path: 'category/airpods', component: AirpodsCategoryCarouselComponent , data: {breadcrumb: 'ایرپاد'}},
   {path: 'category/apple-watch', component: AppleWatchCategoryCarouselComponent , data: {breadcrumb: 'لپل واچ'}},
-  {path: 'category/apple-id', component: AppleIdCategoryCarouselComponent , data: {breadcrumb: 'اپل آی دی'}},
+  {path: 'category/gift-card', component: GiftCardCategoryCarouselComponent , data: {breadcrumb: 'اپل آی دی'}},
   {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'}},
   {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},

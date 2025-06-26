@@ -11,7 +11,7 @@ import SwiperCore, {
 } from 'swiper';
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
-  selector: 'app-apple-id-category-carousel',
+  selector: 'app-gift-card-category-carousel',
   standalone: true,
   imports: [
     NgForOf,
@@ -22,10 +22,10 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
     NgStyle,
     NgIf
   ],
-  templateUrl: './apple-id-category-carousel.component.html',
-  styleUrl: './apple-id-category-carousel.component.scss'
+  templateUrl: './gift-card-category-carousel.component.html',
+  styleUrl: './gift-card-category-carousel.component.scss'
 })
-export class AppleIdCategoryCarouselComponent extends ProductListComponent{
+export class GiftCardCategoryCarouselComponent extends ProductListComponent{
 
   config: SwiperOptions = {
     freeMode: true,
