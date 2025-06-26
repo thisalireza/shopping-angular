@@ -11,9 +11,9 @@ import {ProductService} from "../../services/products.service";
   standalone: true,
   styleUrl: './shopping.component.scss'
 })
-export class ShoppingComponent  {
-  constructor(private productService: ProductService,) {}
-
+export class ShoppingComponent {
+  constructor(private productService: ProductService,) {
+  }
 
   products$ = this.productService.getAllProducts();
 }

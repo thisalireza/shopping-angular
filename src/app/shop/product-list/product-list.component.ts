@@ -31,13 +31,15 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.showAllProducts) {
+    if (!this.showAllProducts) {
+      // Shopping view - show all products without filtering
+      this.products = this.productService.getAllProducts();
+    } else {
+      // Liked products view - apply filtering and randomization
       this.products = this.productService.getAllProducts()
         .filter(product => product.is_in_inventory)
         .sort(() => Math.random() - 0.5)
         .slice(0, 16);
-    } else {
-      this.products = this.likeService.getLikedProducts();
     }
   }
 
