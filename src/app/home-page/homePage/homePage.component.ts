@@ -16,6 +16,7 @@ import {
 import {
   AirpodsCategoryCarouselComponent
 } from "../../shop/airpods-category-carousel/airpods-category-carousel.component";
+import {RouterLink} from "@angular/router";
 
 
 @Component({
@@ -32,6 +33,7 @@ import {
     AppleIdCategoryCarouselComponent,
     AirpodsCategoryCarouselComponent,
     MacCategoryCarouselComponent,
+    RouterLink,
   ],
   standalone: true,
   templateUrl: './homePage.component.html',
