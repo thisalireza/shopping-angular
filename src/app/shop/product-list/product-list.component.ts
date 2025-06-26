@@ -26,8 +26,9 @@ export class ProductListComponent implements OnInit {
   constructor(
     private route: Router,
     public likeService: LikeService,
-    private productService: ProductService,
-  ) {}
+    public productService: ProductService,
+  ) {
+  }
 
   ngOnInit() {
     if (this.showAllProducts) {
