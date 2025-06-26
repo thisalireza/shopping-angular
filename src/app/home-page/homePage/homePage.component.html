@@ -1,4 +1,4 @@
-<!--slider-->
+<!--sliders-->
 <div class=" pb-5">
   <mdb-carousel [controls]="true" [indicators]="true" [animation]="'fade'">
     <mdb-carousel-item>
@@ -31,31 +31,28 @@
 <div class="container">
   <!--categories-->
   <app-category></app-category>
-
-<app-mac-category-carousel></app-mac-category-carousel>
+  <!--categories carousel-->
+  <app-mac-category-carousel></app-mac-category-carousel>
   <app-iphone-category-carousel></app-iphone-category-carousel>
   <app-ipad-category-carousel></app-ipad-category-carousel>
   <app-apple-watch-category-carousel></app-apple-watch-category-carousel>
   <app-airpods-category-carousel></app-airpods-category-carousel>
   <app-gift-card-category-carousel></app-gift-card-category-carousel>
 
-
+  <!--video apple id-->
   <div class="py-5 cursor-pointer" routerLink="/category/gift-card">
     <video autoplay loop class="rounded-6 homepage-video">
       <source src="assets/images/main-100.mp4" type="video/mp4">
     </video>
   </div>
 
-  <!--products-->
+  <!--products list-->
   <app-product-list
     [showAllProducts]="true"
   ></app-product-list>
 
 
-
-
-
-  <!-- Single  banner-->
+  <!--video iphone-->
   <div class="py-5 mt-5">
     <video autoplay loop class="rounded-6 homepage-video">
       <source src="assets/images/xlarge_2x.mp4" type="video/mp4">
@@ -63,26 +60,37 @@
   </div>
 
 
-
   <!--banners-->
   <div class="row py-5">
-    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer" routerLink="/category/apple-watch">
-      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">Apple Watch</strong><h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">انواع اپل واچ</h3><p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید اپل‌واچ با گارانتی شرکتی</p></div>
+    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer"
+         routerLink="/category/apple-watch">
+      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">Apple Watch</strong>
+        <h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">انواع اپل واچ</h3>
+        <p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید اپل‌واچ با گارانتی شرکتی</p></div>
       <img src="../../../assets/images/height=900,width=1000 (2).avif" alt="banner1-1-min" class="w-100 rounded-6">
     </div>
 
-    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer" routerLink="/category/ipad">
-      <div class="position-absolute p-3 z-3" style="width: 96%;"><strong class="fw-bold my-1">iPad</strong><h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">آیپد پرو ، ایر و ...</h3><p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید آیپد های اپل</p></div>
+    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer"
+         routerLink="/category/ipad">
+      <div class="position-absolute p-3 z-3" style="width: 96%;"><strong class="fw-bold my-1">iPad</strong>
+        <h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">آیپد پرو ، ایر و ...</h3>
+        <p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید آیپد های اپل</p></div>
       <img src="../../../assets/images/height=900,width=1000 (1).avif" alt="banner2-1-min.jpg" class="w-100 rounded-6">
     </div>
 
-    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer" routerLink="/category/mac">
-      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">Mac</strong><h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">مک بوک پرو و ایر</h3><p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید انواع مک بوک و آی مک</p></div>
+    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer"
+         routerLink="/category/mac">
+      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">Mac</strong>
+        <h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">مک بوک پرو و ایر</h3>
+        <p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید انواع مک بوک و آی مک</p></div>
       <img src="../../../assets/images/height=900,width=1000.avif" alt="banner2-1-min.jpg" class="w-100 rounded-6">
     </div>
 
-    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer" routerLink="/category/iphone">
-      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">iPhone apple</strong><h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">گوشی های آیفون اپل</h3><p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید آیفون اصلی به همراه ضمانت</p></div>
+    <div class="home-page--banner col-12 col-md-3 py-2 py-md-0 position-relative cursor-pointer"
+         routerLink="/category/iphone">
+      <div class="position-absolute p-3 z-3"><strong class="fw-bold my-1">iPhone apple</strong>
+        <h3 class="fs-5 fw-bolder mt-2 px-2" style="color:#000">گوشی های آیفون اپل</h3>
+        <p class="fw-light px-2" style="color:#000">مشاهده قیمت و خرید آیفون اصلی به همراه ضمانت</p></div>
       <img src="../../../assets/images/height=450,width=500.avif" alt="banner2-1-min.jpg" class="w-100 rounded-6">
     </div>
   </div>
@@ -91,7 +99,7 @@
   <!--    articles-->
   <app-article-list></app-article-list>
 
-
+  <!--video mac-->
   <div class="py-5 mt-5">
     <video autoplay loop class="rounded-6 homepage-video">
       <source src="assets/images/xd7bd68573_large_2x.mp4" type="video/mp4">
@@ -100,7 +108,7 @@
   </div>
 
 
-  <!--QA-->
+  <!--question answer-->
   <app-question-answer></app-question-answer>
 
 

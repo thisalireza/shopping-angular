@@ -1,4 +1,4 @@
-<nav class="breadcrumb-container container" *ngIf="router.url !== '/home'">
+<nav class="breadcrumb-container container pt-2" *ngIf="router.url !== '/home'">
   <ol class="breadcrumb">
     <li *ngFor="let breadcrumb of breadcrumbs; let last = last">
       <a [routerLink]="breadcrumb.url" routerLinkActive="router-link-active">

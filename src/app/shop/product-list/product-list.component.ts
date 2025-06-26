@@ -1,4 +1,14 @@
-import {Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, viewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  viewChild
+} from '@angular/core';
 import {CurrencyPipe, NgClass, NgForOf, NgIf, NgStyle} from "@angular/common";
 import {RouterLink} from "@angular/router";
 import { Router } from '@angular/router';
@@ -19,10 +29,18 @@ import {Product} from "../../interfaces/product";
   standalone: true,
   styleUrl: './product-list.component.scss'
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   @Output() toggleLikeEvent = new EventEmitter<number>();
   @Input() showAllProducts: boolean = true;
 
+
+  ngOnInit() {
+    //random products in homepage only showing 16 product
+    this.products = this.likeService.getAllProducts()
+      .filter(product => product.is_in_inventory)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 16);
+  }
 
 
   constructor(private route:Router , public likeService: LikeService) {

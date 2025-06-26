@@ -827,6 +827,7 @@ export class LikeService {
     }
   }
 
+
   setProducts(products ): void {
     this.products = products;
     localStorage.setItem(this.PRODUCTS_KEY, JSON.stringify(products));
