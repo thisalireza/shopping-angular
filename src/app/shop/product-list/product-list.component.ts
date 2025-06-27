@@ -30,12 +30,23 @@ export class ProductListComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    if (!this.products || this.products.length === 0) {
+      this.products = this.productService.getAllProducts()
+        .filter(product => product.is_in_inventory)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 16);
+    }
+
+  }
+
+
+  private updateProducts(): void {
     if (!this.showAllProducts) {
-      // Shopping view - show all products without filtering
+      // Shopping view - show all products
       this.products = this.productService.getAllProducts();
     } else {
-      // Liked products view - apply filtering and randomization
+      // Liked products view - show liked products with filtering
       this.products = this.productService.getAllProducts()
         .filter(product => product.is_in_inventory)
         .sort(() => Math.random() - 0.5)
@@ -43,12 +54,22 @@ export class ProductListComponent implements OnInit {
     }
   }
 
-  handleToggleLike(index: number): void {
-    const product = this.products[index];
-    this.toggleLikeEvent.emit(product.id);
-    const isLiked = !this.likeService.getProductLike(product.id);
-    this.likeService.setProductLike(product.id, isLiked);
+
+
+  // handleToggleLike(index: number): void {
+  //   const product = this.products[index];
+  //   this.toggleLikeEvent.emit(product.id); // Added this line
+  //   const isLiked = !this.likeService.getProductLike(product.id);
+  //   this.likeService.setProductLike(product.id, isLiked);
+  //
+  //
+  // }
+
+  handleToggleLike(productId: number): void {
+    this.likeService.toggleProductLike(productId); // ✅ clean and central
+    this.toggleLikeEvent.emit(productId); // let parent know
   }
+
 
   goToProductInfo(item: any) {
     this.route.navigate(['/products/info'], {
@@ -65,9 +86,10 @@ export class ProductListComponent implements OnInit {
 
   likes: boolean[] = new Array(this.products.length).fill(false); // like & unlike , so must boolean type.
 
-  @Output() toggleLike(index: number): void {
-    const product = this.products[index];
-    const isLiked = !this.likeService.getProductLike(product.id);
-    this.likeService.setProductLike(product.id, isLiked);
+  toggleLike(productId: number): void {
+    const isLiked = !this.likeService.getProductLike(productId);
+    this.likeService.setProductLike(productId, isLiked);
+
+    this.updateProducts(); // This will now work correctly
   }
 }

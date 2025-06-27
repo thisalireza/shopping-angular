@@ -1,15 +1,15 @@
-<div class="container pb-5">
-  <h1 class="fw-bold text-center fs-18 pb-3">لیست علاقه مندی ها
-    ({{products.length}})
-  </h1>
+  <div class="container pb-5">
+    <h1 class="fw-bold text-center fs-18 pb-3">لیست علاقه مندی ها
+      ({{products.length}})
+    </h1>
 
-  <div class="text-center py-5" *ngIf="products.length === 0">
-    <p class="text-muted">محصول مورد علاقه‌ای یافت نشد</p>
+    <div class="text-center py-5" *ngIf="products.length === 0">
+      <p class="text-muted">محصول مورد علاقه‌ای یافت نشد</p>
+    </div>
+
+    <app-product-list
+      [products]="products"
+      [showAllProducts]="false"
+      (toggleLikeEvent)="toggleLike($event)"
+    ></app-product-list>
   </div>
-
-  <app-product-list
-    [products]="products"
-    [showAllProducts]="false"
-    (toggleLikeEvent)="toggleLike($event)"
-  ></app-product-list>
-</div>

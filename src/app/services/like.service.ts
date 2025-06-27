@@ -43,4 +43,9 @@ export class LikeService {
       this.likesMap = new Map(likesArray);
     }
   }
+
+  toggleProductLike(productId: number): void {
+    const isLiked = !this.getProductLike(productId);
+    this.setProductLike(productId, isLiked);
+  }
 }

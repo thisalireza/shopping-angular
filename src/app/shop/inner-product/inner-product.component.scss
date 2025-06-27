@@ -67,28 +67,6 @@
   transition: all .5s;
 }
 
-.inner-product-cart-item--input{
-  display: block !important;
-  border: 0;
-  background: transparent;
-  font-size: 17px;
-  color: #000;
-  text-align: center;
-  width: 100%;
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-  visibility: visible;
-  transition: all 0.3s ease-in-out;
-}
-
-
-.inner-product-cart-item--value{
-  border: 1px solid #e0e0e2;
-  border-radius: 20px;
-}
-
-
 .inner-product-selector__item{
   border: 1px solid #e0e0e2;
 }

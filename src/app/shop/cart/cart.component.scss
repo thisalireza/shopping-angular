@@ -9,3 +9,41 @@
   top: 5rem;
   height: max-content;
 }
+
+
+.inner-product-main-image{
+  width: 220px;
+}
+.inner-product-property--info{
+  direction: rtl;
+}
+
+
+.cart-delete--button{
+  transition: all .5s;
+  background-color: transparent;
+  color: #DF3C3C;
+  border: 1px solid #DF3C3C;
+}
+
+.cart-delete--button:hover{
+  transition: all .5s;
+  color: #fff;
+  background-color: #DF3C3C;
+}
+
+
+.cart-total-price--section{
+  border-bottom: 1px solid #e0e0e2;
+}
+
+.cart-Shopping--button{
+  transition: all .5s;
+  color: #fff;
+  background-color: #DF3C3C;
+}
+
+.cart-Shopping--button:hover{
+  transition: all .5s;
+  transform: scale(1.1);
+}

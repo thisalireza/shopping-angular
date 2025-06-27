@@ -47,7 +47,6 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
     if (timeDifference <= 0) {
       clearInterval(this.timer);
       this.timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
-      console.log('Countdown finished!');
       return;
     }
 
