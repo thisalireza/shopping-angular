@@ -27,7 +27,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   templateUrl: './ipad-category-carousel.component.html',
   styleUrl: './ipad-category-carousel.component.scss'
 })
-export class IpadCategoryCarouselComponent{
+export class IpadCategoryCarouselComponent extends ProductListComponent{
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,
@@ -39,7 +39,7 @@ export class IpadCategoryCarouselComponent{
     spaceBetween: 20,
     loop: true,
   };
-  constructor(private productService: ProductService,) {}
+
 
   ipadProducts$ = this.productService.getIpadProducts();
 }

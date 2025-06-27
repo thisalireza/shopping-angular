@@ -27,7 +27,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
   styleUrl: './airpods-category-carousel.component.scss'
 })
 
-export class AirpodsCategoryCarouselComponent {
+export class AirpodsCategoryCarouselComponent extends ProductListComponent{
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,
@@ -40,7 +40,6 @@ export class AirpodsCategoryCarouselComponent {
     loop: true,
   };
 
-  constructor(private productService: ProductService,) {}
 
 
  airpodsProducts$ = this.productService.getAirpodsProducts();

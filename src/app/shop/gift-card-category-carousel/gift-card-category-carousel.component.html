@@ -1,22 +1,44 @@
 <div class="py-5 container">
 
   <h4 class="fw-bold fs-20 pb-3">
-    <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-apple"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z" /><path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2" /></svg>    گیفت کارت | gift card
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+         class="icon icon-tabler icons-tabler-outline icon-tabler-brand-apple">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <path
+        d="M8.286 7.008c-3.216 0 -4.286 3.23 -4.286 5.92c0 3.229 2.143 8.072 4.286 8.072c1.165 -.05 1.799 -.538 3.214 -.538c1.406 0 1.607 .538 3.214 .538s4.286 -3.229 4.286 -5.381c-.03 -.011 -2.649 -.434 -2.679 -3.23c-.02 -2.335 2.589 -3.179 2.679 -3.228c-1.096 -1.606 -3.162 -2.113 -3.75 -2.153c-1.535 -.12 -3.032 1.077 -3.75 1.077c-.729 0 -2.036 -1.077 -3.214 -1.077z"/>
+      <path d="M12 4a2 2 0 0 0 2 -2a2 2 0 0 0 -2 2"/>
+    </svg>
+    گیفت کارت | gift card
   </h4>
 
 
   <swiper *ngIf="giftCardProducts$?.length > 0" [config]="config" class="mySwiper">
-    <ng-template swiperSlide *ngFor="let prod of giftCardProducts$">
+    <ng-template swiperSlide *ngFor="let prod of giftCardProducts$; index as i">
 
-      <div class="card card-carousel--products h-100 rounded-6 cursor-pointer" [routerLink]="['/products', prod.id]">
+      <div class="position-relative">
+        <div class="mx-2 card-navbar--icon position-absolute">
+          <svg #likeIcon (click)="handleToggleLike(i)"
+               [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}"
+               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card card-carousel--products h-100 rounded-6 cursor-pointer " [routerLink]="['/products', prod.id]">
         <img [src]="prod.imageURL"
              [ngClass]="{ 'out-of-discount': !prod.is_in_inventory }"
              class="card-img-top rounded-6 p-3" alt="Product image"/>
 
+
         <div class="card-body py-0">
           <h3 class="card-title text-center fw-bold lh-base">{{ prod.name }}</h3>
-          <label class="py-2 rounded-3 d-flex justify-content-center align-items-center">
-            <ng-container *ngFor="let color of prod.color">
+          @if (prod.is_in_inventory) {
+            <label class="py-2 rounded-3 d-flex justify-content-center align-items-center">
+              <ng-container *ngFor="let color of prod.color">
     <span
       class="rounded-3 mx-1"
       [ngClass]="{
@@ -29,8 +51,9 @@
       }"
       title="{{ color }}"
     ></span>
-            </ng-container>
-          </label>
+              </ng-container>
+            </label>
+          }
         </div>
 
         <div class="card-footer text-center py-2">

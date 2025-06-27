@@ -6,8 +6,19 @@
 
 
   <swiper *ngIf="appleWatchProducts$?.length > 0" [config]="config" class="mySwiper">
-    <ng-template swiperSlide *ngFor="let prod of appleWatchProducts$">
-
+    <ng-template swiperSlide *ngFor="let prod of appleWatchProducts$; index as i">
+      <div class="position-relative">
+        <div class="mx-2 card-navbar--icon position-absolute">
+          <svg #likeIcon (click)="handleToggleLike(i)"
+               [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}"
+               xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"/>
+          </svg>
+        </div>
+      </div>
       <div class="card card-carousel--products h-100 rounded-6 cursor-pointer" [routerLink]="['/products', prod.id]">
         <img [src]="prod.imageURL"
              [ngClass]="{ 'out-of-discount': !prod.is_in_inventory }"
@@ -15,6 +26,7 @@
 
         <div class="card-body py-0">
           <h3 class="card-title text-center fw-bold lh-base">{{ prod.name }}</h3>
+          @if (prod.is_in_inventory){
           <label class="py-2 rounded-3 d-flex justify-content-center align-items-center">
             <ng-container *ngFor="let color of prod.color">
     <span
@@ -31,6 +43,7 @@
     ></span>
             </ng-container>
           </label>
+          }
         </div>
 
         <div class="card-footer text-center py-2">
