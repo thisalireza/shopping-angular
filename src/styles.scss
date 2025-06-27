@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@fortawesome/fontawesome-free/css/all.css";
+@import "leaflet/dist/leaflet.css";
 
 @import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
 @import 'swiper/swiper-bundle.min.css';
+
 
 
 //persian font
@@ -350,4 +352,48 @@ ol, ul , li {
 
 
 
+.out-of-discount {
+  filter: grayscale(1)
+}
 
+
+.card-navbar--icon {
+  background-color: transparent;
+  border: 1px solid #e0e0e2;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #505050;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 12px;
+  top: 12px;
+  z-index: 2 !important;
+}
+
+
+
+.inner-product-cart-item--input{
+  display: block !important;
+  border: 0;
+  background: transparent;
+  font-size: 17px;
+  color: #000;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.inner-product-cart-item--value{
+  border: 1px solid #e0e0e2;
+  border-radius: 20px;
+}

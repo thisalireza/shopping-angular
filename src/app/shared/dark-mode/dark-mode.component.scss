@@ -110,7 +110,7 @@ body {
 }
 
 
-.dark-mode .about-us--section, .dark-mode .contact-us--section , .dark-mode .aside-section--articles , .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section ,.dark-mode .signin-section , .dark-mode .article-detail  {
+.dark-mode .about-us--section, .dark-mode .contact-us--section , .dark-mode .aside-section--articles , .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section ,.dark-mode .signin-section , .dark-mode .article-detail , .dark-mode .cart--section , .dark-mode .cart-aside--section {
   background-color: var(--foreground-color) !important;
   transition: all 0.5s;
 }

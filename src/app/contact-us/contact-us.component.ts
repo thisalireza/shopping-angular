@@ -1,12 +1,10 @@
-import { Component } from '@angular/core';
-import {FooterComponent} from "../shared/footer/footer.component";
-import {MenuComponent} from "../shared/header/header.component";
+import {Component} from '@angular/core';
+import {MapComponent} from "../map/map.component";
 
 @Component({
   selector: 'app-contact-us',
   imports: [
-    FooterComponent,
-    MenuComponent
+    MapComponent
   ],
   templateUrl: './contact-us.component.html',
   standalone: true,
