@@ -3,15 +3,15 @@
 
 }
 
-.inner-product-top--breadcrumb{
+.inner-product-top--breadcrumb {
   text-align: right;
 }
 
-.inner-product-main-image{
+.inner-product-main-image {
   width: 300px;
 }
 
-.inner-product--gallery{
+.inner-product--gallery {
   width: 95px;
   border: 1px solid #e0e0e2;
 }
@@ -32,16 +32,16 @@
   align-items: center;
 }
 
-.inner-product-main--title{
+.inner-product-main--title {
   border-bottom: 1px solid #e0e0e2;
 }
 
-.inner-product--inner-div{
+.inner-product--inner-div {
   border: 1px solid #e0e0e2;
 }
 
 
-.inner-product-add-to-card--button{
+.inner-product-add-to-card--button {
   max-height: 48px;
   height: 60px;
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, .03);
@@ -52,11 +52,11 @@
   transition: all .5s;
 }
 
-.inner-product-add-to-card--button:hover , .inner-product-out-of-stock--button:hover{
+.inner-product-add-to-card--button:hover, .inner-product-out-of-stock--button:hover {
   transform: scale(1.1);
 }
 
-.inner-product-out-of-stock--button{
+.inner-product-out-of-stock--button {
   max-height: 48px;
   height: 60px;
   box-shadow: 0 8px 14px 0 rgba(0, 0, 0, .03);
@@ -67,11 +67,11 @@
   transition: all .5s;
 }
 
-.inner-product-selector__item{
+.inner-product-selector__item {
   border: 1px solid #e0e0e2;
 }
 
-.inner-product-selector--color{
+.inner-product-selector--color {
   background: #ccc;
   width: 16px;
   height: 16px;
@@ -81,22 +81,22 @@
   border: 1px solid #dcdcdc;
 }
 
-.inner-product-selector--active_action{
+.inner-product-selector--active_action {
   border-color: #DF3C3C;
   box-shadow: 0 0 0 8px rgba(255, 152, 1, 0);
   transition: all .4s ease-in-out;
 }
 
-.inner-product-property--info{
+.inner-product-property--info {
   direction: rtl;
 }
 
-.inner-product-out-of-stock--text{
+.inner-product-out-of-stock--text {
   background-color: #F5F5F5;
 }
 
 
- .km-title:before {
+.km-title:before {
   content: '';
   display: block;
   z-index: 0;
@@ -108,4 +108,70 @@
   transform: translateY(-50%);
   left: 0;
 
+}
+
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 25px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #ffa904;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #ffa904;
 }
