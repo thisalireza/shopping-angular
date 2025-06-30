@@ -19,30 +19,30 @@
 
       <div [formGroup]="form">
         <form action="javascript:void(0)" (submit)="send()">
-          <div>
-            <label for="name">full name</label>
-            <input formControlName="form_name" type="text" name="name" id="name" placeholder="full name">
+          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+            <label for="name">نام:</label>
+            <input formControlName="form_name" type="text" name="name" id="name" placeholder="نام شما">
           </div>
 
-          <div>
-            <label for="email">email address</label>
-            <input formControlName="form_email" type="email" name="email" id="email" placeholder="enter your email">
+          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+            <label for="email">آدرس ایمیل</label>
+            <input formControlName="form_email" type="email" name="email" id="email" placeholder="ایمیل خود را وارد کنید">
           </div>
 
-          <div>
-            <label for="subject">subject</label>
+          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+            <label for="subject">موضوع:</label>
             <input formControlName="form_subject" type="text" name="subject" id="subject"
-                   placeholder="enter your subject">
+                   placeholder="موضوع ....">
           </div>
 
-          <div>
-            <label for="message">message</label>
+          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+            <label for="message">پیام:</label>
             <input formControlName="form_message" type="text" name="message" id="message"
-                   placeholder="enter your message">
+                   placeholder="پیغام خود را بنویسید...">
           </div>
 
           <div>
-            <button type="submit" class="btn ">submit</button>
+            <button type="submit" class="btn btn-danger">ارسال</button>
           </div>
         </form>
       </div>
