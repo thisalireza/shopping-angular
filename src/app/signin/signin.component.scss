@@ -1,11 +1,11 @@
 
-.signin-logo--image{
+.signin-logo--image {
   width: 150px;
   margin: 0 auto;
   filter: brightness(0.5);
 }
 
-.signin-section{
+.signin-section {
   background: #fff;
 }
 
@@ -26,12 +26,12 @@
   }
 }
 
-.sign-in-title{
+.sign-in-title {
   border-bottom: 1px solid #e0e0e2;
 }
 
 
-.sign-in-input{
+.sign-in-input {
   border: 1px solid #e0e0e2;
   background: #F2F2F2;
   text-align: left;
@@ -40,30 +40,29 @@
 }
 
 
-.sign-in-label{
+.sign-in-label {
   text-align: right;
   display: block;
 }
 
-.sign-in-get--back{
+.sign-in-get--back {
   transition: all .5s;
 }
 
-.sign-in-get--back:hover{
-color: #DF3C3C !important;
+.sign-in-get--back:hover {
+  color: #DF3C3C !important;
   cursor: pointer;
 }
 
-.sign-in-button{
+.sign-in-button {
   background-color: #DF3C3C;
   color: #fff;
   transition: all .5s;
 }
 
-.sign-in-button:hover{
-transform: scale(1.1);
+.sign-in-button:hover {
+  transform: scale(1.1);
 }
-
 
 
 /* Remove spinner buttons for Chrome, Safari, Edge, Opera */
@@ -77,8 +76,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
-
 
 
 .re-captcha-container {

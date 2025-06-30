@@ -25,6 +25,7 @@ export class SigninComponent implements OnInit {
   isPhoneNumberDisabled = false;
   showCaptcha = true;
   showContinueButton = true;
+  @Input() isFreeLayout= true;
   @Input() isVerificationCodeValid = false;
 
   constructor(private location: Location, private localStorageService: LocalStorageService, private authStatusService: AuthStatusService) {

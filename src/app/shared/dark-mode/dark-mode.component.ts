@@ -1,6 +1,6 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {NgIf} from "@angular/common";
+import {DarkModeService} from "../../services/dark-mode.service";
 
 @Component({
   selector: 'app-dark-mode',
@@ -12,40 +12,19 @@ import {NgIf} from "@angular/common";
   ],
   encapsulation: ViewEncapsulation.None  // Disable view encapsulation
 })
-export class DarkModeComponent {
-  darkMode: string | null = null;
+export class DarkModeComponent implements OnInit {
 
-  constructor(private renderer: Renderer2) {}
+  darkMode = false;
+
+  constructor(private darkModeService: DarkModeService) {
+  }
 
   ngOnInit(): void {
-    this.darkMode = localStorage.getItem('darkMode');
-    if (this.darkMode === 'active') {
-      this.enableDarkMode();
-    } else {
-      this.disableDarkMode();
-    }
-  }
-
-  enableDarkMode(): void {
-    this.renderer.removeClass(document.body, 'sunny');
-    this.renderer.addClass(document.body, 'dark-mode');
-    localStorage.setItem('darkMode', 'active');
-    this.darkMode = 'active';
-  }
-
-  disableDarkMode(): void {
-    this.renderer.addClass(document.body, 'sunny');
-    this.renderer.removeClass(document.body, 'dark-mode');
-    localStorage.removeItem('darkMode');
-    this.darkMode = null;
+    this.darkMode = this.darkModeService.isDarkMode();
   }
 
   toggleTheme(): void {
-    this.darkMode = localStorage.getItem('darkMode');
-    if (this.darkMode !== 'active') {
-      this.enableDarkMode();
-    } else {
-      this.disableDarkMode();
-    }
+    this.darkModeService.toggle();
+    this.darkMode = this.darkModeService.isDarkMode();
   }
 }

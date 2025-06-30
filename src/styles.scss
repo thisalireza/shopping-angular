@@ -397,3 +397,142 @@ ol, ul , li {
   border: 1px solid #e0e0e2;
   border-radius: 20px;
 }
+/* Dark Mode Styles */
+.dark-mode {
+  transition: all .5s;
+  --background-color: #353535;
+  --foreground-color: #202124;
+  --primary-color: #2f3e66;
+  --secondary-color: #0071ff;
+  --text-color: #ffffff;
+  --bold-text-color: #ffffff;
+  background-color: #353535;
+  color: #ffffff;
+}
+
+
+/* Sunny (Light Mode) Styles */
+.sunny {
+  transition: all .5s;
+  --background-color: #F2F2F2;
+  --foreground-color: #fff;
+  --primary-color: #3a435d;
+  --secondary-color: #0071ff;
+  --text-color: #111528;
+  --bold-text-color: #000000;
+  background-color: #F2F2F2;
+  color: #111528;
+}
+
+/* Default body styles to make sure colors are applied globally */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+
+#theme-switcher {
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e2;
+}
+
+
+.dark-mode #theme-switcher, .dark-mode .card-navbar--icon {
+  transition: all .5s;
+  border: 1px solid var(--text-color);
+}
+
+#theme-switcher svg {
+  transition: all .5s;
+  fill: var(--bold-text-color);
+}
+
+.dark-mode .signin-button-navbar {
+  transition: all .5s;
+  color: var(--bold-text-color);
+}
+
+.search-icon svg, .card-navbar--icon svg {
+  transition: all .5s;
+  stroke: var(--bold-text-color);
+}
+
+
+.dark-mode .nav-link {
+  transition: all .5s;
+  color: var(--bold-text-color);
+}
+
+
+.dark-mode #navbar-expand-light {
+  transition: all .5s;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 60px 30px rgb(54 54 54);
+
+}
+
+
+.dark-mode .text-body, .dark-mode .homepage-category--title, .dark-mode .price-with-discount--digit {
+  transition: all .5s;
+  color: var(--bold-text-color) !important;
+}
+
+.dark-mode .copyright-footer-section, .dark-mode .card-article, .dark-mode .card {
+  transition: all .5s;
+  background-color: var(--foreground-color);
+}
+
+.dark-mode .price-with-discount--text, .dark-mode .inner-product-cart-item--input {
+  color: var(--text-color) !important;
+}
+
+
+.dark-mode .card-footer {
+  border-top: var(--mdb-card-footer-border-width) solid var(--background-color) !important;
+}
+
+
+.dark-mode .accordion-item, .dark-mode .accordion-button {
+  color: var(--text-color) !important;
+  background-color: var(--foreground-color) !important;
+  border: var(--mdb-accordion-border-width) solid var(--background-color) !important;
+}
+
+
+.dark-mode .about-us--section, .dark-mode .contact-us--section, .dark-mode .aside-section--articles, .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section, .dark-mode .signin-section, .dark-mode .article-detail, .dark-mode .cart--section, .dark-mode .cart-aside--section {
+  background-color: var(--foreground-color) !important;
+  transition: all 0.5s;
+}
+
+
+.card-navbar--icon svg:hover, .search-icon svg:hover {
+  stroke: red !important;
+}
+
+#theme-switcher svg:hover {
+  fill: red !important;
+}
+
+.is-like {
+  fill: red !important;
+  stroke: red !important;
+}
+
+
+.dark-mode .sign-in-input, .dark-mode .captcha-input {
+  background-color: var(--background-color) !important;
+}
+
+
+.dark-mode .breadcrumb a {
+
+  color: var(--text-color) !important;
+}

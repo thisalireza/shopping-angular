@@ -35,6 +35,7 @@ import {LazyLoadDirective} from "./Directives/lazy-load.directive";
 import { CaptchaComponent } from './shared/captcha/captcha.component';
 import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 import { SwiperModule } from 'swiper/angular';
+import {SigninComponent} from "./signin/signin.component";
 
 initMDB({Collapse});
 
@@ -73,38 +74,39 @@ export class ImageLoadDirective implements OnInit {
 
 
 ],
-  imports: [
-    SwiperModule,
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MdbAccordionModule,
-    MdbCarouselModule,
-    MdbCheckboxModule,
-    MdbCollapseModule,
-    MdbDropdownModule,
-    MdbFormsModule,
-    MdbModalModule,
-    MdbPopoverModule,
-    MdbRadioModule,
-    MdbRangeModule,
-    MdbRippleModule,
-    MdbScrollspyModule,
-    MdbTabsModule,
-    MdbTooltipModule,
-    MdbValidationModule,
-    MenuComponent,
-    FooterComponent,
-    HomePageComponent,
-    ProductListComponent,
-    RouterOutlet,
-    BackToTopComponent,
-    LazyLoadDirective,
-    FormsModule,
+    imports: [
+        SwiperModule,
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MdbAccordionModule,
+        MdbCarouselModule,
+        MdbCheckboxModule,
+        MdbCollapseModule,
+        MdbDropdownModule,
+        MdbFormsModule,
+        MdbModalModule,
+        MdbPopoverModule,
+        MdbRadioModule,
+        MdbRangeModule,
+        MdbRippleModule,
+        MdbScrollspyModule,
+        MdbTabsModule,
+        MdbTooltipModule,
+        MdbValidationModule,
+        MenuComponent,
+        FooterComponent,
+        HomePageComponent,
+        ProductListComponent,
+        RouterOutlet,
+        BackToTopComponent,
+        LazyLoadDirective,
+        FormsModule,
 
-    CaptchaComponent,
-    BreadcrumbComponent,
-  ],
+        CaptchaComponent,
+        BreadcrumbComponent,
+        SigninComponent,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

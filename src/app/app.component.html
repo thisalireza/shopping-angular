@@ -1,5 +1,6 @@
-<app-header></app-header>
-<app-breadcrumb></app-breadcrumb>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
-<app-back-to-top></app-back-to-top>
+<app-header *ngIf="!isSignInPage"></app-header>
+<app-breadcrumb *ngIf="!isSignInPage"></app-breadcrumb>
+
+<router-outlet (activate)="onRouteActivate($event)"></router-outlet>
+<app-footer *ngIf="!isSignInPage"></app-footer>
+<app-back-to-top *ngIf="!isSignInPage"></app-back-to-top>
