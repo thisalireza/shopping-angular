@@ -16,14 +16,42 @@
       <h3>دسترسی آسان، همیشگی و همگانی به دانش آکادمیک و تخصصی
 
       </h3>
-      <p>sadas</p>
-    </div>
 
+      <div [formGroup]="form">
+        <form action="javascript:void(0)" (submit)="send()">
+          <div>
+            <label for="name">full name</label>
+            <input formControlName="form_name" type="text" name="name" id="name" placeholder="full name">
+          </div>
+
+          <div>
+            <label for="email">email address</label>
+            <input formControlName="form_email" type="email" name="email" id="email" placeholder="enter your email">
+          </div>
+
+          <div>
+            <label for="subject">subject</label>
+            <input formControlName="form_subject" type="text" name="subject" id="subject"
+                   placeholder="enter your subject">
+          </div>
+
+          <div>
+            <label for="message">message</label>
+            <input formControlName="form_message" type="text" name="message" id="message"
+                   placeholder="enter your message">
+          </div>
+
+          <div>
+            <button type="submit" class="btn ">submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
 
 
   </section>
 
-  <div class="mt-5" >
+  <div class="mt-5">
 
   </div>
 </div>
