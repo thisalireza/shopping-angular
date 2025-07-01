@@ -2,3 +2,14 @@
   background-color: #fff;
   transition: all 0.5s;
 }
+
+.form-control{
+  background-color: #F2F2F2;
+  border: 1px solid #e0e0e2 !important;
+  border-radius: 12px !important;
+  padding: 10px !important;
+}
+
+.form-outline .form-control{
+  border:0 !important;
+}

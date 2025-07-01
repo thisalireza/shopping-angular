@@ -19,16 +19,16 @@
 
       <div [formGroup]="form">
         <form action="javascript:void(0)" (submit)="send()">
-          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+          <div class="  py-2">
 
             <mdb-form-control>
               <input mdbInput formControlName="form_name" type="text" name="name" id="name" placeholder="نام شما"
-                     required class="form-control "/>
+                     required class="form-control"/>
               <label mdbLabel class="form-label" for="name">نام</label>
             </mdb-form-control>
           </div>
 
-          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+          <div class="  py-2">
 
             <mdb-form-control>
               <input mdbInput formControlName="form_email" type="email" name="email" id="email"
@@ -38,7 +38,7 @@
 
           </div>
 
-          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+          <div class="  py-2">
             <mdb-form-control>
               <input mdbInput formControlName="form_subject" type="text" name="subject" id="subject"
                      class="form-control"
@@ -47,10 +47,11 @@
             </mdb-form-control>
           </div>
 
-          <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
+          <div class="  py-2">
             <mdb-form-control>
 
-              <textarea id="message" name="message" rows="4" cols="50" type="text" formControlName="form_message" class="form-control" placeholder="پیغام خود را بنویسید..."  required>
+              <textarea id="message" name="message" rows="4" cols="50" type="text" formControlName="form_message"
+                        class="form-control" placeholder="پیغام خود را بنویسید..." required>
 
 </textarea>
 
