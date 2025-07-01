@@ -13,32 +13,51 @@
     </div>
 
     <div>
-      <h3>دسترسی آسان، همیشگی و همگانی به دانش آکادمیک و تخصصی
-
+      <h3 class="fw-bold  fs-18">
+        با ما در ارتباط باشید
       </h3>
 
       <div [formGroup]="form">
         <form action="javascript:void(0)" (submit)="send()">
           <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
-            <label for="name">نام:</label>
-            <input formControlName="form_name" type="text" name="name" id="name" placeholder="نام شما">
+
+            <mdb-form-control>
+              <input mdbInput formControlName="form_name" type="text" name="name" id="name" placeholder="نام شما"
+                     required class="form-control "/>
+              <label mdbLabel class="form-label" for="name">نام</label>
+            </mdb-form-control>
           </div>
 
           <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
-            <label for="email">آدرس ایمیل</label>
-            <input formControlName="form_email" type="email" name="email" id="email" placeholder="ایمیل خود را وارد کنید">
+
+            <mdb-form-control>
+              <input mdbInput formControlName="form_email" type="email" name="email" id="email"
+                     placeholder="ایمیل خود را وارد کنید" class="form-control" required/>
+              <label mdbLabel class="form-label" for="email">آدرس ایمیل</label>
+            </mdb-form-control>
+
           </div>
 
           <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
-            <label for="subject">موضوع:</label>
-            <input formControlName="form_subject" type="text" name="subject" id="subject"
-                   placeholder="موضوع ....">
+            <mdb-form-control>
+              <input mdbInput formControlName="form_subject" type="text" name="subject" id="subject"
+                     class="form-control"
+                     placeholder="موضوع ...." required/>
+              <label mdbLabel class="form-label" for="subject">موضوع:</label>
+            </mdb-form-control>
           </div>
 
           <div class="d-flex flex-row-reverse gap-2 align-items-center py-2">
-            <label for="message">پیام:</label>
-            <input formControlName="form_message" type="text" name="message" id="message"
-                   placeholder="پیغام خود را بنویسید...">
+            <mdb-form-control>
+
+              <textarea id="message" name="message" rows="4" cols="50" type="text" formControlName="form_message" class="form-control" placeholder="پیغام خود را بنویسید..."  required>
+
+</textarea>
+
+              <label mdbLabel class="form-label" for="message">پیام:</label>
+            </mdb-form-control>
+
+
           </div>
 
           <div>

@@ -2,12 +2,14 @@ import {Component} from '@angular/core';
 import {MapComponent} from "../map/map.component";
 import emailjs from '@emailjs/browser';
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {MdbFormsModule} from "mdb-angular-ui-kit/forms";
 
 @Component({
   selector: 'app-contact-us',
   imports: [
     MapComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MdbFormsModule
   ],
   templateUrl: './contact-us.component.html',
   standalone: true,
