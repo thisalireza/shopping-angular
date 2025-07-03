@@ -27,7 +27,7 @@ export class MapComponent implements AfterViewInit{
     // Define your custom icon
     const customIcon = L.icon({
       iconUrl: '../assets/images/marker.png',  // your marker image path
-      iconSize: [70, 70],                    // size of the icon
+      iconSize: [80, 80],                    // size of the icon
       iconAnchor: [16, 32],                  // point of the icon which will correspond to marker's location
       popupAnchor: [0, -32],                 // point from which the popup should open relative to the iconAnchor
     });

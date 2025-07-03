@@ -15,25 +15,6 @@
 }
 
 
-.rtl-form {
-  direction: rtl;
-  text-align: right;
-
-  input, textarea {
-    text-align: right;
-  }
-
-  label {
-    right: 0 !important;
-    left: auto !important;
-  }
-
-  .form-outline {
-    direction: rtl;
-  }
-}
-
-
 .rtl-form input.form-control,
 .rtl-form textarea.form-control {
   border: none !important;
@@ -46,4 +27,16 @@
 .rtl-form .form-outline .form-control {
   border-bottom: none !important;
   box-shadow: none !important;
+}
+
+
+.contact-us-send-button{
+  background: #DF3C3C;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.contact-us-send-button:hover{
+  transform: scale(1.1);
+  transition: all 0.5s;
 }

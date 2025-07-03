@@ -1,73 +1,93 @@
 <div class="container pt-2 pb-5">
   <section class="contact-us--section d-flex justify-content-between p-5 rounded-6">
-
-
     <div>
       <h1 class="fw-bold fs-24">تماس با ما</h1>
-
       <h3 class="fw-bold  fs-18 text-muted">
         با ما در ارتباط باشید
       </h3>
 
-      <div [formGroup]="form" class="rtl-form">
-        <form action="javascript:void(0)" (submit)="send()">
-          <div class="  py-2">
+      <form action="javascript:void(0)" [formGroup]="form" (ngSubmit)="send()" class="rtl-form">
+        <div class="  py-2">
+          <mdb-form-control>
+            <input mdbInput formControlName="form_name"
+                   type="text"
+                   name="name"
+                   id="name"
+                   maxlength="30"
+                   required
+                   class="form-control"
+                   #nameInput/>
+            <label mdbLabel class="form-label" for="name">نام</label>
+          </mdb-form-control>
+          <span *ngIf="form.get('form_name')?.invalid && form.get('form_name')?.touched" class="text-danger fs-12">
+          لطفا نام خود را وارد نمایید
+        </span>
+        </div>
 
-            <mdb-form-control>
-              <input mdbInput formControlName="form_name" type="text" name="name" id="name" placeholder="نام شما"
-                     required class="form-control"/>
-              <label mdbLabel class="form-label" for="name">نام</label>
-            </mdb-form-control>
-          </div>
-
-          <div class="  py-2">
-
-            <mdb-form-control>
-              <input mdbInput formControlName="form_email" type="email" name="email" id="email"
-                     placeholder="ایمیل خود را وارد کنید" class="form-control" required/>
-              <label mdbLabel class="form-label" for="email">آدرس ایمیل</label>
-            </mdb-form-control>
-
-          </div>
-
-          <div class="  py-2">
-            <mdb-form-control>
-              <input mdbInput formControlName="form_subject" type="text" name="subject" id="subject"
-                     class="form-control"
-                     placeholder="موضوع ...." required/>
-              <label mdbLabel class="form-label" for="subject">موضوع:</label>
-            </mdb-form-control>
-          </div>
-
-          <div class="  py-2">
-            <mdb-form-control>
-
-              <textarea id="message" name="message" rows="4" cols="50" type="text" formControlName="form_message"
-                        class="form-control" placeholder="پیغام خود را بنویسید..." required>
-
-</textarea>
-
-              <label mdbLabel class="form-label" for="message">پیام:</label>
-            </mdb-form-control>
+        <div class="  py-2">
+          <mdb-form-control>
+            <input mdbInput formControlName="form_email" type="email" name="email" id="email" maxlength="50"
+                   class="form-control" #emailInput required/>
+            <label mdbLabel class="form-label" for="email">آدرس ایمیل</label>
+          </mdb-form-control>
+          <span *ngIf="form.get('form_email')?.invalid && form.get('form_email')?.touched" class="text-danger fs-12">
+          لطفا ایمیل خود را وارد نمایید
+        </span>
+        </div>
 
 
-          </div>
+        <div class="  py-2">
+          <mdb-form-control>
+            <input mdbInput formControlName="form_subject" type="text" name="subject" id="subject" maxlength="50"
+                   class="form-control"
+                   required #subjectInput/>
+            <label mdbLabel class="form-label" for="subject">موضوع:</label>
+          </mdb-form-control>
+          <span *ngIf="form.get('form_subject')?.invalid && form.get('form_subject')?.touched" class="text-danger fs-12">
+          لطفا موضوع را وارد کنید
+        </span>
+        </div>
 
-          <div>
-            <button type="submit" class="btn btn-danger">ارسال</button>
-          </div>
-        </form>
-      </div>
+        <div class="py-2">
+
+
+          <mdb-form-control>
+<textarea
+  id="message"
+  name="message"
+  formControlName="form_message"
+  class="form-control"
+  rows="4"
+  cols="50"
+  required
+></textarea>
+            <label mdbLabel class="form-label" for="message">پیام:</label>
+          </mdb-form-control>
+          <span *ngIf="form.get('form_message')?.invalid && form.get('form_message')?.touched" class="text-danger fs-12">
+          لطا پیام را وارد کنید
+        </span>
+        </div>
+
+        <div class="py-2">
+          <button type="submit" class="btn contact-us-send-button fw-bold fs-14 rounded-3 " [disabled]="!form.valid">
+            ارسال
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/>
+            </svg>
+          </button>
+        </div>
+      </form>
     </div>
+
+
     <div>
+
       <app-map></app-map>
+
     </div>
-
   </section>
-
-  <div class="mt-5">
-
-  </div>
 </div>
-
 
