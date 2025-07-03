@@ -6,19 +6,11 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <link rel="stylesheet" href="./assets/code/mouse-effect/kursor.css">
+  <script src="./assets/code/mouse-effect/kursor.js"></script>
 </head>
 <body class="sunny">
-
   <app-root></app-root>
-  <script>
-    window.addEventListener('error', function(e) {
-      const errorDiv = document.getElementById('whitescreen-error');
-      const messageDiv = document.getElementById('error-message');
-      errorDiv.style.display = 'block';
-      messageDiv.textContent = e.message;
-    });
-  </script>
 </body>
 </html>
 
@@ -26,12 +18,10 @@
 
 
 <!--mouse effect-->
-<!--<link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">-->
-<!--<script src="https://unpkg.com/kursor"></script>-->
-<!--<script>-->
-<!--  new kursor({-->
-<!--    type: 1,-->
-<!--    color: '#EE1F1F',-->
-<!--    removeDefaultCursor: false,-->
-<!--  })-->
-<!--</script>-->
+<script>
+  new kursor({
+    type: 1,
+    color: '#EE1F1F',
+    removeDefaultCursor: false,
+  })
+</script>
