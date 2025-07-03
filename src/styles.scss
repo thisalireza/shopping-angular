@@ -1,8 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@fortawesome/fontawesome-free/css/all.css";
 @import "leaflet/dist/leaflet.css";
-
-@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+@import 'mdb-ui-kit/css/mdb.rtl.min.css';
+//@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
 @import 'swiper/swiper-bundle.min.css';
 
 
@@ -426,6 +426,7 @@ ol, ul , li {
 
 /* Default body styles to make sure colors are applied globally */
 body {
+  transition: all .5s;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -485,7 +486,7 @@ body {
   color: var(--bold-text-color) !important;
 }
 
-.dark-mode .copyright-footer-section, .dark-mode .card-article, .dark-mode .card {
+.dark-mode .card-article, .dark-mode .card {
   transition: all .5s;
   background-color: var(--foreground-color);
 }
@@ -507,7 +508,7 @@ body {
 }
 
 
-.dark-mode .about-us--section, .dark-mode .contact-us--section, .dark-mode .aside-section--articles, .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section, .dark-mode .signin-section, .dark-mode .article-detail, .dark-mode .cart--section, .dark-mode .cart-aside--section {
+.dark-mode .copyright-footer-section , .dark-mode .about-us--section, .dark-mode .contact-us--section, .dark-mode .aside-section--articles, .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section, .dark-mode .signin-section, .dark-mode .article-detail, .dark-mode .cart--section, .dark-mode .cart-aside--section {
   background-color: var(--foreground-color) !important;
   transition: all 0.5s;
 }
@@ -535,4 +536,26 @@ body {
 .dark-mode .breadcrumb a {
 
   color: var(--text-color) !important;
+}
+
+
+
+/* RTL Carousel Controls Fix */
+[dir="rtl"] .carousel-control-prev {
+  right: 0;
+  left: auto;
+}
+
+[dir="rtl"] .carousel-control-next {
+  left: 0;
+  right: auto;
+}
+
+/* Flip the icons so they point correctly */
+[dir="rtl"] .carousel-control-prev-icon {
+  transform: rotate(180deg);
+}
+
+[dir="rtl"] .carousel-control-next-icon {
+  transform: rotate(180deg);
 }

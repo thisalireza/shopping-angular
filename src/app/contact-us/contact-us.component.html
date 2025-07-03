@@ -1,23 +1,15 @@
-<div class="container py-5">
+<div class="container pt-2 pb-5">
+  <section class="contact-us--section d-flex justify-content-between p-5 rounded-6">
 
-  <section class="py-5">
+
     <div>
       <h1 class="fw-bold fs-24">تماس با ما</h1>
-    </div>
 
-  </section>
-
-  <section class="contact-us--section d-flex justify-content-between p-5 rounded-6">
-    <div>
-      <app-map></app-map>
-    </div>
-
-    <div>
-      <h3 class="fw-bold  fs-18">
+      <h3 class="fw-bold  fs-18 text-muted">
         با ما در ارتباط باشید
       </h3>
 
-      <div [formGroup]="form">
+      <div [formGroup]="form" class="rtl-form">
         <form action="javascript:void(0)" (submit)="send()">
           <div class="  py-2">
 
@@ -67,7 +59,9 @@
         </form>
       </div>
     </div>
-
+    <div>
+      <app-map></app-map>
+    </div>
 
   </section>
 

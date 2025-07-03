@@ -14,7 +14,7 @@
 
     <!-- نمایش محتوای مقاله -->
     <div *ngIf="article">
-      <div class="d-flex justify-content-end pb-4">
+      <div class="d-flex justify-content-end pb-4 flex-row-reverse">
               <span class="article-category bg-danger text-white px-2 py-1 rounded-3 text-nowrap mr-2">
         {{ article?.category }}
       </span>
@@ -22,7 +22,7 @@
 
       <h1 class="article-title mb-4">{{ article?.title }}</h1>
       <div class="article-meta mb-4">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between flex-row-reverse">
           <div>
             <span class="article-writer">{{ article?.writer }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"

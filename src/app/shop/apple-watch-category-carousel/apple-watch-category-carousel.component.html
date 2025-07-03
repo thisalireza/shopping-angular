@@ -59,25 +59,25 @@
               تنها {{ prod.items_left }} عدد در انبار باقی مانده
             </p>
 
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center flex-row-reverse">
               <div>
-                <img src="./assets/images/toman.svg" alt="toman">
                 <span class="fw-bold price-with-discount--digit ps-1">
                 {{
                     (prod.price - (prod.price * prod.discountPrice) / 100)
                       | currency: ' ': 'symbol': '1.0-3'
                   }}
               </span>
+                <img src="./assets/images/toman.svg" alt="toman">
               </div>
 
               <div>
               <span class="product-discount-price--badge fs-12 rounded-3 px-2 fw-bold">
-                {{ prod.discountPrice }} %
+             % {{ prod.discountPrice }}
               </span>
               </div>
             </div>
 
-            <div class="d-flex pt-1">
+            <div class="d-flex justify-content-end pt-1">
               <del class="fs-14" style="color:#c0c2c5;">
                 {{ prod.price | currency:' ':'symbol':'1.0-3' }}
               </del>
