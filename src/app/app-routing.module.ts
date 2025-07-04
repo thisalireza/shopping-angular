@@ -26,9 +26,7 @@ export const routes: Routes = [
   {path: 'home', component: HomePageComponent, data: {breadcrumb: 'خانه'}},
   {path: 'about-us', component: AboutUsComponent, data: {breadcrumb: 'درباره ما'}},
   {path: 'contact-us', component: ContactUsComponent, data: {breadcrumb: 'تماس با ما'}},
-  {path: 'shop', component: ShoppingComponent, data: {breadcrumb: 'فروشگاه'}},
   {path: 'cart', component: CartComponent, data: {breadcrumb: 'سبد خرید'}},
-  {path: 'products/:id', component: InnerProductComponent, data: {breadcrumb: ''}},
   {path: 'category/iphone', component: IphoneCategoryCarouselComponent , data: {breadcrumb: 'آیفون'}},
   {path: 'category/mac', component: MacCategoryCarouselComponent , data: {breadcrumb: 'مک'}},
   {path: 'category/ipad', component: IpadCategoryCarouselComponent , data: {breadcrumb: 'آی پد'}},
@@ -39,7 +37,9 @@ export const routes: Routes = [
   {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},
   {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'}},
-  {path: 'articles/:slug', component: ArticleDetailComponent, data: {breadcrumb: 'مقالات'}},
+  {path: 'articles/:slug', component: ArticleDetailComponent, data: {breadcrumb: ''}},
+  {path: 'products', component: ShoppingComponent, data: {breadcrumb: 'فروشگاه'}},
+  {path: 'products/:slug', component: InnerProductComponent, data: {breadcrumb: ''}},
   {path: '**', component: PageNotFoundComponent},
 ];
 

@@ -52,4 +52,9 @@ export class ArticleService {
     console.log('مقاله یافت شده:', article);
     return of(article);
   }
+
+  getArticles(): Observable<Article[]> {
+    return of(this.articles);
+  }
+
 }

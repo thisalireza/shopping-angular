@@ -27,6 +27,10 @@ export class ProductService {
     return this.products;
   }
 
+  getProductBySlug(slug: string): Product | undefined {
+    return this.products.find(p => p.slug === slug);
+  }
+
   getProductById(id: number): Product | undefined {
     return this.products.find((p) => p.id === id);
   }

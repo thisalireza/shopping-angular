@@ -1,7 +1,7 @@
 
 <div class="py-5 container">
 
-  <h4 class="fw-bold fs-20 pb-3">
+  <h4 class="fw-bold fs-20 pb-3 cursor-pointer product-category--title" routerLink="/category/iphone">
     <svg  xmlns="http://www.w3.org/2000/svg"  width="28"  height="28"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-mobile"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>    آیفون | iphone
   </h4>
 
@@ -20,7 +20,7 @@
           </svg>
         </div>
       </div>
-      <div class="card card-carousel--products h-100 rounded-6 cursor-pointer" [routerLink]="['/products', prod.id]">
+      <div class="card card-carousel--products h-100 rounded-6 cursor-pointer" (click)="onProductClick(prod)">
         <img [src]="prod.imageURL"
              [ngClass]="{ 'out-of-discount': !prod.is_in_inventory }"
              class="card-img-top rounded-6 p-3" alt="Product image"/>

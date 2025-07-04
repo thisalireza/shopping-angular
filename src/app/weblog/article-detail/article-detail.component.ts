@@ -1,7 +1,7 @@
 // article-list-detail.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../../services/article.service';
 import { Subscription } from 'rxjs';
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 

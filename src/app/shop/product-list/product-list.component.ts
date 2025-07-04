@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
   @Input() showAllProducts: boolean = true;
 
   constructor(
-    private route: Router,
+    private router: Router,
     public likeService: LikeService,
     public productService: ProductService,
   ) {
@@ -55,16 +55,6 @@ export class ProductListComponent implements OnInit {
   }
 
 
-
-  // handleToggleLike(index: number): void {
-  //   const product = this.products[index];
-  //   this.toggleLikeEvent.emit(product.id); // Added this line
-  //   const isLiked = !this.likeService.getProductLike(product.id);
-  //   this.likeService.setProductLike(product.id, isLiked);
-  //
-  //
-  // }
-
   handleToggleLike(productId: number): void {
     this.likeService.toggleProductLike(productId); // ✅ clean and central
     this.toggleLikeEvent.emit(productId); // let parent know
@@ -72,13 +62,8 @@ export class ProductListComponent implements OnInit {
   }
 
 
-  goToProductInfo(item: any) {
-    this.route.navigate(['/products/info'], {
-      queryParams: {
-        id: item.id,
-        title: item.title
-      }
-    });
+  onProductClick(product: any) {
+    this.router.navigate(['/products', product.slug]);
   }
 
   get containerClasses(): string {

@@ -2,7 +2,7 @@
   <section>
     @if (showAllProducts) {
       <div class="d-flex justify-content-between align-items-center pt-5 pb-3 flex-row-reverse">
-        <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/shop">همه ی محصولات
+        <button class="btn move-to-page--button rounded-3 px-3 py-2 text-center" routerLink="/products">همه ی محصولات
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
@@ -50,7 +50,7 @@
             </svg>
 
           </div>
-          <div class="card h-100 rounded-6" routerLink="/products/:id">
+          <div class="card h-100 rounded-6" (click)="onProductClick(prod)">
 
 
             <img [src]="prod.imageURL" [ngClass]="{'out-of-discount' : !prod.is_in_inventory}"

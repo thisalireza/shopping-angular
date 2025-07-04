@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ArticleComponent} from "../article-list/article.component";
-import {ArticleService} from "../article.service";
+import {ArticleService} from "../../services/article.service";
 import {RouterLink} from "@angular/router";
 
 @Component({

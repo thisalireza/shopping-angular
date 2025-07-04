@@ -1,69 +1,34 @@
 // article-list.component.ts
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router, RouterLink} from '@angular/router';
-import { TruncatePipe } from "../../pipes/truncate.pipe";
-import { NgClass } from "@angular/common";
+import {TruncatePipe} from "../../pipes/truncate.pipe";
+import {ArticleService} from "../../services/article.service";
+import {Articles} from "../../interfaces/articles";
 
 @Component({
   selector: 'app-article-list',
   standalone: true,
   imports: [
     TruncatePipe,
-    NgClass,
     RouterLink
   ],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent {
   @Input() showOnAllArticles: boolean = false;
 
 
-  articles = [{
-    id: 1,
-    title: '۴ ویژگی جذاب مک‌بوک ایر M4 که آن را بی‌رقیب می‌کند',
-    description:
-      "در چند هفته گذشته اپل ما را با مک‌بوک ایر M4 جدید آشنا کرد که قدرتی بیشتر از نسل‌های قبلی خود را با قیمتی پایین‌تر ارائه می‌دهد. مک‌بوک ایر M4 در رنگ جدید آبی آسمانی (Sky Blue) عرضه می‌شود که برای اولین بار در سری ایر دیده می‌شود. در مجموع، این یک ارتقای جذاب است که جایگاه مک بوک ایر را به عنوان یکی از بهترین لپ‌تاپ‌های خوب موجود در بازار تقویت کرده و رقابت با آن را در این رده‌قیمتی بسیار دشوار می‌سازد.\n" +
-      "\n" +
-      "اگرچه نمی‌توانیم تا زمانی که بیشتر از مک بوک M4 ایر استفاده کنیم، با اطمینان بگوییم که در همه زمینه‌ها چگونه عمل خواهد کرد، اما بر اساس عملکرد مک بوک M3 ایر به تنهایی، می‌توان گفت حتی بهترین لپ‌تاپ‌ها با سیستم عامل ویندوز هم برای رقابت با ارزش پیشنهادی مک‌بوک ایر M4 کار سختی در پیش خواهند داشت. گیمینگ و تولید محتوای سنگین احتمالاً دلایلی است که می‌تواند شما را به دنبال چیزی فراتر از ایر بکشاند، اما اگر فقط به یک لپ‌تاپ برای انجام کارهایتان در حال حرکت نیاز دارید، با توجه به عملکرد قابل توجه ایر با قیمت اولیه بی‌نظیر ۹۹۹ دلار، می‌توان گفت این لپ‌تاپ بی‌رقیب خواهد بود. در ادامه به بررسی چهار ویژگی جذاب مک‌بوک ایر M4 خواهیم پرداخت و بهترین مک‌بوک در این حدود قیمتی را بررسی می‌کنیم.\n",
-    category: 'اپل',
-    time:
-      " اسفند ۱۴۰۳ | ۰۸:۰۱",
-    writer: "admin",
-    imageURL:
-      './assets/images/blogs/MacBook-Air-M4-00-min.webp',
-    slug: 'four-features-macbook-air-m4',
-  },
-    {
-      id: 2,
-      title: 'لپ‌تاپ خاص هواوی معرفی شد؛ نمایشگر تاشو و قیمت ۳۳۰۰ دلاری',
-      description:
-        "هواوی با معرفی رسمی MateBook Fold Ultimate Design، ورود قدرتمند خود را به عرصه‌ی رقابتی لپ‌تاپ های تاشو اعلام کرد. این دستگاه نه تنها به عنوان اولین محصول تاشوی این شرکت در رده‌ی لپ‌تاپ‌ها شناخته می‌شود، بلکه با تجهیز به سیستم‌عامل اختصاصی HarmonyOS for PC و پردازنده‌ی ساخت خود هواوی، گامی مهم در جهت استقلال فناوری این برند به شمار می‌آید.\n" +
-        "\n" +
-        "نقطه‌ی قوت و تمایز اصلی MateBook Fold Ultimate، نمایشگر تاشو 18 اینچی آن است. این صفحه‌نمایش بزرگ در حالت کاملا باز، وضوح تصویر خیره‌کننده‌ی 3.3K (3296×2472 پیکسل) و نسبت تصویر 4:3 را ارائه می‌دهد که فضای کاری وسیعی را برای کاربران حرفه‌ای فراهم می‌کند. جالب آنکه در حالت بسته، این دستگاه به اندازه‌ی یک لپ‌تاپ 13 اینچی جمع‌وجور می‌شود و حمل آن را آسان می‌سازد. این لپ‌تاپ تاشو هواوی می‌تواند در زاویه‌ی 90 درجه نیز باز شود و با نمایش کیبورد مجازی، تجربه‌ای شبیه به لپ‌تاپ‌های سنتی ارائه دهد، در این حالت، نمایشگر اصلی نسبت تصویر 3:2 خواهد داشت.\n",
-      category: 'هواوی',
-      time:
-        " اردیبهشت ۱۴۰۴ | ۱۷:۰۰",
-      writer: "admin",
-      imageURL:
-        './assets/images/blogs/1_cropped-1.webp',
-      slug: 'huawei-matebook-fold-ultimate-launched',
-    },
-    {
-      id: 3,
-      title: 'هر آنچه در مورد مک‌بوک M5 پرو می‌دانیم',
-      description:
-        "اگر به دنبال انتخاب بهترین لپ‌تاپ هستید، مک‌بوک پرو باید در صدر فهرست راهنمای خرید لپ‌تاپ شما باشد. مک‌بوک M4 پرو جدید، پیشرفت‌های قابل توجهی را به سری مک اضافه کرد و با نزدیک شدن به عرضه مک‌بوک M4 ایر، ممکن است این سوال برای شما پیش بیاید که اپل چه برنامه‌ای برای جدیدترین و به عبارتی بهترین مک‌بوک خود یعنی مک‌بوک M5 پرو در نظر دارد. این مدل که همراه با تراشه جدید M5 اپل عرضه خواهد شد، گزینه‌ای هیجان‌انگیز است. آیا اپل یک بازطراحی کامل ارائه خواهد داد یا فقط شاهد یک ارتقای جزئی خواهیم بود؟ از تراشه M5 چه انتظاری می‌توان داشت؟ و آیا اپل بالاخره اولین مک‌بوک پرو با نمایشگر OLED را همزمان با معرفی این تراشه عرضه خواهد کرد؟",
-      category: 'لنوو',
-      time:
-        " اسفند ۱۴۰۳ | ۲۰:۰۰",
-      writer: "admin",
-      imageURL:
-        './assets/images/blogs/Macbook-M5-Pro-what-we-know-00.webp',
-      slug: 'all-we-know-about-macbook-m5-pro',
-    },
-  ];
-  constructor(private router: Router) {}
+  articles: Articles[] = [];
+
+  constructor(private router: Router , private articleService: ArticleService) {
+  }
+
+  ngOnInit() {
+    this.articleService.getArticles().subscribe(articles => {
+      this.articles = articles;
+    });
+  }
 
   get containerClasses(): string {
     return `row row-cols-1 ${this.showOnAllArticles ? 'row-cols-md-2' : 'row-cols-md-3'} g-4`;
@@ -71,9 +36,5 @@ export class ArticleComponent implements OnInit {
 
   onArticleClick(article: any) {
     this.router.navigate(['/articles', article.slug]);
-  }
-
-  ngOnInit() {
-
   }
 }

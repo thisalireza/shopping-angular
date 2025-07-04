@@ -6,7 +6,7 @@
     <div class="col-12 col-md-4 p-2">
       <div class="d-flex justify-content-end align-items-center flex-row-reverse">
         <div><img class="inner-product-main-image cursor-pointer"
-                  src="assets/images/products/iphone/height=364,width=364.avif"
+                  src="{{product.imageURL}}"
                   alt="product"></div>
         <div>
           <div class="m-2 card-navbar--icon">
@@ -37,16 +37,16 @@
       </div>
       <div class="d-flex flex-nowrap justify-content-between align-items-start flex-row-reverse">
         <img class="rounded-6 p-2 mx-1 inner-product--gallery cursor-pointer"
-             src="assets/images/products/iphone/height=364,width=364.avif" alt="product">
+             src="{{product.imageURL}}" alt="product">
         <img
           class="rounded-6 p-2 mx-1 inner-product--gallery cursor-pointer"
-          src="assets/images/products/iphone/height=364,width=364 (9).avif" alt="product">
+          src="{{product.imageURL}}" alt="product">
         <img
           class="rounded-6 p-2 mx-1 inner-product--gallery cursor-pointer"
-          src="assets/images/products/iphone/height=364,width=364 (5).avif" alt="product">
+          src="{{product.imageURL}}" alt="product">
         <img
           class="rounded-6 p-2 mx-1 inner-product--gallery cursor-pointer"
-          src="assets/images/products/iphone/height=364,width=364 (4).avif" alt="product">
+          src="{{product.imageURL}}" alt="product">
 
       </div>
 
@@ -58,17 +58,17 @@
       <div class="d-flex justify-content-end align-items-center gap-5 mb-2 flex-row-reverse">
         <div class="d-flex">
           <span class="fs-12">برند:</span>
-          <h6 class="fs-14 fw-bold px-1 text-danger">اپل</h6>
+          <h6 class="fs-14 fw-bold px-1 text-danger">{{ product?.brand }}</h6>
         </div>
         <div class="d-flex">
           <span class="fs-12">دسته بندی:</span>
-          <h6 class="fs-14 fw-bold px-1 text-danger">لپ تاپ</h6>
+          <h6 class="fs-14 fw-bold px-1 text-danger">{{ product?.category }}</h6>
         </div>
       </div>
 
       <div class="my-2 inner-product-main--title pb-3">
         <h1 class="fs-22 fw-bold">
-          لپ تاپ 13.6 اینچی اپل مدل MacBook Air MC6T4 2025 M4-16GB RAM-256GB SSD
+          {{ product?.name }}
         </h1>
       </div>
 
@@ -149,21 +149,16 @@
 
             <ul>
               <li class="pb-2">
-                <span class="fs-14 text-secondary">سری لپتاپ :</span>
-                <span class="fs-16 "> Macbook Air</span>
+                <span class="fs-14 text-secondary">مدل: </span>
+                <span class="fs-16 ">{{product.innerCategory}}</span>
               </li>
-              <li class="pb-2">
-                <span class="fs-14 text-secondary">سیستم عامل :</span>
-                <span class="fs-16 "> MacOS</span>
-              </li>
-              <li class="pb-2">
-                <span class="fs-14 text-secondary">نوع کاربری :</span>
-                <span class="fs-16"> کاربری مالتی‌مدیا مخصوص طراحی</span>
-              </li>
-              <li class="pb-2">
-                <span class="fs-14 text-secondary">ابعاد :</span>
-                <span class="fs-16 "> ۱۱.۳×۲۱۵×۳۰۴.۱ میلی‌‌متر</span>
-              </li>
+
+              @if (product.is_in_inventory) {
+                <p class="text-danger fs-12">
+                  تنها {{ product.items_left }} عدد در انبار باقی مانده
+                </p>
+              }
+
             </ul>
           </div>
           <!--    stars rating inner product-->
@@ -290,7 +285,7 @@
                 <path d="M11 12h1v4h1"/>
               </svg>
               <span class="fs-14 text-secondary"> شناسه کالا:</span>
-              <span class="fs-16 ">NZK400120</span>
+              <span class="fs-16 ">{{product.id}}</span>
             </div>
             <div class="d-flex  gap-2 py-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -303,16 +298,21 @@
                 <path d="M3 9l4 0"/>
               </svg>
               <span class="fs-14 text-secondary">زمان آماده سازی:</span>
-              <span class="fs-16 ">آماده ارسال</span>
+              @if (product.is_in_inventory){
+                <span class="fs-16">آماده ارسال</span>
+              }
+              @if (!product.is_in_inventory){
+                <span class="fs-16">ناموجود</span>
+              }
             </div>
           </div>
-
+          @if (product.is_in_inventory){
           <div class="my-3 p-3 rounded-6  inner-product--inner-div">
             <div class="d-flex justify-content-between  gap-2 align-items-center">
               <div>
                 <span class="fs-14 text-secondary">قیمت: </span>
               </div>
-              <div class="d-flex  align-items-center"><span class="fs-28 fw-bold px-1">43,500,000</span>
+              <div class="d-flex  align-items-center"><span class="fs-28 fw-bold px-1">{{ (this.product.price - (this.product.price * this.product.discountPrice) / 100).toFixed() | currency:' ':'symbol':'1.0-3' }}</span>
                 <span class="fs-16 ">تومان</span>
               </div>
             </div>
@@ -335,8 +335,8 @@
               </button>
             </div>
           </div>
-
-
+          }
+          @if (!product.is_in_inventory){
           <div class="my-3 p-3 rounded-6  inner-product--inner-div">
             <div class="gap-2 align-items-center">
               <div class="text-center pt-1 pb-4 km-title position-relative">
@@ -369,7 +369,7 @@
               </button>
             </div>
           </div>
-
+          }
 
         </div>
       </div>
