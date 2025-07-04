@@ -81,6 +81,15 @@
   border: 1px solid #dcdcdc;
 }
 
+.inner-product-selector--color--gold , .inner-product-selector--color--silver , .inner-product-selector--color--black , .inner-product-selector--color--white , .inner-product-selector--color--red , .inner-product-selector--color--blue{
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-left: 8px;
+  border: 1px solid #dcdcdc;
+}
+
 .inner-product-selector--active_action {
   border-color: #DF3C3C;
   box-shadow: 0 0 0 8px rgba(255, 152, 1, 0);

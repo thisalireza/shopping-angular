@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
-import {CurrencyPipe} from "@angular/common";
+import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-inner-product',
   templateUrl: './inner-product.component.html',
   standalone: true,
   imports: [
-    CurrencyPipe
+    CurrencyPipe,
+    NgForOf,
+    NgClass
   ],
   styleUrls: ['./inner-product.component.scss']
 })
@@ -40,4 +42,6 @@ export class InnerProductComponent implements OnInit {
       console.warn(`Product with slug '${slug}' not found.`);
     }
   }
+
+  protected readonly colorette = module
 }
