@@ -68,6 +68,7 @@ export class ProductListComponent implements OnInit {
   handleToggleLike(productId: number): void {
     this.likeService.toggleProductLike(productId); // ✅ clean and central
     this.toggleLikeEvent.emit(productId); // let parent know
+
   }
 
 

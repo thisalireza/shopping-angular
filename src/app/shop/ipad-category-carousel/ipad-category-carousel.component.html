@@ -9,8 +9,8 @@
     <ng-template swiperSlide *ngFor="let prod of ipadProducts$; index as i">
       <div class="position-relative">
         <div class="mx-2 card-navbar--icon position-absolute">
-          <svg #likeIcon (click)="handleToggleLike(i)"
-               [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}"
+          <svg #likeIcon (click)="handleToggleLike(prod.id)"
+               [ngClass]="{'is-like': likeService.getProductLike(prod.id)}"
                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="icon icon-tabler icons-tabler-outline icon-tabler-heart">

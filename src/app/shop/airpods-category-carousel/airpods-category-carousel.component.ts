@@ -10,6 +10,7 @@ import SwiperCore, {
   Navigation
 } from 'swiper';
 import {ProductService} from "../../services/products.service";
+import {LikeService} from "../../services/like.service";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 @Component({
   selector: 'app-airpods-category-carousel',
@@ -28,6 +29,7 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 })
 
 export class AirpodsCategoryCarouselComponent extends ProductListComponent{
+
   config: SwiperOptions = {
     freeMode: true,
     navigation: true,

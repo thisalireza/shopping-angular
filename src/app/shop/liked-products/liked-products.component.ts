@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { ProductListComponent } from '../product-list/product-list.component';
-import { LikeService } from '../../services/like.service';
-import { NgIf } from '@angular/common';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ProductListComponent} from '../product-list/product-list.component';
+import {LikeService} from '../../services/like.service';
+import {NgIf} from '@angular/common';
 import {ProductService} from "../../services/products.service";
-import { BehaviorSubject } from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 import {Product} from "../../interfaces/product";
+
 @Component({
   selector: 'app-liked-products',
   standalone: true,
@@ -15,10 +16,13 @@ import {Product} from "../../interfaces/product";
   templateUrl: './liked-products.component.html',
   styleUrl: './liked-products.component.scss'
 })
-export class LikedProductsComponent implements OnInit {
-  products = [];
+export class LikedProductsComponent implements OnInit, OnDestroy {
+  products: Product[] = [];
+  private subscription: Subscription;
+
   private _showAllProducts: boolean = false;
   likedProducts$ = new BehaviorSubject<Product[]>([]);
+
   constructor(
     private likeService: LikeService,
     private productService: ProductService
@@ -26,10 +30,19 @@ export class LikedProductsComponent implements OnInit {
     this.updateProducts();
     this.updateLikedProductsList();
     this.refreshLikedProducts();
-
   }
 
   ngOnInit() {
+    this.loadLikedProducts();
+
+    // Subscribe to likes change events and update the list dynamically
+    this.subscription = this.likeService.likesChanged$.subscribe(() => {
+      this.loadLikedProducts();
+    });
+  }
+
+  private loadLikedProducts() {
+    this.products = this.likeService.getLikedProducts();
   }
 
   private updateProducts(): void {
@@ -49,6 +62,7 @@ export class LikedProductsComponent implements OnInit {
   }
 
   toggleLike(productId: number): void {
+    this.likeService.toggleProductLike(productId);
     const isLiked = !this.likeService.getProductLike(productId);
     this.likeService.setProductLike(productId, isLiked);
     this.updateProducts();
@@ -72,5 +86,10 @@ export class LikedProductsComponent implements OnInit {
       .filter(product => this.likeService.getProductLike(product.id))]);
   }
 
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
 
+  }
 }

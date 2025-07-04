@@ -12,7 +12,8 @@
         </button>
 
         <h4 class="fw-bold fs-22 text-center pb-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor"
                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                class="icon icon-tabler icons-tabler-outline icon-tabler-confetti">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -27,13 +28,10 @@
             <path d="M19 18v2"/>
             <path d="M14 16.518l-6.518 -6.518l-4.39 9.58a1 1 0 0 0 1.329 1.329l9.579 -4.39z"/>
           </svg>
-
-
-         محصولات پیشنهادی
+          محصولات پیشنهادی
         </h4>
       </div>
     }
-
 
 
 
@@ -42,7 +40,8 @@
         <div class="col rounded-6  card-product position-relative">
           <!--            like button-->
           <div class="mx-2 card-navbar--icon position-absolute">
-            <svg #likeIcon (click)="handleToggleLike(prod.id)"   [ngClass]="{'is-like': likeService.getProductLike(products[i].id)}"
+            <svg #likeIcon (click)="handleToggleLike(prod.id)"
+                 [ngClass]="{'is-like': likeService.getProductLike(prod.id)}"
                  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                  class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
@@ -117,34 +116,10 @@
                 <div class="d-flex justify-content-end pt-1">
                   <del class=" fs-14" style="color:#c0c2c5;"> {{ prod.price | currency:' ':'symbol':'1.0-3' }}</del>
                 </div>
-
-
-                <!--                          <input (input)="onNameChange($event)">-->
-
-                  <!--                <div class="f-flex fa-align-center mt-2">-->
-
-                  <!--                  <button class="btn rounded-3 " (click)="increaseCardValue(i)">-</button>-->
-                  <!--                  <span class="px-2"> {{ addToCart[i] }} </span>-->
-                  <!--                  <button class="btn rounded-3" (click)="addCardValue(i)" [disabled]="products[i].items_left <= 0">+-->
-                  <!--                  </button>-->
-                  <!--                  <span class="ps-2">:تعداد</span></div>-->
-
               }
 
 
             </div>
-            <!--            <button *ngIf="prod.is_in_inventory" class="btn btn-outline-danger add-to-card-btn fw-bold"-->
-            <!--                    [disabled]="!(products[i].items_left  > 0)">خرید-->
-            <!--              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"-->
-            <!--                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"-->
-            <!--                   class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">-->
-            <!--                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>-->
-            <!--                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>-->
-            <!--                <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/>-->
-            <!--                <path d="M17 17h-11v-14h-2"/>-->
-            <!--                <path d="M6 5l14 1l-1 7h-13"/>-->
-            <!--              </svg>-->
-            <!--            </button>-->
           </div>
         </div>
       }

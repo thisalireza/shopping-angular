@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import {ProductService} from "./products.service";
 
 @Injectable({
@@ -8,6 +9,10 @@ export class LikeService {
   private likesMap = new Map<number, boolean>();
   private STORAGE_KEY = 'liked_products';
 
+  // Observable to notify about like changes
+  private likesChangedSubject = new BehaviorSubject<void>(null);
+  likesChanged$ = this.likesChangedSubject.asObservable();
+
   constructor(private productService: ProductService) {
     this.loadLikedProducts();
   }
@@ -15,6 +20,7 @@ export class LikeService {
   setProductLike(productId: number, isLiked: boolean): void {
     this.likesMap.set(productId, isLiked);
     this.saveToLocalStorage();
+    this.likesChangedSubject.next();  // notify subscribers
   }
 
   getProductLike(productId: number): boolean {
