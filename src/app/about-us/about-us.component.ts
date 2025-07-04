@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import {FooterComponent} from "../shared/footer/footer.component";
 import {MenuComponent} from "../shared/header/header.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-about-us',
-    imports: [
-        FooterComponent,
-        MenuComponent
-    ],
+  imports: [
+    FooterComponent,
+    MenuComponent,
+    RouterLink
+  ],
   standalone: true,
     templateUrl: './about-us.component.html',
     styleUrl: './about-us.component.scss'

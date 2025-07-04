@@ -3,3 +3,19 @@
   transition: all 0.5s;
 }
 
+.about-us-button{
+  background: #DF3C3C;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.about-us-button:hover{
+transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+
+.about-us-logo{
+  filter: brightness(0.5);
+  width: 90px;
+}

@@ -20,52 +20,37 @@ import {CaptchaComponent} from "../shared/captcha/captcha.component";
   standalone: true,
   styleUrl: './contact-us.component.scss'
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent {
   captchaValid = false;
 
   form: FormGroup = this.fb.group({
-    form_name: ['', [Validators.required, Validators.minLength(1)]],
-    form_email: ['', [Validators.required, Validators.email]],
-    form_subject: ['', [Validators.required]],
-    form_message: ['', [Validators.required]]
+    from_name: '',
+    to_name: 'Admin',
+    from_email: '',
+    subject: '',
+    message: '',
   });
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
-    this.form.statusChanges.subscribe(status => {
-      console.log('Form status:', status);
-    });
+  constructor(private fb: FormBuilder) {
   }
+
+  async send() {
+    emailjs.init('JyJwiWiChgsewjDtD');
+    let response = await emailjs.send("service_zxk5pnj", "template_yazrffr", {
+      from_name: this.form.value.form_name,
+      to_name: this.form.value.to_name,
+      from_email: this.form.value.form_email,
+      subject: this.form.value.form_subject,
+      message: this.form.value.form_message,
+    });
+    this.form.reset();
+    alert("message has been sent successfully!");
+  }
+
 
   onCaptchaAnswer(valid: boolean) {
     this.captchaValid = valid;
   }
 
-  async send() {
-    if (this.form.invalid || !this.captchaValid) {
-      alert("لطفا فرم را کامل کرده و کد امنیتی را صحیح وارد کنید.");
-      return;
-    }
-
-    emailjs.init('JyJwiWiChgsewjDtD');
-
-    const values = this.form.value;
-
-    await emailjs.send("service_zxk5pnj", "template_yazrffr", {
-      from_name: values.form_name,
-      to_name: 'Admin',
-      from_email: values.form_email,
-      subject: values.form_subject,
-      message: values.form_message,
-    });
-
-    this.form.reset();
-    this.form.markAsPristine();
-    this.form.markAsUntouched();
-    this.captchaValid = false;
-
-    alert("پیام با موفقیت ارسال شد!");
-  }
 }
 

@@ -562,5 +562,16 @@ body {
 
 
 textarea#message {
-  font-family: 'Yekan Bakh';
+  font-family: 'Yekan Bakh', serif;
+}
+
+
+.footer-social--icons{
+  transition: transform 0.4s;
+}
+
+.footer-social--icons:hover{
+  transform: scale(1.3);
+  transition: all 0.4s;
+  color: red;
 }
