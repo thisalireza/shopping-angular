@@ -44,7 +44,8 @@ export class CaptchaComponent implements OnInit {
     this.onAnswer.emit(this.isCorrect);
   }
 
-  reset(): void {
+  public reset(): void {
     this.generateNewChallenge();
   }
+
 }

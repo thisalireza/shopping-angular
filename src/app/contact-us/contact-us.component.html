@@ -6,76 +6,50 @@
         با ما در ارتباط باشید
       </h3>
 
-      <div [formGroup]="form">
-        <form action="javascript:void(0)" (submit)="send()" class="rtl-form">
-        <div class="  py-2">
+      <form [formGroup]="contactForm" class="contact-form rtl-form" (submit)="sendEmail($event)">
+        <div class="py-2">
           <mdb-form-control>
-            <input mdbInput formControlName="form_name"
-                   type="text"
-                   name="name"
-                   id="name"
-                   maxlength="30"
-                   required
-                   class="form-control"
-                   #nameInput/>
+            <input mdbInput formControlName="form_name" type="text" name="name" id="name"
+                   maxlength="30" required class="form-control"/>
             <label mdbLabel class="form-label" for="name">نام</label>
           </mdb-form-control>
-          <span *ngIf="form.get('form_name')?.invalid && form.get('form_name')?.touched" class="text-danger fs-12">
-          لطفا نام خود را وارد نمایید
-        </span>
         </div>
 
-        <div class="  py-2">
+        <div class="py-2">
           <mdb-form-control>
-            <input mdbInput formControlName="form_email" type="email" name="email" id="email" maxlength="50"
-                   class="form-control" #emailInput required/>
+            <input mdbInput formControlName="email" type="email" name="email" id="email"
+                   maxlength="50" class="form-control" required/>
             <label mdbLabel class="form-label" for="email">آدرس ایمیل</label>
           </mdb-form-control>
-          <span *ngIf="form.get('form_email')?.invalid && form.get('form_email')?.touched" class="text-danger fs-12">
-          لطفا ایمیل خود را وارد نمایید
-        </span>
         </div>
 
-
-        <div class="  py-2">
+        <div class="py-2">
           <mdb-form-control>
-            <input mdbInput formControlName="form_subject" type="text" name="subject" id="subject" maxlength="50"
-                   class="form-control"
-                   required #subjectInput/>
+            <input mdbInput formControlName="subject" type="text" name="subject" id="subject"
+                   maxlength="50" class="form-control" required/>
             <label mdbLabel class="form-label" for="subject">موضوع:</label>
           </mdb-form-control>
-          <span *ngIf="form.get('form_subject')?.invalid && form.get('form_subject')?.touched" class="text-danger fs-12">
-          لطفا موضوع را وارد کنید
-        </span>
         </div>
 
         <div class="py-2">
-
-
           <mdb-form-control>
-<textarea
-  id="message"
-  name="message"
-  formControlName="form_message"
-  class="form-control"
-  rows="4"
-  cols="50"
-  required
-></textarea>
+      <textarea id="message" name="message" formControlName="message"
+                class="form-control" rows="4" cols="50" required></textarea>
             <label mdbLabel class="form-label" for="message">پیام:</label>
           </mdb-form-control>
-          <span *ngIf="form.get('form_message')?.invalid && form.get('form_message')?.touched" class="text-danger fs-12">
-          لطا پیام را وارد کنید
-        </span>
         </div>
 
-        <div>
-          <app-captcha (onAnswer)="onCaptchaAnswer($event)"></app-captcha>
-        </div>
+        <!-- Captcha component -->
+        <app-captcha (onAnswer)="onCaptchaAnswer($event)"></app-captcha>
 
+        <!-- Submit button with disabling condition -->
         <div class="py-2">
-          <button type="submit" class="btn contact-us-send-button fw-bold fs-14 rounded-3 w-100" [disabled]="!form.valid || !captchaValid">
-            ارسال
+          <button   type="submit"
+                    class="btn contact-us-send-button fw-bold fs-14 rounded-3 w-100"
+                    [disabled]="contactForm.invalid || !captchaValid">
+
+          ارسال
+
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram">
@@ -85,7 +59,8 @@
           </button>
         </div>
       </form>
-    </div>
+
+
     </div>
 
     <div>

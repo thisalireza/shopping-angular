@@ -1,56 +1,64 @@
-import {Component, OnInit} from '@angular/core';
-import {MapComponent} from "../map/map.component";
-import emailjs from '@emailjs/browser';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {MdbFormsModule} from "mdb-angular-ui-kit/forms";
-import {NgIf} from "@angular/common";
-import {CaptchaComponent} from "../shared/captcha/captcha.component";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {MapComponent} from '../map/map.component';
+import emailjs, {EmailJSResponseStatus} from '@emailjs/browser';
+import {MdbFormsModule} from 'mdb-angular-ui-kit/forms';
+import {CaptchaComponent} from '../shared/captcha/captcha.component';
 
 @Component({
   selector: 'app-contact-us',
+  standalone: true,
   imports: [
     MapComponent,
     ReactiveFormsModule,
-    MdbFormsModule,
     FormsModule,
-    NgIf,
-    CaptchaComponent
+    MdbFormsModule,
+    CaptchaComponent,
   ],
   templateUrl: './contact-us.component.html',
-  standalone: true,
-  styleUrl: './contact-us.component.scss'
+  styleUrl: './contact-us.component.scss',
 })
-export class ContactUsComponent {
+export class ContactUsComponent implements OnInit {
+  contactForm!: FormGroup;
   captchaValid = false;
+  @ViewChild(CaptchaComponent) captchaComponent!: CaptchaComponent;
 
-  form: FormGroup = this.fb.group({
-    from_name: '',
-    to_name: 'Admin',
-    from_email: '',
-    subject: '',
-    message: '',
-  });
+  constructor(private fb: FormBuilder) {}
 
-  constructor(private fb: FormBuilder) {
-  }
-
-  async send() {
-    emailjs.init('JyJwiWiChgsewjDtD');
-    let response = await emailjs.send("service_zxk5pnj", "template_yazrffr", {
-      from_name: this.form.value.form_name,
-      to_name: this.form.value.to_name,
-      from_email: this.form.value.form_email,
-      subject: this.form.value.form_subject,
-      message: this.form.value.form_message,
+  ngOnInit(): void {
+    this.contactForm = this.fb.group({
+      form_name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      subject: ['', Validators.required],
+      message: ['', Validators.required],
     });
-    this.form.reset();
-    alert("message has been sent successfully!");
   }
-
 
   onCaptchaAnswer(valid: boolean) {
     this.captchaValid = valid;
   }
 
-}
+  public sendEmail(e: Event) {
+    e.preventDefault();
 
+    if (this.contactForm.invalid || !this.captchaValid) {
+      return;
+    }
+
+    emailjs
+      .sendForm('service_zxk5pnj', 'template_yazrffr', e.target as HTMLFormElement, {
+        publicKey: 'JyJwiWiChgsewjDtD',
+      })
+      .then(
+        () => {
+          alert('SUCCESS!');
+          this.contactForm.reset();  // ✅ Clear reactive form
+          this.captchaComponent.reset();
+          this.captchaValid = false; // ✅ Optionally reset captcha state if needed
+        },
+        (error) => {
+          console.log('FAILED...', (error as EmailJSResponseStatus).text);
+        },
+      );
+  }
+}
