@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MdbFormsModule} from "mdb-angular-ui-kit/forms";
 import {NgIf} from "@angular/common";
+import {CaptchaComponent} from "../shared/captcha/captcha.component";
 
 @Component({
   selector: 'app-contact-us',
@@ -12,37 +13,40 @@ import {NgIf} from "@angular/common";
     ReactiveFormsModule,
     MdbFormsModule,
     FormsModule,
-    NgIf
+    NgIf,
+    CaptchaComponent
   ],
   templateUrl: './contact-us.component.html',
   standalone: true,
   styleUrl: './contact-us.component.scss'
 })
 export class ContactUsComponent implements OnInit {
+  captchaValid = false;
+
   form: FormGroup = this.fb.group({
-    from_name: '',
-    to_name: 'Admin',
-    from_email: '',
-    subject: '',
-    message: '',
+    form_name: ['', [Validators.required, Validators.minLength(1)]],
+    form_email: ['', [Validators.required, Validators.email]],
+    form_subject: ['', [Validators.required]],
+    form_message: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      form_name: ['', [Validators.required, Validators.minLength(1)]],
-      form_email: ['', [Validators.required, Validators.email]],
-      form_subject: ['', [Validators.required]],
-      form_message: ['', [Validators.required]]
-    });
-  }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.form.statusChanges.subscribe(status => {
-      console.log('Form status:', status); // should show VALID when form is filled
+      console.log('Form status:', status);
     });
   }
+
+  onCaptchaAnswer(valid: boolean) {
+    this.captchaValid = valid;
+  }
+
   async send() {
-    if (this.form.invalid) return;
+    if (this.form.invalid || !this.captchaValid) {
+      alert("لطفا فرم را کامل کرده و کد امنیتی را صحیح وارد کنید.");
+      return;
+    }
 
     emailjs.init('JyJwiWiChgsewjDtD');
 
@@ -56,21 +60,12 @@ export class ContactUsComponent implements OnInit {
       message: values.form_message,
     });
 
-    // Reset form values
-    this.form.reset({
-      form_name: '',
-      form_email: '',
-      form_subject: '',
-      form_message: ''
-    });
-
-    // Optionally mark form as untouched to hide errors
+    this.form.reset();
     this.form.markAsPristine();
     this.form.markAsUntouched();
+    this.captchaValid = false;
 
     alert("پیام با موفقیت ارسال شد!");
   }
-
-
-
 }
+

@@ -69,7 +69,11 @@
         </div>
 
         <div class="py-2">
-          <button type="submit" class="btn contact-us-send-button fw-bold fs-14 rounded-3 " [disabled]="!form.valid">
+          <app-captcha (onAnswer)="onCaptchaAnswer($event)"></app-captcha>
+        </div>
+
+        <div class="py-2">
+          <button type="submit" class="btn contact-us-send-button fw-bold fs-14 rounded-3 " [disabled]="!form.valid || !captchaValid">
             ارسال
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
