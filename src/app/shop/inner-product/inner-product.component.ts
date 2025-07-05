@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/products.service';
 import { Product } from '../../interfaces/product';
 import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
+import {LikeService} from "../../services/like.service";
 
 @Component({
   selector: 'app-inner-product',
@@ -17,10 +18,11 @@ import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
 })
 export class InnerProductComponent implements OnInit {
   product?: Product;
-
+  @Output() toggleLikeEvent = new EventEmitter<number>();
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    public likeService:LikeService,
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +43,13 @@ export class InnerProductComponent implements OnInit {
       // Redirect or show a "product not found" message
       console.warn(`Product with slug '${slug}' not found.`);
     }
+  }
+
+
+  handleToggleLike(productId: number): void {
+    this.likeService.toggleProductLike(productId); // ✅ clean and central
+    this.toggleLikeEvent.emit(productId); // let parent know
+
   }
 
   protected readonly colorette = module
