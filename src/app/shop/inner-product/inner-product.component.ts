@@ -22,6 +22,11 @@ import {NgxImageZoomModule} from "ngx-image-zoom";
 export class InnerProductComponent implements OnInit, OnDestroy{
   product?: Product;
   @Output() toggleLikeEvent = new EventEmitter<number>();
+  stars = [1, 2, 3, 4, 5];
+  selectedRating = 0;
+  hoveredRating = 0;
+  productSlug = '';
+  productId = 'product-123';
 
   constructor(
     private route: ActivatedRoute,
@@ -31,14 +36,51 @@ export class InnerProductComponent implements OnInit, OnDestroy{
   ) {
   }
 
+
+
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       const slug = params.get('slug');
       if (slug) {
+        this.productSlug = slug;
         this.loadProduct(slug);
+        this.loadRating(slug);
       }
     });
+
+
+
+
+    const storedRating = localStorage.getItem(`rating-${this.productId}`);
+    if (storedRating) {
+      this.selectedRating = parseInt(storedRating, 10);
+    }
+
   }
+
+
+  loadProduct(slug: string) {
+    this.product = this.productService.getProductBySlug(slug);
+    if (!this.product) {
+      console.warn(`Product with slug '${slug}' not found.`);
+    }
+  }
+
+  loadRating(slug: string) {
+    const storedRating = localStorage.getItem(`rating-${slug}`);
+    if (storedRating) {
+      this.selectedRating = parseInt(storedRating, 10);
+    } else {
+      this.selectedRating = 0;
+    }
+  }
+
+  rateProduct(rating: number) {
+    this.selectedRating = rating;
+    localStorage.setItem(`rating-${this.productSlug}`, rating.toString());
+  }
+
+
 
 
   openLightbox(imageUrl: string): void {
@@ -95,17 +137,6 @@ export class InnerProductComponent implements OnInit, OnDestroy{
 
 
 
-
-  private loadProduct(slug: string) {
-    // Assuming ProductService has a method to get product by slug
-    this.product = this.productService.getProductBySlug(slug);
-
-    // Optional: handle product not found
-    if (!this.product) {
-      // Redirect or show a "product not found" message
-      console.warn(`Product with slug '${slug}' not found.`);
-    }
-  }
 
   handleToggleLike(productId: number): void {
     this.likeService.toggleProductLike(productId); // ✅ clean and central
