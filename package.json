@@ -24,6 +24,7 @@
     "leaflet": "^1.9.4",
     "mdb-angular-ui-kit": "file:mdb-angular-ui-kit-6.1.0.tgz",
     "mdb-ui-kit": "^7.3.2",
+    "ngx-lightbox": "^3.0.0",
     "rxjs": "~7.5.0",
     "swiper": "^8.4.7",
     "tslib": "^2.1.0",

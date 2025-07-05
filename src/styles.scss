@@ -4,6 +4,7 @@
 @import 'mdb-ui-kit/css/mdb.rtl.min.css';
 //@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
 @import 'swiper/swiper-bundle.min.css';
+@import 'ngx-lightbox/lightbox.css';
 
 
 
@@ -579,4 +580,27 @@ textarea#message {
 
 .product-category--title{
   width: max-content;
+}
+
+
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: bold;
+  display: none;
+  line-height: 1em;
+}
+
+
+img#image {
+  padding: 10px !important;
+}
+
+.lightboxOverlay{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+.lightbox{
+  top: 25% !important;
 }

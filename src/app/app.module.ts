@@ -32,13 +32,13 @@ import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {BackToTopComponent} from "./shared/back-to-top/back-to-top.component";
 import {LazyLoadDirective} from "./Directives/lazy-load.directive";
-import { CaptchaComponent } from './shared/captcha/captcha.component';
+import {CaptchaComponent} from './shared/captcha/captcha.component';
 import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
-import { SwiperModule } from 'swiper/angular';
+import {SwiperModule} from 'swiper/angular';
 import {SigninComponent} from "./signin/signin.component";
+import {LightboxModule} from 'ngx-lightbox';
 
 initMDB({Collapse});
-
 
 
 @Directive({
@@ -73,40 +73,40 @@ export class ImageLoadDirective implements OnInit {
     AppComponent,
 
 
-],
-    imports: [
-        SwiperModule,
-        AppRoutingModule,
-        BrowserModule,
-        BrowserAnimationsModule,
-        MdbAccordionModule,
-        MdbCarouselModule,
-        MdbCheckboxModule,
-        MdbCollapseModule,
-        MdbDropdownModule,
-        MdbFormsModule,
-        MdbModalModule,
-        MdbPopoverModule,
-        MdbRadioModule,
-        MdbRangeModule,
-        MdbRippleModule,
-        MdbScrollspyModule,
-        MdbTabsModule,
-        MdbTooltipModule,
-        MdbValidationModule,
-        MenuComponent,
-        FooterComponent,
-        HomePageComponent,
-        ProductListComponent,
-        RouterOutlet,
-        BackToTopComponent,
-        LazyLoadDirective,
-        FormsModule,
-
-        CaptchaComponent,
-        BreadcrumbComponent,
-        SigninComponent,
-    ],
+  ],
+  imports: [
+    SwiperModule,
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MdbAccordionModule,
+    MdbCarouselModule,
+    MdbCheckboxModule,
+    MdbCollapseModule,
+    MdbDropdownModule,
+    MdbFormsModule,
+    MdbModalModule,
+    MdbPopoverModule,
+    MdbRadioModule,
+    MdbRangeModule,
+    MdbRippleModule,
+    MdbScrollspyModule,
+    MdbTabsModule,
+    MdbTooltipModule,
+    MdbValidationModule,
+    MenuComponent,
+    FooterComponent,
+    HomePageComponent,
+    ProductListComponent,
+    RouterOutlet,
+    BackToTopComponent,
+    LazyLoadDirective,
+    FormsModule,
+    LightboxModule,
+    CaptchaComponent,
+    BreadcrumbComponent,
+    SigninComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
