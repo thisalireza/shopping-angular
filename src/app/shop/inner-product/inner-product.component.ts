@@ -5,6 +5,7 @@ import {Product} from '../../interfaces/product';
 import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
 import {LikeService} from "../../services/like.service";
 import {Lightbox} from 'ngx-lightbox';
+import {NgxImageZoomModule} from "ngx-image-zoom";
 
 @Component({
   selector: 'app-inner-product',
@@ -14,6 +15,7 @@ import {Lightbox} from 'ngx-lightbox';
     CurrencyPipe,
     NgForOf,
     NgClass,
+    NgxImageZoomModule,
   ],
   styleUrls: ['./inner-product.component.scss']
 })

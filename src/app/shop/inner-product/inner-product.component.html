@@ -5,11 +5,19 @@
     <!--    right side-->
     <div class="col-12 col-md-4 p-2">
       <div class="d-flex justify-content-end align-items-center flex-row-reverse py-3">
-        <div><img class="inner-product-main-image cursor-pointer"
-                  [src]="product.imageURL"
-                  (click)="openLightbox(product.imageURL)"
-                  alt="product image"></div>
+
+        <lib-ngx-image-zoom class="cursor-pointer inner-product-main-image"
+          (click)="openLightbox(product.imageURL)"
+          [thumbImage]="product.imageURL"
+          [fullImage]="product.imageURL"
+          [magnification]="2"
+          [zoomMode]="'hover'"
+          [enableScrollZoom]="false"
+        ></lib-ngx-image-zoom>
+
+
         <div>
+
 
           <div class="m-2 card-navbar--icon" (click)="openLightbox(product.imageURL)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"

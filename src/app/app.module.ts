@@ -37,6 +37,7 @@ import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 import {SwiperModule} from 'swiper/angular';
 import {SigninComponent} from "./signin/signin.component";
 import {LightboxModule} from 'ngx-lightbox';
+import { NgxImageZoomModule } from 'ngx-image-zoom';
 
 initMDB({Collapse});
 
@@ -103,6 +104,7 @@ export class ImageLoadDirective implements OnInit {
     LazyLoadDirective,
     FormsModule,
     LightboxModule,
+    NgxImageZoomModule,
     CaptchaComponent,
     BreadcrumbComponent,
     SigninComponent,
