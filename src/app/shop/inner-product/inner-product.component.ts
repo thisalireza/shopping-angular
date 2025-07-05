@@ -124,5 +124,19 @@ export class InnerProductComponent implements OnInit, OnDestroy{
     }
   }
 
+  quantity = 1;
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+  }
+
+  increaseQuantity() {
+    if (this.quantity < this.product.items_left) {
+      this.quantity++;
+    }
+  }
+
   protected readonly colorette = module
 }
