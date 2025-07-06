@@ -1,6 +1,6 @@
 import {Component, OnInit, OnDestroy, Input, Output, EventEmitter} from '@angular/core';
 import { RouterLink } from "@angular/router";
-import {CurrencyPipe, NgForOf} from "@angular/common";
+import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
 import { ProductService } from "../../services/products.service";
 import { CartItem } from "../../interfaces/cart-item";
 import { FormsModule } from "@angular/forms";
@@ -15,7 +15,8 @@ import {LikeService} from "../../services/like.service";
     RouterLink,
     NgForOf,
     FormsModule,
-    CurrencyPipe
+    CurrencyPipe,
+    NgClass
   ],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'] // fixed typo here

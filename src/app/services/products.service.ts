@@ -12,6 +12,7 @@ import {CartItem} from "../interfaces/cart-item";
 
 export class ProductService {
   private PRODUCTS_KEY = 'products';
+  private readonly CART_KEY = 'cart';
 
 
 
@@ -20,6 +21,18 @@ export class ProductService {
 
   getCartItems(): CartItem[] {
     return this.cartItemsSubject.value;
+  }
+
+  private saveCart(): void {
+    localStorage.setItem(this.CART_KEY, JSON.stringify(this.cartItemsSubject.value));
+  }
+
+  private loadCart(): void {
+    const cartData = localStorage.getItem(this.CART_KEY);
+    if (cartData) {
+      const parsedCart: CartItem[] = JSON.parse(cartData);
+      this.cartItemsSubject.next(parsedCart);
+    }
   }
 
   addToCart(product: Product): void {
@@ -33,11 +46,13 @@ export class ProductService {
     }
 
     this.cartItemsSubject.next(cart);
+    this.saveCart(); // <-- add this
   }
 
   removeFromCart(productId: number): void {
     const cart = this.cartItemsSubject.value.filter(p => p.id !== productId);
     this.cartItemsSubject.next(cart);
+    this.saveCart(); // <-- add this
   }
 
   updateQuantity(productId: number, quantity: number): void {
@@ -45,10 +60,12 @@ export class ProductService {
       item.id === productId ? { ...item, quantity } : item
     );
     this.cartItemsSubject.next(cart);
+    this.saveCart(); // <-- add this
   }
 
   constructor() {
     this.loadProducts();
+    this.loadCart();
   }
 
   private loadProducts(): void {
