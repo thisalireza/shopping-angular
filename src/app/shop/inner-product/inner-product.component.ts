@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../../services/products.service';
 import {Product} from '../../interfaces/product';
@@ -20,7 +20,7 @@ import {NgxImageZoomModule} from "ngx-image-zoom";
   styleUrls: ['./inner-product.component.scss']
 })
 export class InnerProductComponent implements OnInit, OnDestroy{
-  product?: Product;
+  @Input() product?: Product;
   @Output() toggleLikeEvent = new EventEmitter<number>();
   stars = [1, 2, 3, 4, 5];
   selectedRating = 0;
@@ -36,6 +36,9 @@ export class InnerProductComponent implements OnInit, OnDestroy{
   ) {
   }
 
+  addToCart(product: Product) {
+    this.productService.addToCart(product);
+  }
 
 
   ngOnInit(): void {
@@ -47,7 +50,6 @@ export class InnerProductComponent implements OnInit, OnDestroy{
         this.loadRating(slug);
       }
     });
-
 
 
 

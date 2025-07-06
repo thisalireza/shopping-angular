@@ -1,3 +1,4 @@
+@if (cartItems.length > 0){
 <div class="container pt-2 pb-5 ">
   <div class="d-block d-md-flex gap-3 flex-row-reverse">
     <!--    left (aside)-->
@@ -5,7 +6,7 @@
       <div class="d-flex justify-content-between flex-row-reverse  pb-3">
         <div class="d-flex flex-row-reverse align-items-center flex-row-reverse">
           <img src="./assets/images/toman.svg" alt="toman">
-          <span class="fs-18 fw-bold px-1  text-muted">123,500,000</span>
+          <span class="fs-18 fw-bold px-1  text-muted" *ngFor="let product of cartItems">{{ (this.product.price - (this.product.price * this.product.discountPrice) / 100).toFixed() | currency:' ':'symbol':'1.0-3' }}</span>
         </div>
         <span class="fs-16 fw-bold d-block text-muted"> قیمت 2 کالا</span>
 
@@ -40,21 +41,29 @@
         <button
           class="btn  fs-16 d-flex align-items-center justify-content-center gap-2 fw-bold rounded-3 cart-Shopping--button w-100 mt-3">
           خرید نهایی
-          <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" /></svg>        </button>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+               class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 6l-6 6l6 6"/>
+          </svg>
+        </button>
       </div>
     </div>
     <!--    right-->
     <div class="col-12 col-md-9  ">
-      <div class="cart--section rounded-6 d-flex justify-content-end align-items-center  mb-3 px-3 ">
+      <div class="cart--section rounded-6 d-flex justify-content-between align-items-center  mb-3 px-3 " *ngFor="let product of cartItems">
         <!--      inner  right-->
         <div class="d-flex justify-content-end align-items-center gap-2 flex-row-reverse">
           <div><img class="inner-product-main-image cursor-pointer"
-                    src="assets/images/products/iphone/height=364,width=364.avif"
-                    alt="product" routerLink="/products/:id"></div>
+                    [src]="product.imageURL"
+                    [alt]="product.name"></div>
           <div>
             <div class="m-2 card-navbar--icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                   #likeIcon
+                   (click)="handleToggleLike(product.id)" [ngClass]="{'is-like': likeService.getProductLike(product.id)}"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-zoom-scan">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M4 8v-2a2 2 0 0 1 2 -2h2"/>
@@ -79,8 +88,8 @@
         <!--      inner  center-->
         <div class="ps-4">
           <div class="my-2 inner-product-main--title pe-3">
-            <h1 class="fs-18 fw-bold lh-base cursor-pointer" routerLink="/products/:id">
-              لپ تاپ 13.6 اینچی اپل مدل MacBook Air MC6T4 2025 M4-16GB RAM-256GB SSD
+            <h1 class="fs-18 fw-bold lh-base cursor-pointer">
+              {{ product.name }}
             </h1>
           </div>
           <div class="d-flex justify-content-between  align-items-end">
@@ -97,7 +106,7 @@
                   <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
                 </svg>
                 <span class="fs-14 d-block px-1"> رنگ:</span>
-                <span class="fs-14 fw-bold d-block">خاکستری</span>
+                <span class="fs-14 fw-bold d-block">{{product.color}}</span>
               </div>
 
               <div class="d-flex  py-1">
@@ -111,7 +120,7 @@
                   <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"/>
                 </svg>
                 <span class="fs-14 d-block px-1"> دسته بندی:</span>
-                <span class="fs-14 fw-bold d-block">آیفون</span>
+                <span class="fs-14 fw-bold d-block">{{product.category}}</span>
               </div>
 
               <div class="d-flex  py-1">
@@ -124,7 +133,7 @@
                   <path d="M11 12h1v4h1"/>
                 </svg>
                 <span class="fs-14 d-block px-1"> شناسه کالا:</span>
-                <span class="fs-14 fw-bold d-block">NZK400120</span>
+                <span class="fs-14 fw-bold d-block">{{product.id}}</span>
               </div>
             </div>
             <div class=" p-3 rounded-6  inner-product--inner-div">
@@ -133,13 +142,13 @@
                   <img src="./assets/images/toman.svg" alt="toman">
 
                   <span
-                  class="fs-22 fw-bold px-1">43,500,000</span>
+                    class="fs-22 fw-bold px-1">{{ (this.product.price - (this.product.price * this.product.discountPrice) / 100).toFixed() | currency:' ':'symbol':'1.0-3' }}</span>
                 </div>
               </div>
               <div class="d-flex justify-content-between flex-row-reverse pt-3 gap-2">
                 <div>
                   <button
-                    class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 cart-delete--button">
+                    class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 cart-delete--button" (click)="remove(product.id)">
                     حذف
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                          stroke="currentColor"
@@ -154,26 +163,24 @@
                     </svg>
                   </button>
                 </div>
+
                 <div
-                  class="d-flex flex-row-reverse justify-content-between align-items-center inner-product-cart-item--value px-3 rounded-3">
-                <span class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="18" viewBox="0 0 24 24"
-                                           fill="none" stroke="currentColor"
-                                           stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                           class="icon icon-tabler icons-tabler-outline icon-tabler-minus">
-                                           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                             <path d="M5 12l14 0"/>
-                                            </svg></span>
-                  <input class="inner-product-cart-item--input" type="number" value="1" min="1" max="4" step="1">
-                  <span class="fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                             viewBox="0 0 24 24"
-                                             fill="none" stroke="currentColor"
-                                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                             class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
-                                              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                                              <path d="M12 5l0 14"/>
-                                              <path d="M5 12l14 0"/>
-                                            </svg></span>
+                  class="d-flex justify-content-between align-items-center inner-product-cart-item--value px-2 flex-row-reverse">
+                  <svg (click)="decreaseQuantity()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                       fill="currentColor" class="cursor-pointer" viewBox="0 0 16 16">
+                    <path d="M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8z"/>
+                  </svg>
+
+                  <input class="inner-product-cart-item--input" type="number" [value]="quantity" min="1"
+                         [max]="product.items_left" readonly>
+
+                  <svg (click)="increaseQuantity()" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                       fill="currentColor" class="cursor-pointer" viewBox="0 0 16 16">
+                    <path
+                      d="M8 3a.5.5 0 0 1 .5.5v4h4a.5.5 0 0 1 0 1h-4v4a.5.5 0 0 1-1 0v-4h-4a.5.5 0 0 1 0-1h4v-4A.5.5 0 0 1 8 3z"/>
+                  </svg>
                 </div>
+
               </div>
             </div>
           </div>
@@ -184,3 +191,11 @@
 </div>
 
 
+} @else {
+  <div class="d-flex justify-content-center align-items-center">
+    <span class="text-center py-5">محصولی در سبد خرید شما وجود ندارد.
+    <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mood-sad"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 10l.01 0" /><path d="M15 10l.01 0" /><path d="M9.5 15.25a3.5 3.5 0 0 1 5 0" /></svg>
+    </span>
+
+  </div>
+}

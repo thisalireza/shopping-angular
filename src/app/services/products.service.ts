@@ -1,11 +1,51 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
+import {BehaviorSubject} from "rxjs";
+import {CartItem} from "../interfaces/cart-item";
+
 
 @Injectable({
   providedIn: 'root',
 })
+
+
+
 export class ProductService {
   private PRODUCTS_KEY = 'products';
+
+
+
+  private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
+  cartItems$ = this.cartItemsSubject.asObservable();
+
+  getCartItems(): CartItem[] {
+    return this.cartItemsSubject.value;
+  }
+
+  addToCart(product: Product): void {
+    const cart = [...this.cartItemsSubject.value];
+    const index = cart.findIndex(p => p.id === product.id);
+
+    if (index > -1) {
+      cart[index].quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    this.cartItemsSubject.next(cart);
+  }
+
+  removeFromCart(productId: number): void {
+    const cart = this.cartItemsSubject.value.filter(p => p.id !== productId);
+    this.cartItemsSubject.next(cart);
+  }
+
+  updateQuantity(productId: number, quantity: number): void {
+    const cart = this.cartItemsSubject.value.map(item =>
+      item.id === productId ? { ...item, quantity } : item
+    );
+    this.cartItemsSubject.next(cart);
+  }
 
   constructor() {
     this.loadProducts();

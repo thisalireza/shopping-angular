@@ -38,7 +38,6 @@ import {SwiperModule} from 'swiper/angular';
 import {SigninComponent} from "./signin/signin.component";
 import {LightboxModule} from 'ngx-lightbox';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
-
 initMDB({Collapse});
 
 
