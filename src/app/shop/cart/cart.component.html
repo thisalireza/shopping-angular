@@ -57,13 +57,14 @@
         <div class="d-flex justify-content-end align-items-center gap-2 flex-row-reverse">
           <div><img class="inner-product-main-image cursor-pointer"
                     [src]="product.imageURL"
-                    [alt]="product.name"></div>
+                    [alt]="product.name">
+
+          </div>
           <div>
             <div class="m-2 card-navbar--icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                   (click)="openLightbox(product.imageURL)"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                   #likeIcon
-                   (click)="handleToggleLike(product.id)" [ngClass]="{'is-like': likeService.getProductLike(product.id)}"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-zoom-scan">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M4 8v-2a2 2 0 0 1 2 -2h2"/>
@@ -77,6 +78,8 @@
 
             <div class="m-2 card-navbar--icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                   #likeIcon
+                   (click)="handleToggleLike(product.id)" [ngClass]="{'is-like': likeService.getProductLike(product.id)}"
                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -86,7 +89,7 @@
           </div>
         </div>
         <!--      inner  center-->
-        <div class="ps-4">
+        <div class="ps-4 w-100">
           <div class="my-2 inner-product-main--title pe-3">
             <h1 class="fs-18 fw-bold lh-base cursor-pointer">
               {{ product.name }}

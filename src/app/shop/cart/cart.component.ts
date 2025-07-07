@@ -7,6 +7,8 @@ import { FormsModule } from "@angular/forms";
 import { Subscription } from 'rxjs';
 import {Product} from "../../interfaces/product";
 import {LikeService} from "../../services/like.service";
+import {NgxImageZoomModule} from "ngx-image-zoom";
+import {Lightbox} from "ngx-lightbox";
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +18,8 @@ import {LikeService} from "../../services/like.service";
     NgForOf,
     FormsModule,
     CurrencyPipe,
-    NgClass
+    NgClass,
+    NgxImageZoomModule
   ],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'] // fixed typo here
@@ -28,7 +31,7 @@ export class CartComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   private subscription!: Subscription;
 
-  constructor(private productService: ProductService , private likeService: LikeService) {}
+  constructor(private productService: ProductService , public likeService: LikeService , private lightbox: Lightbox) {}
 
   ngOnInit(): void {
     this.subscription = this.productService.cartItems$.subscribe(items => {
@@ -49,11 +52,39 @@ export class CartComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+
+  openLightbox(imageUrl: string): void {
+    const album = [{ src: imageUrl, caption: 'Product Image', thumb: imageUrl }];
+    document.body.style.overflow = 'hidden';
+    this.lightbox.open(album, 0);
+
+    this.attachCloseDetection();
+  }
+  attachCloseDetection(): void {
+    const observer = new MutationObserver(() => {
+      // If lightbox container is removed from DOM, close happened
+      const lbContainer = document.querySelector('.lightbox');
+      if (!lbContainer) {
+        // Lightbox closed, restore scroll
+        document.body.style.overflow = 'auto';
+
+        // Disconnect observer once done
+        observer.disconnect();
+      }
+    });
+
+    // Start observing body for child list changes (add/remove nodes)
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+
   handleToggleLike(productId: number): void {
     this.likeService.toggleProductLike(productId); // ✅ clean and central
     this.toggleLikeEvent.emit(productId); // let parent know
 
   }
+
+
 
   quantity = 1;
 
