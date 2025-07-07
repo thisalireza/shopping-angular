@@ -482,7 +482,7 @@ body {
 }
 
 
-.dark-mode .text-body, .dark-mode .homepage-category--title, .dark-mode .price-with-discount--digit {
+.dark-mode .text-body, .dark-mode .homepage-category--title, .dark-mode .price-with-discount--digit , .dark-mode .card-title , .dark-mode .card-text , .dark-mode .text-muted{
   transition: all .5s;
   color: var(--bold-text-color) !important;
 }

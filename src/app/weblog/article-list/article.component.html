@@ -55,7 +55,6 @@
           </div>
           <div class="card-footer d-flex justify-content-between flex-row-reverse">
             <div>
-              <small class="text-muted fs-14 pe-1">{{ blog.writer }}</small>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                    stroke="#757575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                    class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit">
@@ -64,9 +63,10 @@
                 <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5"/>
                 <path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z"/>
               </svg>
+              <small class="text-muted fs-14 ps-1">{{ blog.writer }}</small>
             </div>
             <div>
-              <small class="text-muted fs-14">{{ blog.time }}
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                      class="icon icon-tabler icons-tabler-outline icon-tabler-clock-hour-4">
@@ -75,7 +75,8 @@
                   <path d="M12 12l3 2"/>
                   <path d="M12 7v5"/>
                 </svg>
-              </small>
+              <small class="text-muted fs-14 ps-1">{{ blog.time }}</small>
+
             </div>
           </div>
         </div>

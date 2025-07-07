@@ -24,7 +24,6 @@
       <div class="article-meta mb-4">
         <div class="d-flex justify-content-between flex-row-reverse">
           <div>
-            <span class="article-writer">{{ article?.writer }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                  stroke="#757575" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                  class="icon icon-tabler icons-tabler-outline icon-tabler-user-edit">
@@ -33,9 +32,10 @@
               <path d="M6 21v-2a4 4 0 0 1 4 -4h3.5"/>
               <path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z"/>
             </svg>
+            <span class="article-writer pe-1">{{ article?.writer }}</span>
+
           </div>
 <div>
-  <span class="article-time">{{ article?.time }}</span>
   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none"
        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
        class="icon icon-tabler icons-tabler-outline icon-tabler-clock-hour-4">
@@ -44,6 +44,8 @@
     <path d="M12 12l3 2"/>
     <path d="M12 7v5"/>
   </svg>
+  <span class="article-time ps-1">{{ article?.time }}</span>
+
 </div>
         </div>
 
