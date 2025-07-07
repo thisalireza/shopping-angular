@@ -8,13 +8,13 @@ import {CartItem} from "../interfaces/cart-item";
   providedIn: 'root',
 })
 
-
-
 export class ProductService {
+  private cart: { [productId: number]: { product: Product; quantity: number } } = {};
+  private cartItemCount = new BehaviorSubject<number>(0);
+  cartItemCount$ = this.cartItemCount.asObservable();
+
   private PRODUCTS_KEY = 'products';
   private readonly CART_KEY = 'cart';
-
-
 
   private cartItemsSubject = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItemsSubject.asObservable();
@@ -35,7 +35,16 @@ export class ProductService {
     }
   }
 
-  addToCart(product: Product): void {
+  addToCart(product: Product, quantity: number) {
+    if (this.cart[product.id]) {
+      this.cart[product.id].quantity += quantity;
+    }
+    else {
+      this.cart[product.id] = { product, quantity };
+    }
+    this.updateCartCount();
+
+
     const cart = [...this.cartItemsSubject.value];
     const index = cart.findIndex(p => p.id === product.id);
 
@@ -49,6 +58,15 @@ export class ProductService {
     this.saveCart(); // <-- add this
   }
 
+  private updateCartCount() {
+    const total = Object.values(this.cart)
+      .reduce((sum, item) => sum + item.quantity, 0);
+    this.cartItemCount.next(total);
+  }
+
+  getTotalCartItems(): number {
+    return this.cartItemCount.value;
+  }
   removeFromCart(productId: number): void {
     const cart = this.cartItemsSubject.value.filter(p => p.id !== productId);
     this.cartItemsSubject.next(cart);
@@ -121,6 +139,11 @@ export class ProductService {
     return this.getProductsByCategory('gift-card');
   }
 
+
+  getProductQuantityInCart(productId: number): number {
+    const item = this.cart[productId];
+    return item ? item.quantity : 0;
+  }
 
 
 

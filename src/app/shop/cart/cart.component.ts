@@ -33,6 +33,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService , public likeService: LikeService , private lightbox: Lightbox ,private router: Router,) {}
 
+
   ngOnInit(): void {
     this.subscription = this.productService.cartItems$.subscribe(items => {
       this.cartItems = items;

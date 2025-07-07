@@ -20,6 +20,8 @@ import {NgxImageZoomModule} from "ngx-image-zoom";
   styleUrls: ['./inner-product.component.scss']
 })
 export class InnerProductComponent implements OnInit, OnDestroy{
+  productQuantityInCart = 0;
+
   @Input() product?: Product;
   @Output() toggleLikeEvent = new EventEmitter<number>();
   stars = [1, 2, 3, 4, 5];
@@ -37,8 +39,10 @@ export class InnerProductComponent implements OnInit, OnDestroy{
   }
 
   addToCart(product: Product) {
-    this.productService.addToCart(product);
+    this.productService.addToCart(product, this.quantity);
+    this.productQuantityInCart = this.productService.getProductQuantityInCart(product.id);
   }
+
 
 
   ngOnInit(): void {
@@ -63,10 +67,12 @@ export class InnerProductComponent implements OnInit, OnDestroy{
 
   loadProduct(slug: string) {
     this.product = this.productService.getProductBySlug(slug);
-    if (!this.product) {
-      console.warn(`Product with slug '${slug}' not found.`);
+    if (this.product) {
+      this.productQuantityInCart = this.productService.getProductQuantityInCart(this.product.id);
     }
   }
+
+
 
   loadRating(slug: string) {
     const storedRating = localStorage.getItem(`rating-${slug}`);
@@ -166,7 +172,7 @@ export class InnerProductComponent implements OnInit, OnDestroy{
   }
 
   increaseQuantity() {
-    if (this.quantity < this.product.items_left) {
+    if (this.product && (this.quantity + this.productQuantityInCart) < this.product.items_left) {
       this.quantity++;
     }
   }

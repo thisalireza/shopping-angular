@@ -1,4 +1,4 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MdbCollapseModule} from "mdb-angular-ui-kit/collapse";
 import {SearchComponent} from "../search/search.component";
 
@@ -9,6 +9,7 @@ import {NgClass, NgIf} from "@angular/common";
 import {LikeService} from "../../services/like.service";
 import {AuthStatusService} from "../../services/auth-status.service";
 import {Subscription} from "rxjs";
+import {ProductService} from "../../services/products.service";
 
 
 @Component({
@@ -26,12 +27,25 @@ import {Subscription} from "rxjs";
   standalone: true,
   styleUrl: './header.component.scss'
 })
-export class MenuComponent implements OnDestroy {
-  constructor(public likeService: LikeService, private authStatusService: AuthStatusService) {
-    this.subscription = this.authStatusService.isLoggedIn$.subscribe((status) => {
+export class MenuComponent implements OnDestroy , OnInit {
+  cartItemCount = 0;
+  constructor(public likeService: LikeService, private authStatusService: AuthStatusService ,     private productService: ProductService) {
+    this.subscription = this.authStatusService.isLoggedIn$.subscribe(status => {
       this.isLoggedIn = status;
     });
   }
+
+
+  private subscription!: Subscription;
+  private cartSubscription!: Subscription;
+
+
+  ngOnInit(): void {
+    this.cartSubscription = this.productService.cartItemCount$.subscribe(count => {
+      this.cartItemCount = count;
+    });
+  }
+
 
   activeLink: string = '/home'; // Default active link
 
@@ -45,11 +59,12 @@ export class MenuComponent implements OnDestroy {
 
 
   isLoggedIn = false;
-  private subscription!: Subscription;
+
 
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.cartSubscription.unsubscribe();
   }
 
   logout(): void {
