@@ -1,52 +1,35 @@
-import { Directive, ElementRef, OnInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnInit } from '@angular/core';
 
+// بر روی عکس مورد نظر lazyload ایجاد
+// میباشد data-src و src هایattribute که دارای
 @Directive({
+  selector: '[app-lazy-load]',
   standalone: true,
-  selector: '[lazyLoad]' // Now works with any element, not just img tags
 })
-export class LazyLoadDirective implements OnInit, OnDestroy {
-  private observer!: IntersectionObserver;
-  private element!: HTMLElement;
+export class LazyLoadDirective implements OnInit {
+  constructor(private el: ElementRef) {}
 
-  constructor(private elRef: ElementRef<HTMLElement>) {
-    this.element = elRef.nativeElement;
-  }
-
+  // viewport نحوه کار به این صورت است که به محض ورود آیتم مورد نظر به
+  // میشود placeholder عکس نهایی جایگزین
   ngOnInit(): void {
-    // Only apply lazy loading if explicitly enabled
-    if (!this.element.hasAttribute('data-lazy')) {
-      return;
-    }
+    const parentElement = this.el.nativeElement;
+    this.imageObserver.observe(parentElement);
+  }
 
-    // Use IntersectionObserver directly without checking for loading attribute
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
-
-          // Handle both img and background-image cases
-          if (target.tagName === 'IMG') {
-            const img = target as HTMLImageElement;
-            img.src = img.dataset.src || '';
-          } else {
-            // Handle elements with background images
-            const backgroundImage = target.style.backgroundImage;
-            if (backgroundImage && backgroundImage.includes('url')) {
-              target.style.backgroundImage = backgroundImage.replace('lazy-', '');
-            }
-          }
-
-          this.observer.unobserve(target);
-        }
-      });
+  intersectionDetector = function (
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) {
+    entries.forEach((entry) => {
+      const imageElement = entry.target.querySelector('.lazy-image');
+      if (!entry.isIntersecting) return;
+      imageElement.setAttribute('src', imageElement.getAttribute('data-src'));
+      observer.unobserve(entry.target);
     });
+  };
 
-    this.observer.observe(this.element);
-  }
-
-  ngOnDestroy(): void {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-  }
+  imageObserver = new IntersectionObserver(this.intersectionDetector, {
+    root: null,
+    threshold: 0.2,
+  });
 }

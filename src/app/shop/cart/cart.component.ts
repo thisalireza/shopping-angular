@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy, Input, Output, EventEmitter} from '@angular/core';
-import { RouterLink } from "@angular/router";
+import {Router, RouterLink} from '@angular/router';
 import {CurrencyPipe, NgClass, NgForOf} from "@angular/common";
 import { ProductService } from "../../services/products.service";
 import { CartItem } from "../../interfaces/cart-item";
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit, OnDestroy {
   cartItems: CartItem[] = [];
   private subscription!: Subscription;
 
-  constructor(private productService: ProductService , public likeService: LikeService , private lightbox: Lightbox) {}
+  constructor(private productService: ProductService , public likeService: LikeService , private lightbox: Lightbox ,private router: Router,) {}
 
   ngOnInit(): void {
     this.subscription = this.productService.cartItems$.subscribe(items => {
@@ -52,6 +52,10 @@ export class CartComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+
+  onProductClick(product: any) {
+    this.router.navigate(['/products', product.slug]);
+  }
 
   openLightbox(imageUrl: string): void {
     const album = [{ src: imageUrl, caption: 'Product Image', thumb: imageUrl }];
