@@ -595,14 +595,10 @@ img#image {
   padding: 10px !important;
 }
 
-.lightboxOverlay{
-  width: 100% !important;
-  height: 100% !important;
-}
-
 
 .lightbox{
   top: 25% !important;
+  position: fixed !important;
 }
 
 
