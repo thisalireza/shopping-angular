@@ -1,0 +1,21 @@
+.account-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  padding: 20px;
+  height: calc(100vh - 64px);
+}
+
+mat-nav-list {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+mat-list-item {
+  transition: background-color 0.2s ease;
+}
+
+mat-list-item.active {
+  background-color: #e3f2fd;
+}

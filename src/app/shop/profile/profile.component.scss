@@ -1,0 +1,22 @@
+.profile-section {
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-content {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+mat-card {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}

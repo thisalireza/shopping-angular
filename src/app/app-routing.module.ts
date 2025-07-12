@@ -20,6 +20,9 @@ import {
 } from "./shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
 import {GiftCardCategoryCarouselComponent} from "./shop/gift-card-category-carousel/gift-card-category-carousel.component";
 import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
+import {SettingComponent} from "./shop/setting/setting.component";
+import {OrdersComponent} from "./shop/orders/orders.component";
+import {ProfileComponent} from "./shop/profile/profile.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' , data: {breadcrumb: 'خانه'}},
@@ -33,7 +36,14 @@ export const routes: Routes = [
   {path: 'category/airpods', component: AirpodsCategoryCarouselComponent , data: {breadcrumb: 'ایرپاد'}},
   {path: 'category/apple-watch', component: AppleWatchCategoryCarouselComponent , data: {breadcrumb: 'اپل واچ'}},
   {path: 'category/gift-card', component: GiftCardCategoryCarouselComponent , data: {breadcrumb: 'گیفت کارت'}},
-  {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'}},
+  {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'},
+    children: [
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'orders', component: OrdersComponent },
+      { path: 'settings', component: SettingComponent },
+      { path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'} },
+    ]},
   {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},
   {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'}},

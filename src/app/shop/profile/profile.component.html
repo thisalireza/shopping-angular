@@ -1,0 +1,60 @@
+<!-- profile.component.html -->
+<div class="container mt-4">
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">My Profile</h3>
+        <button
+          type="button"
+          class="btn btn-primary"
+          [disabled]="!profileForm.dirty"
+          (click)="saveProfile()"
+        >
+          <i class="fas fa-save mr-2"></i> Save Changes
+        </button>
+      </div>
+
+      <form [formGroup]="profileForm">
+        <div class="row">
+          <!-- Full Name Input -->
+          <div class="col-md-6 mb-4">
+            <label class="form-label">Full Name</label>
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              formControlName="fullName"
+              [class.is-invalid]="fullName?.invalid && (fullName?.dirty || fullName?.touched)"
+            >
+            <div class="invalid-feedback" *ngIf="fullName?.errors?.['required']">
+              Full name is required
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="col-md-6 mb-4">
+            <label class="form-label">Email</label>
+            <input
+              mdbInput
+              type="email"
+              class="form-control"
+              formControlName="email"
+              readonly
+            >
+          </div>
+
+          <!-- Phone Number Input -->
+          <div class="col-md-6 mb-4">
+            <label class="form-label">Phone Number</label>
+            <input
+              mdbInput
+              type="tel"
+              class="form-control"
+              formControlName="phone"
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
