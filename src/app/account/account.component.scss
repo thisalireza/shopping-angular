@@ -19,3 +19,10 @@ mat-list-item {
 mat-list-item.active {
   background-color: #e3f2fd;
 }
+
+.account-main--menu{
+  position: sticky;
+  width: 150px;
+  top: 5rem;
+  background: #fff;
+}

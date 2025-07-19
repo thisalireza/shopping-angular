@@ -43,6 +43,7 @@ export const routes: Routes = [
       { path: 'orders', component: OrdersComponent },
       { path: 'settings', component: SettingComponent },
       { path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'} },
+      { path: 'cart', component: CartComponent , data: {breadcrumb: 'سبد خرید'} },
     ]},
   {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},

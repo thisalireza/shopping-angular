@@ -27,14 +27,17 @@ import {ProductService} from "../../services/products.service";
   standalone: true,
   styleUrl: './header.component.scss'
 })
-export class MenuComponent implements OnDestroy , OnInit {
+export class MenuComponent implements OnDestroy, OnInit {
   cartItemCount = 0;
-  constructor(public likeService: LikeService, private authStatusService: AuthStatusService ,     private productService: ProductService) {
+  isLoggedIn = false;
+  activeLink: string = '/home'; // Default active link
+
+
+  constructor(public likeService: LikeService, private authStatusService: AuthStatusService, private productService: ProductService) {
     this.subscription = this.authStatusService.isLoggedIn$.subscribe(status => {
       this.isLoggedIn = status;
     });
   }
-
 
   private subscription!: Subscription;
   private cartSubscription!: Subscription;
@@ -47,8 +50,6 @@ export class MenuComponent implements OnDestroy , OnInit {
   }
 
 
-  activeLink: string = '/home'; // Default active link
-
   setActiveLink(link: string) {
     this.activeLink = link;
   }
@@ -58,16 +59,9 @@ export class MenuComponent implements OnDestroy , OnInit {
   }
 
 
-  isLoggedIn = false;
-
-
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
     this.cartSubscription.unsubscribe();
   }
 
-  logout(): void {
-    this.authStatusService.logout();
-  }
 }
