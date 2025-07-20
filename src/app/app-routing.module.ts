@@ -23,6 +23,7 @@ import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-cat
 import {SettingComponent} from "./shop/setting/setting.component";
 import {OrdersComponent} from "./shop/orders/orders.component";
 import {ProfileComponent} from "./shop/profile/profile.component";
+import {AddressComponent} from "./shop/address/address.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' , data: {breadcrumb: 'خانه'}},
@@ -39,15 +40,16 @@ export const routes: Routes = [
   {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'},
     children: [
       { path: '', redirectTo: 'profile', pathMatch: 'full' },
-      { path: 'profile', component: ProfileComponent },
-      { path: 'orders', component: OrdersComponent },
-      { path: 'settings', component: SettingComponent },
+      { path: 'profile', component: ProfileComponent , data: {breadcrumb: 'پروفایل'} },
+      { path: 'orders', component: OrdersComponent , data: {breadcrumb: 'سفارش ها'} },
+      { path: 'settings', component: SettingComponent , data: {breadcrumb: 'تنظیمات'} },
       { path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'} },
       { path: 'cart', component: CartComponent , data: {breadcrumb: 'سبد خرید'} },
+      { path: 'address', component: AddressComponent , data: {breadcrumb: 'آدرس ها'} },
     ]},
   {path: 'liked-products', component: LikedProductsComponent , data: {breadcrumb: 'علاقه مندی ها'}},
   {path: 'signIn', component: SigninComponent, data: {breadcrumb: 'ورود | ثبت نام'}},
-  {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'}},
+  {path: 'articles', component: ArticlesComponent, data: {breadcrumb: 'مقالات'},},
   {path: 'articles/:slug', component: ArticleDetailComponent, data: {breadcrumb: ''}},
   {path: 'products', component: ShoppingComponent, data: {breadcrumb: 'فروشگاه'}},
   {path: 'products/:slug', component: InnerProductComponent, data: {breadcrumb: ''}},

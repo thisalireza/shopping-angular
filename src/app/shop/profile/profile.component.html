@@ -1,60 +1,60 @@
-<!-- profile.component.html -->
-<div class="container mt-4">
-  <div class="card mb-4">
+<div class="container-fluid w-100">
+  <div class="card">
     <div class="card-body">
-      <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">My Profile</h3>
-        <button
-          type="button"
-          class="btn btn-primary"
-          [disabled]="!profileForm.dirty"
-          (click)="saveProfile()"
-        >
-          <i class="fas fa-save mr-2"></i> Save Changes
-        </button>
-      </div>
-
+      <h3 class="fw-bold">پروفایل </h3>
       <form [formGroup]="profileForm">
         <div class="row">
-          <!-- Full Name Input -->
           <div class="col-md-6 mb-4">
-            <label class="form-label">Full Name</label>
+            <label class="form-label">نام کامل</label>
             <input
               mdbInput
               type="text"
               class="form-control"
               formControlName="fullName"
-              [class.is-invalid]="fullName?.invalid && (fullName?.dirty || fullName?.touched)"
             >
-            <div class="invalid-feedback" *ngIf="fullName?.errors?.['required']">
-              Full name is required
-            </div>
+
           </div>
 
           <!-- Email Input -->
           <div class="col-md-6 mb-4">
-            <label class="form-label">Email</label>
+            <label class="form-label">ایمیل</label>
             <input
               mdbInput
               type="email"
               class="form-control"
               formControlName="email"
-              readonly
+
             >
           </div>
 
           <!-- Phone Number Input -->
           <div class="col-md-6 mb-4">
-            <label class="form-label">Phone Number</label>
+            <label class="form-label">شماره موبایل</label>
             <input
               mdbInput
               type="tel"
               class="form-control"
               formControlName="phone"
+              [class.is-invalid]="phone?.invalid && (phone?.dirty || phone?.touched)"
             >
+            <div class="invalid-feedback" *ngIf="phone?.errors?.['required']">
+              شماره موبایل اجباری است
+            </div>
           </div>
         </div>
       </form>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <button
+          type="button"
+          class="btn btn-danger rounded-3"
+          [disabled]="!profileForm.dirty"
+          (click)="saveProfile()"
+        >
+          ذخیره تغییرات
+          <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-floppy"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2" /><path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M14 4l0 4l-6 0l0 -4" /></svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>

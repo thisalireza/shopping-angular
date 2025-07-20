@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
-import {NgIf} from "@angular/common";
+import {NgClass, NgIf} from "@angular/common";
 import {AuthStatusService} from "../services/auth-status.service";
 import {Subscription} from "rxjs";
 
@@ -11,12 +11,14 @@ import {Subscription} from "rxjs";
     RouterOutlet,
     RouterLink,
     RouterLinkActive,
-    NgIf
+    NgIf,
+    NgClass
   ],
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss'
 })
 export class AccountComponent {
+  activeLink: string = '/account/profile'; // Default active link
   isLoggedIn = false;
   private subscription!: Subscription;
   constructor(private authStatusService: AuthStatusService) {
@@ -31,6 +33,10 @@ export class AccountComponent {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  setActiveLink(link: string) {
+    this.activeLink = link;
   }
 
 }

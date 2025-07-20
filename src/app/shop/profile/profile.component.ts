@@ -16,13 +16,13 @@ import {MdbFormsModule} from "mdb-angular-ui-kit/forms";
 })
 export class ProfileComponent {
   profileForm = new FormGroup({
-    fullName: new FormControl('', [Validators.required]),
-    email: new FormControl({ value: '', disabled: true }),
-    phone: new FormControl('')
+    phone: new FormControl('', [Validators.required]),
+    email: new FormControl({ value: '', disabled: false }),
+    fullName : new FormControl('')
   });
 
-  get fullName() {
-    return this.profileForm.get('fullName');
+  get phone() {
+    return this.profileForm.get('phone');
   }
 
   saveProfile() {

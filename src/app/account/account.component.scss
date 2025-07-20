@@ -22,7 +22,15 @@ mat-list-item.active {
 
 .account-main--menu{
   position: sticky;
-  width: 150px;
-  top: 5rem;
+  width: 180px;
+  top: 6rem;
   background: #fff;
 }
+
+
+.nav-link:hover{
+  color: #DF3C3C;
+}
+
+
+
