@@ -1,6 +1,6 @@
 import {RouterModule, Routes} from '@angular/router';
 import {ContactUsComponent} from "./contact-us/contact-us.component";
-import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
+import {PageNotFoundComponent} from "./shared/page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
 import {HomePageComponent} from "./home-page/homePage/homePage.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
@@ -11,7 +11,7 @@ import {ShoppingComponent} from "./shop/shopping/shopping.component";
 import {InnerProductComponent} from "./shop/inner-product/inner-product.component";
 import {ArticleDetailComponent} from "./weblog/article-detail/article-detail.component";
 import {CartComponent} from "./shop/cart/cart.component";
-import {LikedProductsComponent} from "./shop/liked-products/liked-products.component";
+import {LikedProductsComponent} from "./shared/liked-products/liked-products.component";
 import {IphoneCategoryCarouselComponent} from "./shop/iphone-category-carousel/iphone-category-carousel.component";
 import {IpadCategoryCarouselComponent} from "./shop/ipad-category-carousel/ipad-category-carousel.component";
 import {AirpodsCategoryCarouselComponent} from "./shop/airpods-category-carousel/airpods-category-carousel.component";
@@ -22,7 +22,7 @@ import {GiftCardCategoryCarouselComponent} from "./shop/gift-card-category-carou
 import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
 import {SettingComponent} from "./shop/setting/setting.component";
 import {OrdersComponent} from "./shop/orders/orders.component";
-import {ProfileComponent} from "./shop/profile/profile.component";
+import {ProfileComponent} from "./profile/profile.component";
 import {AddressComponent} from "./shop/address/address.component";
 
 export const routes: Routes = [

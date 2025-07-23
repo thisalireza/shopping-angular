@@ -162,7 +162,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/155a965d-0962-408d-7dea-557a62fc3900/height=364,width=364',
+          '../../assets/images/products/mac/height=182,width=182 (13).avif',
       slug: 'macbook-air-M2',
     },
     {
@@ -179,7 +179,7 @@ export class ProductService {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/619c6e9d-9e4e-4c43-98d2-b27c783ff800/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (7).avif',
       slug: 'macbook-pro-M1',
     },
     {
@@ -196,7 +196,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/682589c3-7c88-4652-968e-f6cf3bfdb300/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (10).avif',
       slug: 'macbook-air-M1',
     },
     {
@@ -213,7 +213,7 @@ export class ProductService {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/21397e47-c638-43de-026c-009a773b8800/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (20).avif',
       slug: 'macbook-pro-M1pr',
     },
     {
@@ -230,7 +230,7 @@ export class ProductService {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/3538448b-424f-4ad6-803a-517567ec3d00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (18).avif',
       slug: 'macbook-pro-M2',
     },
     {
@@ -247,7 +247,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dbeb9e5d-3a31-4df0-282d-0666b1f89800/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (12).avif',
       slug: 'macbook-air-2018-i5',
     },
     {
@@ -264,7 +264,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/b92a2acb-2d9d-46b4-92fd-40c886836f00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (9).avif',
       slug: 'macbook-air-2019-i5',
     },
     {
@@ -281,7 +281,7 @@ export class ProductService {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/e9ea450d-7090-4309-5038-92acb8b64000/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (8).avif',
       slug: 'macbook-air-2013-i5',
     },
     {
@@ -298,7 +298,7 @@ export class ProductService {
       is_in_inventory: false,
       items_left: 0,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dbb5dc2c-9351-4ffa-3e35-e2586c807a00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (6).avif',
       slug: 'macbook-air-2011-i5',
     },
     {
@@ -315,7 +315,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 5,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/47c93033-b5ef-426e-aa09-53ad1f3be900/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (14).avif',
       slug: 'macbook-air-2017-i5',
     },
     {
@@ -332,7 +332,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/c26e683d-11df-4546-84c7-ca9286c42d00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (19).avif',
       slug: 'macbook-pro-M1max',
     },
     {
@@ -349,7 +349,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/34374730-ce80-44a1-bcca-698499bfbc00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (17).avif',
       slug: 'macbook-pro-2019-i9',
     },
     {
@@ -366,7 +366,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 5,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/dccb26a2-e386-49a7-929d-f77130407900/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (1).avif',
       slug: 'macbook-air-2010-i5',
     },
     {
@@ -383,7 +383,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/e45fb01d-52ae-41fe-e478-2a2965ccb700/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (2).avif',
       slug: 'macbook-pro-2016-i7',
     },
 
@@ -401,7 +401,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/cbfc1cfc-5e8d-4e29-54b6-a3910d3fd400/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (3).avif',
       slug: 'macbook-air-2019-i5',
     },
     {
@@ -418,7 +418,7 @@ export class ProductService {
       is_in_inventory: true,
       items_left: 3,
       imageURL:
-          'https://imagedelivery.net/eAUy1amtjBjgyIgDFXrGvQ/46ce84fb-800f-4429-c42a-635c39581a00/height=364,width=364',
+        '../../assets/images/products/mac/height=182,width=182 (15).avif',
       slug: 'macbook-air-M2',
     },
     {
