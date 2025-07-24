@@ -1,11 +1,11 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Location, NgIf} from '@angular/common'
-import {NumbersOnlyDirective} from "../Directives/numbers-only-directive.directive";
+import {NumbersOnlyDirective} from "../../Directives/numbers-only-directive.directive";
 import {FormsModule, NgForm, NgModel} from "@angular/forms";
-import {CaptchaComponent} from "../shared/captcha/captcha.component";
+import {CaptchaComponent} from "../../shared/captcha/captcha.component";
 import {RouterLink} from "@angular/router";
-import {LocalStorageService} from "../services/local-storage.service";
-import {AuthStatusService} from "../services/auth-status.service";
+import {LocalStorageService} from "../../services/local-storage.service";
+import {AuthStatusService} from "../../services/auth-status.service";
 
 @Component({
   selector: 'app-signin',

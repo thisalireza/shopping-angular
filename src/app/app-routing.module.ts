@@ -4,8 +4,8 @@ import {PageNotFoundComponent} from "./shared/page-not-found/page-not-found.comp
 import {NgModule} from "@angular/core";
 import {HomePageComponent} from "./home-page/homePage/homePage.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
-import {SigninComponent} from "./signin/signin.component";
-import {AccountComponent} from "./account/account.component";
+import {SigninComponent} from "./account/signin/signin.component";
+import {AccountComponent} from "./account/user-account/user-account.component";
 import {ArticlesComponent} from "./weblog/articles/articles.component";
 import {ShoppingComponent} from "./shop/shopping/shopping.component";
 import {InnerProductComponent} from "./shop/inner-product/inner-product.component";
@@ -20,10 +20,10 @@ import {
 } from "./shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
 import {GiftCardCategoryCarouselComponent} from "./shop/gift-card-category-carousel/gift-card-category-carousel.component";
 import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
-import {SettingComponent} from "./shop/setting/setting.component";
+import {SettingComponent} from "./account/setting/setting.component";
 import {OrdersComponent} from "./shop/orders/orders.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {AddressComponent} from "./shop/address/address.component";
+import {ProfileComponent} from "./account/profile/profile.component";
+import {AddressComponent} from "./account/address/address.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' , data: {breadcrumb: 'خانه'}},
@@ -37,7 +37,7 @@ export const routes: Routes = [
   {path: 'category/airpods', component: AirpodsCategoryCarouselComponent , data: {breadcrumb: 'ایرپاد'}},
   {path: 'category/apple-watch', component: AppleWatchCategoryCarouselComponent , data: {breadcrumb: 'اپل واچ'}},
   {path: 'category/gift-card', component: GiftCardCategoryCarouselComponent , data: {breadcrumb: 'گیفت کارت'}},
-  {path: 'account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'},
+  {path: 'user-account', component: AccountComponent , data: {breadcrumb: 'حساب کاربری'},
     children: [
       { path: '', redirectTo: 'profile', pathMatch: 'full' },
       { path: 'profile', component: ProfileComponent , data: {breadcrumb: 'پروفایل'} },

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {NgClass, NgIf} from "@angular/common";
-import {AuthStatusService} from "../services/auth-status.service";
+import {AuthStatusService} from "../../services/auth-status.service";
 import {Subscription} from "rxjs";
 
 @Component({
-  selector: 'app-account',
+  selector: 'app-user-account',
   standalone: true,
   imports: [
     RouterOutlet,
@@ -14,11 +14,11 @@ import {Subscription} from "rxjs";
     NgIf,
     NgClass
   ],
-  templateUrl: './account.component.html',
-  styleUrl: './account.component.scss'
+  templateUrl: './user-account.component.html',
+  styleUrl: './user-account.component.scss'
 })
 export class AccountComponent {
-  activeLink: string = '/account/profile'; // Default active link
+  activeLink: string = '/user-account/profile'; // Default active link
   isLoggedIn = false;
   private subscription!: Subscription;
   constructor(private authStatusService: AuthStatusService) {
