@@ -1,4 +1,4 @@
-<!-- user-account-dashboard.component.html -->
+<!-- account-dashboard.component.html -->
 <div class="container pb-5 mt-2">
   <!-- Sidebar Navigation -->
   <div class="d-flex align-items-start justify-content-between ">
@@ -6,48 +6,48 @@
           <ul class="">
             <li class="nav-item py-3">
               <a class="nav-link active" routerLink="/account/profile" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/profile' }"
-                 (click)="setActiveLink('/user-account/profile')">
+                 [ngClass]="{ 'active-link': activeLink === '/account/profile' }"
+                 (click)="setActiveLink('/account/profile')">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
                 پروفایل
               </a>
             </li>
             <li class="nav-item py-3">
               <a class="nav-link" routerLink="/account/orders" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/orders' }"
-                 (click)="setActiveLink('/user-account/orders')">
+                 [ngClass]="{ 'active-link': activeLink === '/account/orders' }"
+                 (click)="setActiveLink('/account/orders')">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-box"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /></svg>
                 سفارش ها
               </a>
             </li>
             <li class="nav-item py-3">
               <a class="nav-link" routerLink="/account/cart" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/cart' }"
-                 (click)="setActiveLink('/user-account/cart')"
+                 [ngClass]="{ 'active-link': activeLink === '/account/cart' }"
+                 (click)="setActiveLink('/account/cart')"
               >
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
 سبد خرید              </a>
             </li>
             <li class="nav-item py-3">
               <a class="nav-link" routerLink="/account/liked-products" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/liked-products' }"
-                 (click)="setActiveLink('/user-account/liked-products')">
+                 [ngClass]="{ 'active-link': activeLink === '/account/liked-products' }"
+                 (click)="setActiveLink('/account/liked-products')">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
                 علاقه مندی ها
               </a>
             </li>
             <li class="nav-item py-3">
               <a class="nav-link" routerLink="/account/address" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/address' }"
-                 (click)="setActiveLink('/user-account/address')">
+                 [ngClass]="{ 'active-link': activeLink === '/account/address' }"
+                 (click)="setActiveLink('/account/address')">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
                 آدرس ها
               </a>
             </li>
             <li class="nav-item py-3">
               <a class="nav-link" routerLink="/account/settings" routerLinkActive="active"
-                 [ngClass]="{ 'active-link': activeLink === '/user-account/settings' }"
-                 (click)="setActiveLink('/user-account/settings')">
+                 [ngClass]="{ 'active-link': activeLink === '/account/settings' }"
+                 (click)="setActiveLink('/account/settings')">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-settings"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
                 تنظیمات
               </a>
