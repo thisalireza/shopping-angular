@@ -38,6 +38,8 @@ import {SwiperModule} from 'swiper/angular';
 import {SigninComponent} from "./user-account/signin/signin.component";
 import {LightboxModule} from 'ngx-lightbox';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 initMDB({Collapse});
 
 
@@ -107,6 +109,7 @@ export class ImageLoadDirective implements OnInit {
     CaptchaComponent,
     BreadcrumbComponent,
     SigninComponent,
+    SweetAlert2Module.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
