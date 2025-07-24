@@ -4,8 +4,8 @@ import {PageNotFoundComponent} from "./shared/page-not-found/page-not-found.comp
 import {NgModule} from "@angular/core";
 import {HomePageComponent} from "./home-page/homePage/homePage.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
-import {SigninComponent} from "./signin/signin.component";
-import {AccountComponent} from "./account/account.component";
+import {SigninComponent} from "./user-account/signin/signin.component";
+import {AccountComponent} from "./user-account/account/account.component";
 import {ArticlesComponent} from "./weblog/articles/articles.component";
 import {ShoppingComponent} from "./shop/shopping/shopping.component";
 import {InnerProductComponent} from "./shop/inner-product/inner-product.component";
@@ -20,10 +20,10 @@ import {
 } from "./shop/apple-watch-category-carousel/apple-watch-category-carousel.component";
 import {GiftCardCategoryCarouselComponent} from "./shop/gift-card-category-carousel/gift-card-category-carousel.component";
 import {MacCategoryCarouselComponent} from "./shop/mac-category-carousel/mac-category-carousel.component";
-import {SettingComponent} from "./shop/setting/setting.component";
+import {SettingComponent} from "./user-account/setting/setting.component";
 import {OrdersComponent} from "./shop/orders/orders.component";
-import {ProfileComponent} from "./profile/profile.component";
-import {AddressComponent} from "./shop/address/address.component";
+import {ProfileComponent} from "./user-account/profile/profile.component";
+import {AddressComponent} from "./user-account/address/address.component";
 
 export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' , data: {breadcrumb: 'خانه'}},

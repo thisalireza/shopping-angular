@@ -35,7 +35,7 @@ import {LazyLoadDirective} from "./Directives/lazy-load.directive";
 import {CaptchaComponent} from './shared/captcha/captcha.component';
 import {BreadcrumbComponent} from "./shared/breadcrumb/breadcrumb.component";
 import {SwiperModule} from 'swiper/angular';
-import {SigninComponent} from "./signin/signin.component";
+import {SigninComponent} from "./user-account/signin/signin.component";
 import {LightboxModule} from 'ngx-lightbox';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 initMDB({Collapse});
