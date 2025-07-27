@@ -25,6 +25,7 @@
     "leaflet": "^1.9.4",
     "mdb-angular-ui-kit": "file:mdb-angular-ui-kit-6.1.0.tgz",
     "mdb-ui-kit": "^7.3.2",
+    "ngx-cookie-service": "^17.1.0",
     "ngx-image-zoom": "^3.0.0",
     "ngx-lightbox": "^3.0.0",
     "rxjs": "~7.5.0",

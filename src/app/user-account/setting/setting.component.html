@@ -60,7 +60,7 @@
       <div class="d-flex justify-content-between align-items-center gap-2 py-3">
         <span >پاک کردن کوکی مروگر:</span>
         <button
-          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" >
+          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" (click)="clearCookies()">
           پاک کن
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                stroke="currentColor"
@@ -79,7 +79,7 @@
       <div class="d-flex justify-content-between align-items-center gap-2 py-3">
         <span>پاک کردن session مروگر:</span>
         <button
-          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" >
+          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" (click)="clearSessionStorage()">
           پاک کن
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                stroke="currentColor"
@@ -98,7 +98,7 @@
       <div class="d-flex justify-content-between align-items-center gap-2 py-3">
         <span >پاک کردن localstorage مروگر:</span>
         <button
-          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" >
+          class="btn btn-outline-danger d-flex align-items-center gap-2 fw-bold rounded-3 delete--button fs-12" (click)="clearLocalStorage()">
           پاک کن
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                stroke="currentColor"

@@ -39,6 +39,7 @@ import {SigninComponent} from "./user-account/signin/signin.component";
 import {LightboxModule} from 'ngx-lightbox';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { CookieService } from 'ngx-cookie-service';
 
 initMDB({Collapse});
 
@@ -111,7 +112,7 @@ export class ImageLoadDirective implements OnInit {
     SigninComponent,
     SweetAlert2Module.forRoot(),
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
