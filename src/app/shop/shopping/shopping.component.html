@@ -1,34 +1,67 @@
 <div class="container pt-2 pb-5">
-  <h1 class="fw-bold fs-24 text-center pb-2">فروشگاه - همه ی محصولات
-    ({{ products$.length }})
+  <!-- عنوان فروشگاه -->
+  <h1 class="fw-bold fs-24 text-center pb-2">
+    فروشگاه - همه محصولات ({{ filteredProducts.length }})
   </h1>
 
   <div class="d-flex justify-content-between gap-2 flex-row-reverse">
+
+    <!-- بخش محصولات -->
     <section class="w-75">
-
-
       <app-product-list
         [showAllProducts]="false"
-        [products]="products$"
+        [products]="filteredProducts"
       ></app-product-list>
-
-
     </section>
 
+    <!-- بخش فیلترها -->
     <section class="aside-section--shopping rounded-6 p-4 w-25">
-      <div>
-        <span class="fw-bold">دسته بندی</span>
-      </div>
+      <form [formGroup]="filterForm">
 
-      <div>
-        <span class="fw-bold">برند ها</span>
-      </div>
-      <div>
-        <span class="fw-bold"> فیلتر ها</span>
-      </div>
+        <!-- فیلتر دسته‌بندی -->
+        <div class="mb-3">
+          <label class="fw-bold">دسته‌بندی</label>
+          <select class="form-select" formControlName="category">
+            <option value="">همه</option>
+            <option *ngFor="let cat of categories" [value]="cat">
+              {{ cat }}
+            </option>
+          </select>
+        </div>
+
+        <!-- فیلتر رنگ -->
+        <div class="mb-3">
+          <label class="fw-bold">رنگ</label>
+          <select class="form-select" formControlName="color">
+            <option value="">همه</option>
+            <option *ngFor="let color of colors" [value]="color">
+              {{ color }}
+            </option>
+          </select>
+        </div>
+
+
+
+        <!-- فیلتر قیمت -->
+        <div class="mb-3">
+          <label class="fw-bold d-block">
+            بازه قیمت: {{ filterForm.get('minPrice')?.value | number }} -
+            {{ filterForm.get('maxPrice')?.value | number }} تومان
+          </label>
+
+          <ngx-slider
+            [(value)]="sliderMinValue"
+            [(highValue)]="sliderMaxValue"
+            [options]="sliderOptions"
+            (userChangeEnd)="onSliderChange()">
+          </ngx-slider>
+
+        </div>
+
+
+
+      </form>
     </section>
 
   </div>
 </div>
-
-

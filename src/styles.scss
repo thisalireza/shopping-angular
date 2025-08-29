@@ -640,3 +640,9 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   color: #fff;
   background-color: #DF3C3C;
 }
+
+
+INPUT:not(:-webkit-autofill), SELECT:not(:-webkit-autofill), TEXTAREA:not(:-webkit-autofill) {
+  animation-name: onautofillcancel;
+  font-family: 'Yekan Bakh';
+}
