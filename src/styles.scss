@@ -7,7 +7,6 @@
 @import 'ngx-lightbox/lightbox.css';
 
 
-
 //persian font
 @font-face {
   font-family: Yekan Bakh;
@@ -74,10 +73,9 @@
 }
 
 
-
-
 //English Regular font
-@font-face {font-family: "Montserrat-Regular";
+@font-face {
+  font-family: "Montserrat-Regular";
   src: url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.eot"); /* IE9*/
   src: url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
   url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.woff2") format("woff2"), /* chrome、firefox */
@@ -88,7 +86,8 @@
 
 
 //English Bold font
-@font-face {font-family: "Montserrat-Bold";
+@font-face {
+  font-family: "Montserrat-Bold";
   src: url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.eot"); /* IE9*/
   src: url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
   url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.woff2") format("woff2"), /* chrome、firefox */
@@ -98,12 +97,11 @@
 }
 
 
-
-
 //set persian font
-h1,h2,h3,h4,h5,h6,p,span,li,ul,ol,a,text,button,input,del,small,label{
+h1, h2, h3, h4, h5, h6, p, span, li, ul, ol, a, text, button, input, del, small, label {
   font-family: "Yekan Bakh", sans-serif !important;
-  font-size:16px;font-style:normal;
+  font-size: 16px;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
@@ -112,7 +110,7 @@ h1,h2,h3,h4,h5,h6,p,span,li,ul,ol,a,text,button,input,del,small,label{
   transition: all .5s;
 }
 
-a:hover{
+a:hover {
   color: #DF3C3C;
 }
 
@@ -120,7 +118,7 @@ a:hover{
 //set english font
 p:lang(en_US), del:lang(en_US), span:lang(en_US), li:lang(en_US), ul:lang(en_US), h1:lang(en_US), h2:lang(en_US), h3:lang(en_US), h4:lang(en_US), h5:lang(en_US), h6:lang(en_US) {
   font-family: "Montserrat-Regular", sans-serif !important;
-  font-style:normal;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
@@ -128,69 +126,89 @@ p:lang(en_US), del:lang(en_US), span:lang(en_US), li:lang(en_US), ul:lang(en_US)
 }
 
 
-.fs-12{
+.fs-12 {
   font-size: 12px;
 }
 
-.fs-14{
+.fs-14 {
   font-size: 14px;
 }
 
-.fs-16{
+.fs-16 {
   font-size: 16px;
 }
 
-.fs-18{
+.fs-18 {
   font-size: 18px;
 }
 
-.fs-20{
+.fs-20 {
   font-size: 20px;
 }
 
-.fs-22{
+.fs-22 {
   font-size: 22px;
 }
 
-.fs-24{
+.fs-24 {
   font-size: 24px;
 }
 
-.fs-26{
+.fs-26 {
   font-size: 26px;
 }
 
-.fs-28{
+.fs-28 {
   font-size: 28px;
 }
 
-.fs-30{
+.fs-30 {
   font-size: 30px;
 }
 
-.fs-32{
+.fs-32 {
   font-size: 32px;
 }
 
-.fs-34{
+.fs-34 {
   font-size: 34px;
 }
 
-.fs-36{
+.fs-36 {
   font-size: 36px;
 }
 
-.fs-38{
+.fs-38 {
   font-size: 38px;
 }
 
 
-.fs-40{
+.fs-40 {
   font-size: 40px;
 }
 
 
-.text-justify{
+// start style for lenis scroll
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+// End style for lenis scroll
+
+
+.text-justify {
   text-align: justify;
   direction: rtl;
 }
@@ -202,23 +220,23 @@ p:lang(en_US), del:lang(en_US), span:lang(en_US), li:lang(en_US), ul:lang(en_US)
   Scrollbar-width: thin;
 }
 
- //Track
+//Track
 ::-webkit-scrollbar-track {
   background: #E7E7E7 !important;
 }
 
 //Handle
-::-webkit-scrollbar-thumb  {
+::-webkit-scrollbar-thumb {
   background: #aaaaaa !important;
-  border-radius:4px !important;
+  border-radius: 4px !important;
 }
 
- //Handle on hover
+//Handle on hover
 ::-webkit-scrollbar-thumb:hover {
   background: #DF3C3C !important;
 }
 
- //Text Selection Color Code for Firefox
+//Text Selection Color Code for Firefox
 ::-moz-selection {
   color: #fff;
   background: #626262;
@@ -231,66 +249,65 @@ p:lang(en_US), del:lang(en_US), span:lang(en_US), li:lang(en_US), ul:lang(en_US)
 }
 
 
-ol, ul , li {
+ol, ul, li {
   list-style: none;
   padding: 0;
 }
 
-.text-right  {
+.text-right {
   text-align: right;
 }
 
-.rounded-6{
+.rounded-6 {
   border-radius: 20px !important;
 }
 
 
-
-.inner-product-selector--color--red{
+.inner-product-selector--color--red {
   background-color: #DF3C3C;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
-.inner-product-selector--color--blue{
+.inner-product-selector--color--blue {
   background-color: #102698;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
-.inner-product-selector--color--silver{
+.inner-product-selector--color--silver {
   background-color: #d5d5d5;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
-.inner-product-selector--color--white{
+.inner-product-selector--color--white {
   background-color: #ffffff;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
-.inner-product-selector--color--black{
+.inner-product-selector--color--black {
   background-color: #000000;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
 
-.inner-product-selector--color--gold{
+.inner-product-selector--color--gold {
   background-color: #dfcf0f;
   width: 15px;
-  height:15px;
+  height: 15px;
   border: 1px solid #e0e0e2;
 }
 
 
-.product-discount-price--badge{
+.product-discount-price--badge {
   background-color: #DF3C3C;
   color: white;
 }
@@ -303,14 +320,13 @@ ol, ul , li {
 }
 
 
-.move-to-page--button:hover{
+.move-to-page--button:hover {
   transform: scale(1.1);
   transition: 0.4s all;
 }
 
 
-
-.swiper-button-prev , .swiper-button-next{
+.swiper-button-prev, .swiper-button-next {
   width: 33px;
   height: 33px;
 
@@ -324,12 +340,12 @@ ol, ul , li {
   color: white;
 }
 
-.swiper-button-prev:hover  , .swiper-button-next:hover{
+.swiper-button-prev:hover, .swiper-button-next:hover {
   background-color: rgba(0, 0, 0, 0.75);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
 }
 
-.swiper-button-prev::after , .swiper-button-next::after{
+.swiper-button-prev::after, .swiper-button-next::after {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -342,15 +358,15 @@ ol, ul , li {
   width: 100%;
   transition: all .4s;
 }
+
 .card-carousel--products:hover {
   transform: scale(.95);
   transition: all .4s;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
-
 
 
 .out-of-discount {
@@ -377,8 +393,7 @@ ol, ul , li {
 }
 
 
-
-.inner-product-cart-item--input{
+.inner-product-cart-item--input {
   display: block !important;
   border: 0;
   background: transparent;
@@ -394,10 +409,11 @@ ol, ul , li {
 }
 
 
-.inner-product-cart-item--value{
+.inner-product-cart-item--value {
   border: 1px solid #e0e0e2;
   border-radius: 20px;
 }
+
 /* Dark Mode Styles */
 .dark-mode {
   transition: all .5s;
@@ -412,7 +428,7 @@ ol, ul , li {
 }
 
 
-.dark-mode div:where(.swal2-container) h2:where(.swal2-title){
+.dark-mode div:where(.swal2-container) h2:where(.swal2-title) {
   color: var(--text-color);
 }
 
@@ -486,7 +502,7 @@ body {
 }
 
 
-.dark-mode .text-body, .dark-mode .homepage-category--title, .dark-mode .price-with-discount--digit , .dark-mode .card-title , .dark-mode .card-text , .dark-mode .text-muted{
+.dark-mode .text-body, .dark-mode .homepage-category--title, .dark-mode .price-with-discount--digit, .dark-mode .card-title, .dark-mode .card-text, .dark-mode .text-muted {
   transition: all .5s;
   color: var(--bold-text-color) !important;
 }
@@ -513,7 +529,7 @@ body {
 }
 
 
-.dark-mode .copyright-footer-section , .dark-mode .about-us--section, .dark-mode .contact-us--section, .dark-mode .aside-section--articles, .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section, .dark-mode .signin-section, .dark-mode .article-detail, .dark-mode .cart--section, .dark-mode .cart-aside--section , .dark-mode .account-main--menu , .dark-mode .address-main--section , .dark-mode .setting-main--section , .dark-mode div:where(.swal2-container).swal2-center>.swal2-popup{
+.dark-mode .copyright-footer-section, .dark-mode .about-us--section, .dark-mode .contact-us--section, .dark-mode .aside-section--articles, .dark-mode .aside-section--shopping, .dark-mode #inner-product-main--section, .dark-mode .signin-section, .dark-mode .article-detail, .dark-mode .cart--section, .dark-mode .cart-aside--section, .dark-mode .account-main--menu, .dark-mode .address-main--section, .dark-mode .setting-main--section, .dark-mode div:where(.swal2-container).swal2-center > .swal2-popup {
   background-color: var(--foreground-color) !important;
   transition: all 0.5s;
 }
@@ -544,7 +560,6 @@ body {
 }
 
 
-
 /* RTL Carousel Controls Fix */
 [dir="rtl"] .carousel-control-prev {
   right: 0;
@@ -571,18 +586,18 @@ textarea#message {
 }
 
 
-.footer-social--icons{
+.footer-social--icons {
   transition: transform 0.4s;
 }
 
-.footer-social--icons:hover{
+.footer-social--icons:hover {
   transform: scale(1.3);
   transition: all 0.4s;
   color: red;
 }
 
 
-.product-category--title{
+.product-category--title {
   width: max-content;
 }
 
@@ -600,16 +615,15 @@ img#image {
 }
 
 
-.lightbox{
+.lightbox {
   top: 25% !important;
   position: fixed !important;
 }
 
 
-.lb-outerContainer{
+.lb-outerContainer {
   border-radius: 20px !important;
 }
-
 
 
 .active-link {
@@ -624,18 +638,18 @@ div:where(.swal2-container) h2:where(.swal2-title) {
   padding: 2rem !important;
 }
 
-.swal2-popup{
+.swal2-popup {
   border-radius: 20px !important;
 }
 
-.delete--button{
+.delete--button {
   transition: all .5s;
   background-color: transparent;
   color: #DF3C3C;
   border: 1px solid #DF3C3C;
 }
 
-.delete--button:hover{
+.delete--button:hover {
   transition: all .5s;
   color: #fff;
   background-color: #DF3C3C;
