@@ -53,6 +53,7 @@ export class ProductListComponent implements OnInit {
 
 
   handleToggleLike(productId: number) {
+    // this.likeService.toggleProductLike(productId);   this code have problem means uncomment this like is work but liked-products component dislike doesn't work
     this.toggleLikeEvent.emit(productId); // به parent اطلاع بده
   }
 
