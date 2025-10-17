@@ -40,6 +40,7 @@ import {LightboxModule} from 'ngx-lightbox';
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClientModule } from '@angular/common/http'; // ← اینو اضافه کن
 
 initMDB({Collapse});
 
@@ -80,6 +81,7 @@ export class ImageLoadDirective implements OnInit {
   imports: [
     SwiperModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MdbAccordionModule,

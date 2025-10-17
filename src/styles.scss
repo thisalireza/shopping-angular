@@ -14,6 +14,7 @@
   font-weight: 100;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-Thin.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-Thin.woff2') format('woff2');
+  font-display: swap;
 }
 
 @font-face {
@@ -22,6 +23,8 @@
   font-weight: 300;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-Light.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-Light.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -30,6 +33,8 @@
   font-weight: normal;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-Regular.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-Regular.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -38,6 +43,8 @@
   font-weight: 600;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-SemiBold.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-SemiBold.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -46,6 +53,8 @@
   font-weight: bold;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-Bold.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-Bold.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -54,6 +63,8 @@
   font-weight: 800;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-ExtraBold.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-ExtraBold.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -62,6 +73,8 @@
   font-weight: 900;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-Black.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-Black.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 @font-face {
@@ -70,6 +83,8 @@
   font-weight: 950;
   src: url('./assets/fonts/Yekan Bakh/woff/YekanBakhFaNum-ExtraBlack.woff') format('woff'),
   url('./assets/fonts/Yekan Bakh/woff2/YekanBakhFaNum-ExtraBlack.woff2') format('woff2');
+  font-display: swap;
+
 }
 
 
@@ -82,6 +97,8 @@
   url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.woff") format("woff"), /* chrome、firefox */
   url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url("./assets/fonts/Montserrat/Montserrat-Regular/Montserrat-Regular.svg#Montserrat-Regular") format("svg"); /* iOS 4.1- */
+  font-display: swap;
+
 }
 
 
@@ -94,6 +111,8 @@
   url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.woff") format("woff"), /* chrome、firefox */
   url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
   url("./assets/fonts/Montserrat/Montserrat Bold/Montserrat Bold.svg#Montserrat-Regular") format("svg"); /* iOS 4.1- */
+  font-display: swap;
+
 }
 
 
@@ -659,4 +678,10 @@ div:where(.swal2-container) h2:where(.swal2-title) {
 INPUT:not(:-webkit-autofill), SELECT:not(:-webkit-autofill), TEXTAREA:not(:-webkit-autofill) {
   animation-name: onautofillcancel;
   font-family: 'Yekan Bakh';
+}
+
+
+.ngxImageZoomThumbnail{
+  max-width: 300px;
+  border-radius: 20px;
 }

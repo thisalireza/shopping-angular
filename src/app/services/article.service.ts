@@ -47,9 +47,7 @@ export class ArticleService {
   }];
 
   getArticleBySlug(slug: string): Observable<Article> {
-    console.log('جستجوی مقاله با slug:', slug);
     const article = this.articles.find(a => a.slug === slug);
-    console.log('مقاله یافت شده:', article);
     return of(article);
   }
 

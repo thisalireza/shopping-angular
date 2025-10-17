@@ -55,7 +55,7 @@ export class MenuComponent implements OnDestroy, OnInit {
   }
 
   getTotalLikes(): number {
-    return this.likeService.getTotalLikes();
+    return this.likeService.getTotalLikes()-1;
   }
 
 

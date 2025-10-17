@@ -31,37 +31,32 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.products || this.products.length === 0) {
+    if (this.showAllProducts && (!this.products || this.products.length === 0)) {
       this.products = this.productService.getAllProducts()
-        .filter(product => product.is_in_inventory)
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 16);
-    }
-
-  }
-
-
-  private updateProducts(): void {
-    if (!this.showAllProducts) {
-      // Shopping view - show all products
-      this.products = this.productService.getAllProducts();
-    } else {
-      // Liked products view - show liked products with filtering
-      this.products = this.productService.getAllProducts()
-        .filter(product => product.is_in_inventory)
+        .filter(p => p.is_in_inventory)
         .sort(() => Math.random() - 0.5)
         .slice(0, 16);
     }
   }
 
 
-  handleToggleLike(productId: number): void {
-    this.likeService.toggleProductLike(productId); // ✅ clean and central
-    this.toggleLikeEvent.emit(productId); // let parent know
-
+  updateProducts(): void {
+    if (this.showAllProducts) {
+      // فقط برای همه محصولات
+      this.products = this.productService.getAllProducts()
+        .filter(product => product.is_in_inventory)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 16);
+    }
+    // برای liked-products هیچ کاری نکن
   }
 
 
+  handleToggleLike(productId: number) {
+    this.toggleLikeEvent.emit(productId); // به parent اطلاع بده
+  }
+
+ط
   onProductClick(product: any) {
     this.router.navigate(['/products', product.slug]);
   }

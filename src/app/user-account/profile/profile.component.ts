@@ -27,7 +27,6 @@ export class ProfileComponent {
 
   saveProfile() {
     if (this.profileForm.valid) {
-      console.log('Saving profile:', this.profileForm.value);
     }
   }
 }

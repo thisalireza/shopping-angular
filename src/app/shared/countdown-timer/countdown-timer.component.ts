@@ -10,7 +10,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class CountdownTimerComponent implements OnInit, OnDestroy {
 
   // The target date (set your target date here)
-  targetDate: Date = new Date('2025-12-31T00:00:00'); // Example: New Year's Eve 2025
+  targetDate: Date = new Date('2026-12-16T00:00:00'); // Example: New Year's Eve 2025
   timeLeft: { days: number, hours: number, minutes: number, seconds: number } = {
     days: 0,
     hours: 0,
