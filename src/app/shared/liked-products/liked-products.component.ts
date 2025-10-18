@@ -30,8 +30,9 @@ export class LikedProductsComponent implements OnInit, OnDestroy {
   }
 
   toggleLike(productId: number) {
-    this.likeService.toggleProductLike(productId); // وضعیت لایک تغییر می‌کند
-    this.products = this.likeService.getLikedProducts(); // لیست فوراً آپدیت می‌شود
+    // DO NOT call likeService.toggleProductLike(productId) here —
+    // ProductList already toggled it.
+    this.products = this.likeService.getLikedProducts(); // فقط رفرش لیست
   }
 
   ngOnDestroy() {
