@@ -1,5 +1,7 @@
 # Shopping Angular — Apple Store (Angular 17)
 
+![Screenshot map](screenshot.png)
+
 **Shopping Angular** is a lightweight e-commerce storefront built with Angular 17 and Material/Bootstrap UI (MDB). The project demonstrates a modern single-page shopping interface — product listing, product details, cart, and a polished UI inspired by the Apple store. 
 
 ---
