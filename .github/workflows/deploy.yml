@@ -26,8 +26,23 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --base-href "/shopping-angular/"
 
+      - name: Show git info (for debugging)
+        run: |
+          git --version
+          git remote -v
+          git branch -av
+          # show current user (the runner)
+          git config user.name || true
+          git config user.email || true
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+          publish_branch: gh-pages
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_message: "deploy: ${{ github.sha }}"
+          allow_empty_commit: true
+          force_orphan: false
