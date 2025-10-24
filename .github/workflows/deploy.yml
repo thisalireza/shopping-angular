@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# give the workflow explicit permission to write repository contents
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,12 +32,17 @@ jobs:
 
       - name: Show git info (for debugging)
         run: |
+          echo "=== git version ==="
           git --version
+          echo "=== remote info ==="
           git remote -v
+          echo "=== branches ==="
           git branch -av
-          # show current user (the runner)
+          echo "=== current user config ==="
           git config user.name || true
           git config user.email || true
+          echo "=== ls dist (should contain index.html) ==="
+          ls -la dist || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -45,4 +54,4 @@ jobs:
           user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_message: "deploy: ${{ github.sha }}"
           allow_empty_commit: true
-          force_orphan: false
+          # force_orphan: true   # در صورت لزوم فعال کن (اگر بخوای اکشن خودش شاخه جدید بسازه)
