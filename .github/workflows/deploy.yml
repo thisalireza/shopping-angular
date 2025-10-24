@@ -54,4 +54,5 @@ jobs:
           user_email: "41898282+github-actions[bot]@users.noreply.github.com"
           commit_message: "deploy: ${{ github.sha }}"
           allow_empty_commit: true
-          # force_orphan: true   # در صورت لزوم فعال کن (اگر بخوای اکشن خودش شاخه جدید بسازه)
+          force_orphan: true    # ← مهم: اجازه ساخت شاخه‌ی جدید را می‌دهد
+
