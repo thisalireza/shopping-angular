@@ -19,7 +19,7 @@
 - **Framework:** Angular 17 (TypeScript)  
 - **UI:** Material Design for Bootstrap (MDB) / Bootstrap 5  
 - **Package manager:** npm (or your preferred yarn/pnpm)  
-- **Extras:** example assets and UI kit included in the repo. :contentReference[oaicite:2]{index=2}
+- **Extras:** example assets and UI kit included in the repo. 
 
 ---
 
